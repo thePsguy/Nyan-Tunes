@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,188 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nyan Tunes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2l9-I7-NoF">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="gEl-2E-yT4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uI0-5h-fcv">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uI0-5h-fcv" secondAttribute="height" multiplier="5:1" id="H97-97-gJw"/>
+                                    <constraint firstAttribute="height" constant="40" id="HPZ-O8-cZX"/>
+                                    <constraint firstAttribute="width" constant="200" id="N2e-ny-NOw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" image="login-with-vk">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Gh-o9-CgX"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking existing session" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnK-Yo-MgF">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="xmY-ud-kNL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZrA-bH-o8w"/>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2l9-I7-NoF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7ZN-7v-iKs"/>
+                            <constraint firstItem="uI0-5h-fcv" firstAttribute="top" secondItem="DnK-Yo-MgF" secondAttribute="bottom" constant="8" symbolic="YES" id="8aq-UM-4cd"/>
+                            <constraint firstItem="2l9-I7-NoF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="75" id="DMR-GE-rUX"/>
+                            <constraint firstItem="2l9-I7-NoF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="69" id="Kcr-l5-vQH"/>
+                            <constraint firstItem="DnK-Yo-MgF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="90" id="c0z-Mw-Klw"/>
+                            <constraint firstItem="DnK-Yo-MgF" firstAttribute="top" secondItem="ZrA-bH-o8w" secondAttribute="bottom" constant="8" symbolic="YES" id="e8t-gK-Lnp"/>
+                            <constraint firstItem="DnK-Yo-MgF" firstAttribute="centerX" secondItem="uI0-5h-fcv" secondAttribute="centerX" id="jgk-qw-vo5"/>
+                            <constraint firstItem="uI0-5h-fcv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nSa-9Z-9y3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uI0-5h-fcv" secondAttribute="bottom" constant="60" id="qg0-Mo-aCj"/>
+                            <constraint firstItem="ZrA-bH-o8w" firstAttribute="centerX" secondItem="DnK-Yo-MgF" secondAttribute="centerX" id="vP3-79-rV7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ZrA-bH-o8w" id="MId-0b-5ZO"/>
+                        <outlet property="activityLabel" destination="DnK-Yo-MgF" id="sTb-ZJ-Xva"/>
+                        <outlet property="loginButton" destination="uI0-5h-fcv" id="Ugj-kS-pnJ"/>
+                        <segue destination="Tii-eu-iVg" kind="show" identifier="login" id="zaH-fo-q6y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="12" y="-583.3583208395803"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="P20-m3-BnM">
+            <objects>
+                <viewController id="w8V-Dm-Pfz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lzr-33-4hm"/>
+                        <viewControllerLayoutGuide type="bottom" id="xte-WH-CRb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1m2-VZ-XkB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="VKontakte" id="clp-TB-Ace"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPl-WW-9Rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3359" y="-42"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fyq-cG-1DR">
+            <objects>
+                <viewController id="PjT-Ic-Txq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EIB-wD-Hsy"/>
+                        <viewControllerLayoutGuide type="bottom" id="6ij-b4-qrY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dc5-Pf-aH2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="6RF-79-Iw7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okb-X4-bpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4854" y="-837"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="u1g-jJ-Tmc">
+            <objects>
+                <viewController id="LJz-X3-8rU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oor-0v-EaZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="UrW-pQ-8Ha"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="von-Es-0Yv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="7vJ-S5-vre"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5lA-j5-5aG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4854" y="-196"/>
+        </scene>
+        <!--My Music-->
+        <scene sceneID="fFg-Ju-53W">
+            <objects>
+                <viewController id="zED-fU-Khl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qG3-0Y-bcf"/>
+                        <viewControllerLayoutGuide type="bottom" id="YTH-mR-XuE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cL9-Iu-4lL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My Music" image="Music-Note" id="4Tb-gq-qiN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3z-LQ-bIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3359" y="-1073"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Yd-sD-1oy">
+            <objects>
+                <navigationController id="Tii-eu-iVg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QxS-Ro-r7c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3tf-6o-HPc" kind="relationship" relationship="rootViewController" id="7xa-Vn-JYJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o07-Le-nE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="823" y="-583"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="QkJ-MN-pgR">
+            <objects>
+                <tabBarController id="3tf-6o-HPc" customClass="TabBarViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6wu-sX-uWw">
+                        <barButtonItem key="leftBarButtonItem" image="logout" id="tiG-fk-95V">
+                            <connections>
+                                <action selector="logoutTapped:" destination="3tf-6o-HPc" id="Yrd-3i-aWq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="WK8-48-hA2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zED-fU-Khl" kind="relationship" relationship="viewControllers" id="Jcl-Al-sw4"/>
+                        <segue destination="w8V-Dm-Pfz" kind="relationship" relationship="viewControllers" id="bV7-cZ-uMg"/>
+                        <segue destination="PjT-Ic-Txq" kind="relationship" relationship="viewControllers" id="o4j-fQ-t9I"/>
+                        <segue destination="LJz-X3-8rU" kind="relationship" relationship="viewControllers" id="fMM-n0-P4Y"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RHz-Yp-8jx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746" y="-583"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Music-Note" width="16" height="16"/>
+        <image name="VKontakte" width="32" height="32"/>
+        <image name="login-with-vk" width="500" height="100"/>
+        <image name="logout" width="25" height="25"/>
+    </resources>
 </document>

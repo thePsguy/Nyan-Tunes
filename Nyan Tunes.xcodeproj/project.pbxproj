@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D016D781D97CBE000BBCED8 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */; };
+		4D016D7B1D98086B00BBCED8 /* VKClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D016D7A1D98086B00BBCED8 /* VKClient.swift */; };
+		4D016D7E1D98117700BBCED8 /* VKConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D016D7D1D98117700BBCED8 /* VKConstants.swift */; };
 		4D307B851D97AA900039C554 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B841D97AA900039C554 /* AppDelegate.swift */; };
-		4D307B871D97AA900039C554 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B861D97AA900039C554 /* ViewController.swift */; };
+		4D307B871D97AA900039C554 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B861D97AA900039C554 /* LoginViewController.swift */; };
 		4D307B8A1D97AA900039C554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B881D97AA900039C554 /* Main.storyboard */; };
 		4D307B8D1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */; };
 		4D307B8F1D97AA900039C554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B8E1D97AA900039C554 /* Assets.xcassets */; };
 		4D307B921D97AA900039C554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B901D97AA900039C554 /* LaunchScreen.storyboard */; };
+		4D307B9C1D97BA840039C554 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */; };
+		4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711021D98238E007C2648 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		4D016D7A1D98086B00BBCED8 /* VKClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKClient.swift; sourceTree = "<group>"; };
+		4D016D7D1D98117700BBCED8 /* VKConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKConstants.swift; sourceTree = "<group>"; };
 		4D307B811D97AA900039C554 /* Nyan Tunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nyan Tunes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D307B841D97AA900039C554 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D307B861D97AA900039C554 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4D307B861D97AA900039C554 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D307B891D97AA900039C554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D307B8C1D97AA900039C554 /* Nyan_Tunes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nyan_Tunes.xcdatamodel; sourceTree = "<group>"; };
 		4D307B8E1D97AA900039C554 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D307B911D97AA900039C554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D307B931D97AA900039C554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
+		4DC711021D98238E007C2648 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D307B9C1D97BA840039C554 /* VKSdkFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D016D791D98085F00BBCED8 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				4D016D7C1D98086E00BBCED8 /* VK */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		4D016D7C1D98086E00BBCED8 /* VK */ = {
+			isa = PBXGroup;
+			children = (
+				4D016D7A1D98086B00BBCED8 /* VKClient.swift */,
+				4D016D7D1D98117700BBCED8 /* VKConstants.swift */,
+			);
+			name = VK;
+			sourceTree = "<group>";
+		};
 		4D307B781D97AA900039C554 = {
 			isa = PBXGroup;
 			children = (
 				4D307B831D97AA900039C554 /* Nyan Tunes */,
 				4D307B821D97AA900039C554 /* Products */,
+				4D307B9A1D97BA840039C554 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +86,49 @@
 			isa = PBXGroup;
 			children = (
 				4D307B841D97AA900039C554 /* AppDelegate.swift */,
-				4D307B861D97AA900039C554 /* ViewController.swift */,
+				4D307BA01D97C06D0039C554 /* Models */,
+				4D307B9E1D97C03D0039C554 /* Controllers */,
+				4D307B9F1D97C0620039C554 /* Assets */,
+			);
+			path = "Nyan Tunes";
+			sourceTree = "<group>";
+		};
+		4D307B9A1D97BA840039C554 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D307B9E1D97C03D0039C554 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4D307B861D97AA900039C554 /* LoginViewController.swift */,
+				4DC711021D98238E007C2648 /* TabBarViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4D307B9F1D97C0620039C554 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
 				4D307B881D97AA900039C554 /* Main.storyboard */,
 				4D307B8E1D97AA900039C554 /* Assets.xcassets */,
 				4D307B901D97AA900039C554 /* LaunchScreen.storyboard */,
 				4D307B931D97AA900039C554 /* Info.plist */,
-				4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */,
 			);
-			path = "Nyan Tunes";
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		4D307BA01D97C06D0039C554 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4D016D791D98085F00BBCED8 /* Clients */,
+				4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */,
+				4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +141,7 @@
 				4D307B7D1D97AA900039C554 /* Sources */,
 				4D307B7E1D97AA900039C554 /* Frameworks */,
 				4D307B7F1D97AA900039C554 /* Resources */,
+				4D307B9D1D97BF130039C554 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -135,13 +200,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D307B9D1D97BF130039C554 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4D307B7D1D97AA900039C554 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D307B871D97AA900039C554 /* ViewController.swift in Sources */,
+				4D307B871D97AA900039C554 /* LoginViewController.swift in Sources */,
+				4D016D781D97CBE000BBCED8 /* CoreDataStackManager.swift in Sources */,
+				4D016D7B1D98086B00BBCED8 /* VKClient.swift in Sources */,
 				4D307B851D97AA900039C554 /* AppDelegate.swift in Sources */,
+				4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */,
+				4D016D7E1D98117700BBCED8 /* VKConstants.swift in Sources */,
 				4D307B8D1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +350,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V6JUB3D3PN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Nyan Tunes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.thePsguy.Nyan-Tunes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -277,7 +368,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V6JUB3D3PN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Nyan Tunes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.thePsguy.Nyan-Tunes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -304,6 +400,7 @@
 				4D307B981D97AA900039C554 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
