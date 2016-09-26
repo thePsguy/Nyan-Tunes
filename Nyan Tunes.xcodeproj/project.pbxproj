@@ -24,6 +24,7 @@
 		4DB222B51D99665E006FC1B1 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */; };
 		4DB5AB8B1D99B91800106D96 /* AudioFile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5AB891D99B91800106D96 /* AudioFile+CoreDataClass.swift */; };
 		4DB5AB8C1D99B91800106D96 /* AudioFile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5AB8A1D99B91800106D96 /* AudioFile+CoreDataProperties.swift */; };
+		4DB5AB901D99C83D00106D96 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5AB8F1D99C83D00106D96 /* Download.swift */; };
 		4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711021D98238E007C2648 /* TabBarViewController.swift */; };
 		4DC711051D98370F007C2648 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711041D98370F007C2648 /* ProfileViewController.swift */; };
 		4DC7110A1D9910BC007C2648 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711091D9910BC007C2648 /* NetworkImageView.swift */; };
@@ -50,6 +51,7 @@
 		4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = "../../git/Nyan Tunes/Carthage/Build/iOS/VKSdkFramework.framework"; sourceTree = "<group>"; };
 		4DB5AB891D99B91800106D96 /* AudioFile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AudioFile+CoreDataClass.swift"; path = "../AudioFile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4DB5AB8A1D99B91800106D96 /* AudioFile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AudioFile+CoreDataProperties.swift"; path = "../AudioFile+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4DB5AB8F1D99C83D00106D96 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		4DC711021D98238E007C2648 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		4DC711041D98370F007C2648 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4DC711091D9910BC007C2648 /* NetworkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */,
 				4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */,
+				4DB5AB8F1D99C83D00106D96 /* Download.swift */,
 			);
 			name = Convenience;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			files = (
 				4D307B871D97AA900039C554 /* LoginViewController.swift in Sources */,
 				4DC7110A1D9910BC007C2648 /* NetworkImageView.swift in Sources */,
+				4DB5AB901D99C83D00106D96 /* Download.swift in Sources */,
 				4DB5AB8C1D99B91800106D96 /* AudioFile+CoreDataProperties.swift in Sources */,
 				4D93C5F71D99701F00B43BC4 /* MyMusicViewController.swift in Sources */,
 				4D016D781D97CBE000BBCED8 /* CoreDataStackManager.swift in Sources */,

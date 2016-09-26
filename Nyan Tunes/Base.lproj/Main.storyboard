@@ -329,17 +329,49 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rGM-uQ-z4y"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSb-8V-aog">
+                                                    <state key="normal" image="download"/>
+                                                    <connections>
+                                                        <action selector="downloadTapped:" destination="GVg-ty-nKr" eventType="touchUpInside" id="txX-8J-Glp"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQt-cZ-cTf">
+                                                    <state key="normal" title="Cancel"/>
+                                                    <connections>
+                                                        <action selector="cancelTapped:" destination="GVg-ty-nKr" eventType="touchUpInside" id="nFz-cn-OuJ"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 % of 12.3 MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMk-at-Cyb">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="11" id="1hX-xE-juF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="UMk-at-Cyb" firstAttribute="trailing" secondItem="pQt-cZ-cTf" secondAttribute="trailing" id="1GG-vf-sgQ"/>
+                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="UMk-at-Cyb" secondAttribute="bottom" constant="5" id="7xK-9Q-Gx3"/>
+                                                <constraint firstItem="hSb-8V-aog" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="53" id="8Xq-IL-NGS"/>
                                                 <constraint firstItem="xcJ-gh-XaO" firstAttribute="top" secondItem="TaW-L2-L6n" secondAttribute="bottom" constant="1" id="9EZ-ob-l5x"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="trailing" secondItem="xcJ-gh-XaO" secondAttribute="trailing" id="AAN-ue-4Fo"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TaW-L2-L6n" secondAttribute="trailing" constant="92" id="Nbc-Bd-kfJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="rGM-uQ-z4y" secondAttribute="trailing" id="TdY-pY-pen"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="leading" id="VTQ-Lm-fVu"/>
+                                                <constraint firstItem="hSb-8V-aog" firstAttribute="centerY" secondItem="WaT-Kf-APh" secondAttribute="centerY" id="XCf-HK-E78"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="WaT-Kf-APh" secondAttribute="trailing" constant="8" symbolic="YES" id="Xfu-bW-viU"/>
+                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="44" id="ZAd-Ka-8Js"/>
                                                 <constraint firstItem="xcJ-gh-XaO" firstAttribute="bottom" secondItem="54m-7E-Ayd" secondAttribute="bottomMargin" id="bkR-CN-Cy1"/>
+                                                <constraint firstItem="UMk-at-Cyb" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="4" id="dqN-UA-awL"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="top" secondItem="54m-7E-Ayd" secondAttribute="topMargin" id="hpR-51-RlV"/>
                                                 <constraint firstAttribute="bottom" secondItem="WaT-Kf-APh" secondAttribute="bottom" id="kQJ-zw-D96"/>
+                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="bottom" secondItem="WaT-Kf-APh" secondAttribute="bottom" id="kse-8B-KVd"/>
+                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="centerY" secondItem="hSb-8V-aog" secondAttribute="centerY" id="nsM-aI-hZN"/>
                                                 <constraint firstItem="WaT-Kf-APh" firstAttribute="leading" secondItem="54m-7E-Ayd" secondAttribute="leading" constant="8" id="qKG-w6-Jfm"/>
+                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="leading" id="rjx-5w-ZAz"/>
+                                                <constraint firstItem="hSb-8V-aog" firstAttribute="centerX" secondItem="pQt-cZ-cTf" secondAttribute="centerX" id="wMV-rJ-35i"/>
                                                 <constraint firstItem="WaT-Kf-APh" firstAttribute="top" secondItem="54m-7E-Ayd" secondAttribute="top" id="zM6-vi-DnS"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -347,6 +379,10 @@
                                         <connections>
                                             <outlet property="albumArt" destination="WaT-Kf-APh" id="xDo-Cj-Fe9"/>
                                             <outlet property="artist" destination="xcJ-gh-XaO" id="CUo-lR-W7k"/>
+                                            <outlet property="cancelButton" destination="pQt-cZ-cTf" id="NWV-k8-IeZ"/>
+                                            <outlet property="downloadButton" destination="hSb-8V-aog" id="qlf-5A-XWs"/>
+                                            <outlet property="progressLabel" destination="UMk-at-Cyb" id="KzX-Ty-I8t"/>
+                                            <outlet property="progressView" destination="rGM-uQ-z4y" id="OrW-5R-dYz"/>
                                             <outlet property="title" destination="TaW-L2-L6n" id="poc-aL-LlO"/>
                                         </connections>
                                     </tableViewCell>
@@ -384,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3z-LQ-bIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4092" y="555"/>
+            <point key="canvasLocation" x="4092" y="554.1229385307347"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="QkJ-MN-pgR">
@@ -419,6 +455,7 @@
         <image name="Placeholder" width="400" height="400"/>
         <image name="VKontakte" width="32" height="32"/>
         <image name="album_placeholder" width="300" height="300"/>
+        <image name="download" width="32" height="32"/>
         <image name="login-with-vk" width="500" height="100"/>
         <image name="logout" width="25" height="25"/>
     </resources>
