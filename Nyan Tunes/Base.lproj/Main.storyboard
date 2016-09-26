@@ -69,17 +69,34 @@
                         <outlet property="activityIndicator" destination="ZrA-bH-o8w" id="MId-0b-5ZO"/>
                         <outlet property="activityLabel" destination="DnK-Yo-MgF" id="sTb-ZJ-Xva"/>
                         <outlet property="loginButton" destination="uI0-5h-fcv" id="Ugj-kS-pnJ"/>
-                        <segue destination="Tii-eu-iVg" kind="show" identifier="login" id="zaH-fo-q6y"/>
+                        <segue destination="3tf-6o-HPc" kind="show" identifier="login" id="BKF-aG-oVx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12" y="-583.3583208395803"/>
+            <point key="canvasLocation" x="876" y="-583"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="9nF-t4-Inp">
+            <objects>
+                <navigationController id="LcX-5z-lKA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="VKontakte" id="XWh-bv-UJM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lh2-0i-J64">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="w8V-Dm-Pfz" kind="relationship" relationship="rootViewController" id="Ti8-ed-tEc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fsr-Cg-dby" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="555"/>
         </scene>
         <!--Profile-->
         <scene sceneID="P20-m3-BnM">
             <objects>
-                <viewController id="w8V-Dm-Pfz" sceneMemberID="viewController">
+                <viewController id="w8V-Dm-Pfz" customClass="ProfileViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lzr-33-4hm"/>
                         <viewControllerLayoutGuide type="bottom" id="xte-WH-CRb"/>
@@ -87,15 +104,87 @@
                     <view key="view" contentMode="scaleToFill" id="1m2-VZ-XkB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xY-Aj-bFZ">
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="HJT-EM-Nzw" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="94" id="JdS-SI-dcC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nameville Longbottom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1J-kB-9FW">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cityville" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-dS-tVn">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countrystan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VP-5G-dS8">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="w1J-kB-9FW" secondAttribute="trailing" constant="53" id="0u2-Yw-cuD"/>
+                                    <constraint firstAttribute="bottom" secondItem="HJT-EM-Nzw" secondAttribute="bottom" id="7w2-US-VJ4"/>
+                                    <constraint firstItem="3jc-dS-tVn" firstAttribute="trailing" secondItem="5VP-5G-dS8" secondAttribute="trailing" id="BL9-K2-2oh"/>
+                                    <constraint firstItem="3jc-dS-tVn" firstAttribute="top" secondItem="9xY-Aj-bFZ" secondAttribute="top" constant="25" id="HAf-G4-fnC"/>
+                                    <constraint firstItem="HJT-EM-Nzw" firstAttribute="centerY" secondItem="5VP-5G-dS8" secondAttribute="centerY" id="L8p-wP-LJz"/>
+                                    <constraint firstItem="w1J-kB-9FW" firstAttribute="leading" secondItem="HJT-EM-Nzw" secondAttribute="trailing" constant="8" symbolic="YES" id="P9S-j6-LlR"/>
+                                    <constraint firstItem="w1J-kB-9FW" firstAttribute="top" secondItem="9xY-Aj-bFZ" secondAttribute="topMargin" id="S5a-Yw-QpB"/>
+                                    <constraint firstAttribute="bottom" secondItem="3jc-dS-tVn" secondAttribute="bottom" constant="48" id="UpH-J0-5WI"/>
+                                    <constraint firstItem="w1J-kB-9FW" firstAttribute="trailing" secondItem="3jc-dS-tVn" secondAttribute="trailing" id="Xzg-go-DjW"/>
+                                    <constraint firstItem="HJT-EM-Nzw" firstAttribute="top" secondItem="9xY-Aj-bFZ" secondAttribute="top" id="aA2-NO-HLp"/>
+                                    <constraint firstItem="w1J-kB-9FW" firstAttribute="leading" secondItem="3jc-dS-tVn" secondAttribute="leading" id="c7p-1b-vcZ"/>
+                                    <constraint firstItem="HJT-EM-Nzw" firstAttribute="leading" secondItem="9xY-Aj-bFZ" secondAttribute="leading" constant="20" id="d2d-aD-n4g"/>
+                                    <constraint firstAttribute="height" constant="94" id="dIB-EU-mMR"/>
+                                    <constraint firstItem="3jc-dS-tVn" firstAttribute="leading" secondItem="5VP-5G-dS8" secondAttribute="leading" id="sN7-jg-pYm"/>
+                                    <constraint firstAttribute="bottom" secondItem="5VP-5G-dS8" secondAttribute="bottom" constant="37" id="wr6-g2-B0M"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9xY-Aj-bFZ" firstAttribute="top" secondItem="Lzr-33-4hm" secondAttribute="bottom" constant="8" id="P4Q-fg-X0k"/>
+                            <constraint firstItem="9xY-Aj-bFZ" firstAttribute="leading" secondItem="1m2-VZ-XkB" secondAttribute="leading" id="Vcs-ch-eQ9"/>
+                            <constraint firstAttribute="trailing" secondItem="9xY-Aj-bFZ" secondAttribute="trailing" id="seE-Hm-gQf"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="VKontakte" id="clp-TB-Ace"/>
+                    <navigationItem key="navigationItem" title="Profile" id="tob-ga-yBm"/>
+                    <connections>
+                        <outlet property="cityLabel" destination="3jc-dS-tVn" id="f8w-jw-0RC"/>
+                        <outlet property="countryLabel" destination="5VP-5G-dS8" id="8eu-6H-vbE"/>
+                        <outlet property="imageView" destination="HJT-EM-Nzw" id="xfS-VY-h7T"/>
+                        <outlet property="nameLabel" destination="w1J-kB-9FW" id="NyC-VR-zYj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPl-WW-9Rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3359" y="-42"/>
+            <point key="canvasLocation" x="3038" y="556"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="R0N-tf-fRJ">
+            <objects>
+                <navigationController id="GIK-3x-Xoc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="zPn-Jw-7Pu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1WS-TF-m1w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PjT-Ic-Txq" kind="relationship" relationship="rootViewController" id="ZmC-Wp-BBK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHf-4f-cXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3038" y="-878"/>
+        </scene>
+        <!--Search-->
         <scene sceneID="fyq-cG-1DR">
             <objects>
                 <viewController id="PjT-Ic-Txq" sceneMemberID="viewController">
@@ -108,13 +197,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="6RF-79-Iw7"/>
+                    <navigationItem key="navigationItem" title="Search" id="pmA-QS-Stn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okb-X4-bpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4854" y="-837"/>
+            <point key="canvasLocation" x="4207" y="-878"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="fOL-iC-Zqk">
+            <objects>
+                <navigationController id="Zkz-ya-fgd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="more" id="FJf-qm-odN"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lbZ-gG-tgi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="LJz-X3-8rU" kind="relationship" relationship="rootViewController" id="6Jg-ky-D5V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qlE-am-G5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3038" y="-167"/>
+        </scene>
+        <!--More-->
         <scene sceneID="u1g-jJ-Tmc">
             <objects>
                 <viewController id="LJz-X3-8rU" sceneMemberID="viewController">
@@ -127,11 +233,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="7vJ-S5-vre"/>
+                    <navigationItem key="navigationItem" title="More" id="aNx-Vk-E8A"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5lA-j5-5aG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4854" y="-196"/>
+            <point key="canvasLocation" x="4206" y="-166"/>
+        </scene>
+        <!--My Music-->
+        <scene sceneID="ORh-sv-qIo">
+            <objects>
+                <navigationController id="Oyr-mq-0a1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Music" image="Music-Note" id="4Tq-fs-T6l"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ew3-Nt-Wd6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zED-fU-Khl" kind="relationship" relationship="rootViewController" id="9Zj-qV-xHV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZ4-2i-ig0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="-1612"/>
         </scene>
         <!--My Music-->
         <scene sceneID="fFg-Ju-53W">
@@ -146,27 +269,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Music" image="Music-Note" id="4Tb-gq-qiN"/>
+                    <navigationItem key="navigationItem" title="My Music" id="lrl-PU-hm7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3z-LQ-bIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3359" y="-1073"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4Yd-sD-1oy">
-            <objects>
-                <navigationController id="Tii-eu-iVg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QxS-Ro-r7c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="3tf-6o-HPc" kind="relationship" relationship="rootViewController" id="7xa-Vn-JYJ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o07-Le-nE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="823" y="-583"/>
+            <point key="canvasLocation" x="3038" y="-1611"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="QkJ-MN-pgR">
@@ -185,10 +292,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="zED-fU-Khl" kind="relationship" relationship="viewControllers" id="Jcl-Al-sw4"/>
-                        <segue destination="w8V-Dm-Pfz" kind="relationship" relationship="viewControllers" id="bV7-cZ-uMg"/>
-                        <segue destination="PjT-Ic-Txq" kind="relationship" relationship="viewControllers" id="o4j-fQ-t9I"/>
-                        <segue destination="LJz-X3-8rU" kind="relationship" relationship="viewControllers" id="fMM-n0-P4Y"/>
+                        <segue destination="LcX-5z-lKA" kind="relationship" relationship="viewControllers" id="pHR-dq-sD7"/>
+                        <segue destination="Oyr-mq-0a1" kind="relationship" relationship="viewControllers" id="9ak-7n-V4j"/>
+                        <segue destination="GIK-3x-Xoc" kind="relationship" relationship="viewControllers" id="bnJ-5u-8u5"/>
+                        <segue destination="Zkz-ya-fgd" kind="relationship" relationship="viewControllers" id="8Wl-GL-61O"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHz-Yp-8jx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,6 +305,7 @@
     </scenes>
     <resources>
         <image name="Music-Note" width="16" height="16"/>
+        <image name="Placeholder" width="400" height="400"/>
         <image name="VKontakte" width="32" height="32"/>
         <image name="login-with-vk" width="500" height="100"/>
         <image name="logout" width="25" height="25"/>

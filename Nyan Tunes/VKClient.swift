@@ -11,7 +11,7 @@ import VKSdkFramework
 
 class VKClient {
     
-    var User: VKUser!
+    var User: VKUser?
     var SDKvk: VKSdk!
     
 //    init(VKDelegate: VKSdkDelegate, VkUiDelegate: VKSdkUIDelegate) {
@@ -26,6 +26,14 @@ class VKClient {
             static var sharedInstance = VKClient()
         }
         return Singleton.sharedInstance
+    }
+    
+    func setUser(user: VKUser){
+        self.User = user
+    }
+    
+    func getUser() -> VKUser? {
+        return self.User
     }
 
     func sessionExistsWith(_ SCOPE: [Any], completion: @escaping (Bool) -> Void){
@@ -44,5 +52,6 @@ class VKClient {
     }
     func authorize(_ SCOPE: [Any]){
         VKSdk.authorize(SCOPE)
+        VKSdk.authorize(SCOPE, with: VKAuthorizationOptions.unlimitedToken)
     }
 }

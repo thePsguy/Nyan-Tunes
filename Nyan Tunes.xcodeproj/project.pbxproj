@@ -16,8 +16,10 @@
 		4D307B8D1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */; };
 		4D307B8F1D97AA900039C554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B8E1D97AA900039C554 /* Assets.xcassets */; };
 		4D307B921D97AA900039C554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B901D97AA900039C554 /* LaunchScreen.storyboard */; };
-		4D307B9C1D97BA840039C554 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */; };
+		4DB222B51D99665E006FC1B1 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */; };
 		4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711021D98238E007C2648 /* TabBarViewController.swift */; };
+		4DC711051D98370F007C2648 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711041D98370F007C2648 /* ProfileViewController.swift */; };
+		4DC7110A1D9910BC007C2648 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711091D9910BC007C2648 /* NetworkImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,10 @@
 		4D307B911D97AA900039C554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D307B931D97AA900039C554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
+		4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = "../../git/Nyan Tunes/Carthage/Build/iOS/VKSdkFramework.framework"; sourceTree = "<group>"; };
 		4DC711021D98238E007C2648 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4DC711041D98370F007C2648 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4DC711091D9910BC007C2648 /* NetworkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D307B9C1D97BA840039C554 /* VKSdkFramework.framework in Frameworks */,
+				4DB222B51D99665E006FC1B1 /* VKSdkFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +92,7 @@
 			children = (
 				4D307B841D97AA900039C554 /* AppDelegate.swift */,
 				4D307BA01D97C06D0039C554 /* Models */,
+				4DC711081D99109C007C2648 /* Views */,
 				4D307B9E1D97C03D0039C554 /* Controllers */,
 				4D307B9F1D97C0620039C554 /* Assets */,
 			);
@@ -96,6 +102,7 @@
 		4D307B9A1D97BA840039C554 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */,
 				4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */,
 			);
 			name = Frameworks;
@@ -106,6 +113,7 @@
 			children = (
 				4D307B861D97AA900039C554 /* LoginViewController.swift */,
 				4DC711021D98238E007C2648 /* TabBarViewController.swift */,
+				4DC711041D98370F007C2648 /* ProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -129,6 +137,14 @@
 				4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		4DC711081D99109C007C2648 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DC711091D9910BC007C2648 /* NetworkImageView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,11 +239,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D307B871D97AA900039C554 /* LoginViewController.swift in Sources */,
+				4DC7110A1D9910BC007C2648 /* NetworkImageView.swift in Sources */,
 				4D016D781D97CBE000BBCED8 /* CoreDataStackManager.swift in Sources */,
 				4D016D7B1D98086B00BBCED8 /* VKClient.swift in Sources */,
 				4D307B851D97AA900039C554 /* AppDelegate.swift in Sources */,
 				4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */,
 				4D016D7E1D98117700BBCED8 /* VKConstants.swift in Sources */,
+				4DC711051D98370F007C2648 /* ProfileViewController.swift in Sources */,
 				4D307B8D1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = V6JUB3D3PN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -357,7 +376,7 @@
 				INFOPLIST_FILE = "Nyan Tunes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.thePsguy.Nyan-Tunes";
+				PRODUCT_BUNDLE_IDENTIFIER = net.thePsguy.NyanTunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -367,6 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = V6JUB3D3PN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -375,7 +395,7 @@
 				INFOPLIST_FILE = "Nyan Tunes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.thePsguy.Nyan-Tunes";
+				PRODUCT_BUNDLE_IDENTIFIER = net.thePsguy.NyanTunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

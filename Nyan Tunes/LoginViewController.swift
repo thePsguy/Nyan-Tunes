@@ -12,7 +12,10 @@ import VKSdkFramework
 
 class LoginViewController: UIViewController {
     
-    let vkManager = VKClient.sharedInstance()
+    let vkManager: VKClient = {
+        return VKClient.sharedInstance()
+    }()
+    
     let SCOPE = VKClient.Constants.SCOPE
     
     @IBOutlet weak var loginButton: UIButton!
@@ -29,7 +32,7 @@ class LoginViewController: UIViewController {
         loginButton.clipsToBounds = true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         checkSession()
     }
 
@@ -67,19 +70,20 @@ class LoginViewController: UIViewController {
 extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        if result.state == VKAuthorizationState.authorized{
-        }else{
-            self.activityLabel.text = "Login Falied."
+        if ((result.token) != nil) {
+            print("Authed")
+        } else if ((result.error) != nil) {
+            print(result.error)
         }
     }
     
-    func vkSdkDidDismiss(_ controller: UIViewController!) {
-        if VKSdk.isLoggedIn() {
-            didLogin()
-        }else{
-            self.activityLabel.text = "Login Falied."
-        }
-    }
+//    func vkSdkDidDismiss(_ controller: UIViewController!) {
+//        if VKSdk.isLoggedIn() {
+//            didLogin()
+//        }else{
+//            self.activityLabel.text = "Login Falied."
+//        }
+//    }
     
     func vkSdkUserAuthorizationFailed() {
         print("Failed")
