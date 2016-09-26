@@ -52,7 +52,18 @@ extension VKClient {
                 completion(error?.localizedDescription, nil)
             }
         }
-
+    }
+    
+    func deleteUserAudio(audioID: String, completion: @escaping (String?, Bool?) -> Void){
+        let params = ["audio_id": audioID, "owner_id":  self.User!.id] as [String : Any]
+        let audioReq: VKRequest = VKRequest.init(method: "audio.delete", parameters: params, modelClass: VKAudios.self) //VKRequest(method: "audio.get", andParameters: nil, andHttpMethod: "GET", classOfModel: VKAudios.self)
+        audioReq.execute(resultBlock: { (response) in
+            completion(nil, true)
+        }) { (error) in
+            if(error != nil){
+                completion(error?.localizedDescription, nil)
+            }
+        }
     }
 
 

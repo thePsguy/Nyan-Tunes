@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         user = vkManager.getUser()
-        imageView.layer.cornerRadius = 54
+        imageView.layer.cornerRadius = 36
         nameLabel.text = (user?.first_name)! + " " + (user?.last_name)!
         print(user?.screen_name)
         cityLabel.text = user?.bdate
@@ -33,6 +33,11 @@ class ProfileViewController: UIViewController {
         imageView.imageFromServerURL(urlString: (user?.photo_200)!)
     }
 
+    @IBAction func logoutNow(_ sender: AnyObject) {
+        VKSdk.forceLogout()
+        super.dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

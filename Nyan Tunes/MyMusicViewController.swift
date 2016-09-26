@@ -21,6 +21,7 @@ class MyMusicViewController: UIViewController {
     
     var audioItems:[VKAudio] = []
     var audioManager = AudioManager.sharedInstance()
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,11 @@ class MyMusicViewController: UIViewController {
         refreshAudio()
         audioTableView.delegate = self
         audioTableView.dataSource = self
-        // Do any additional setup after loading the view.
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refreshAudio), for: UIControlEvents.valueChanged)
+        audioTableView.addSubview(refreshControl)
+        
     }
 
     @IBAction func refreshAudio(){
@@ -38,6 +43,7 @@ class MyMusicViewController: UIViewController {
             }else{
                 self.audioItems = audioItems!
                 self.audioTableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         })
     }
@@ -67,8 +73,8 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         var actions: [UITableViewRowAction] = []
         
-        let download = UITableViewRowAction(style: .default, title: "Download") { (action, actionIndex) in
-            self.rowActionHandler(action: action, indexPath: actionIndex)
+        let download = UITableViewRowAction(style: .default, title: "Delete") { (action, actionIndex) in
+            self.rowActionHandler(action: action, indexPath: indexPath)
         }
         
         actions.append(download)
@@ -77,7 +83,16 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func rowActionHandler(action: UITableViewRowAction, indexPath: IndexPath) {
-    
+        if action.title == "Delete" {
+            vkManager.deleteUserAudio(audioID: audioItems[indexPath.row].id.stringValue, completion: { (error, res) in
+                if error != nil {
+                    print(error)
+                }else{
+                    print("RESPONSE:", res)
+                    self.refreshAudio()
+                }
+            })
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -87,6 +102,8 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource {
         miniPlayer.setPlayButton(playing: true)
         audioManager.playNow(obj: audioItems[indexPath.row])
     }
+    
+    
 }
 
 extension MyMusicViewController: MiniPlayerViewDelegate{
