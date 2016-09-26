@@ -16,6 +16,11 @@
 		4D307B8D1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */; };
 		4D307B8F1D97AA900039C554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B8E1D97AA900039C554 /* Assets.xcassets */; };
 		4D307B921D97AA900039C554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B901D97AA900039C554 /* LaunchScreen.storyboard */; };
+		4D93C5F71D99701F00B43BC4 /* MyMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F61D99701F00B43BC4 /* MyMusicViewController.swift */; };
+		4D93C5F91D9971DB00B43BC4 /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */; };
+		4D93C5FB1D99733300B43BC4 /* VKConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */; };
+		4D93C5FD1D997F7F00B43BC4 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */; };
+		4D93C5FF1D99A39A00B43BC4 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */; };
 		4DB222B51D99665E006FC1B1 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */; };
 		4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711021D98238E007C2648 /* TabBarViewController.swift */; };
 		4DC711051D98370F007C2648 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711041D98370F007C2648 /* ProfileViewController.swift */; };
@@ -35,6 +40,11 @@
 		4D307B911D97AA900039C554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D307B931D97AA900039C554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
+		4D93C5F61D99701F00B43BC4 /* MyMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMusicViewController.swift; sourceTree = "<group>"; };
+		4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewCell.swift; sourceTree = "<group>"; };
+		4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKConvenience.swift; sourceTree = "<group>"; };
+		4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
+		4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = "../../git/Nyan Tunes/Carthage/Build/iOS/VKSdkFramework.framework"; sourceTree = "<group>"; };
 		4DC711021D98238E007C2648 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		4DC711041D98370F007C2648 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +76,7 @@
 			children = (
 				4D016D7A1D98086B00BBCED8 /* VKClient.swift */,
 				4D016D7D1D98117700BBCED8 /* VKConstants.swift */,
+				4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */,
 			);
 			name = VK;
 			sourceTree = "<group>";
@@ -112,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4D307B861D97AA900039C554 /* LoginViewController.swift */,
+				4D93C5F61D99701F00B43BC4 /* MyMusicViewController.swift */,
 				4DC711021D98238E007C2648 /* TabBarViewController.swift */,
 				4DC711041D98370F007C2648 /* ProfileViewController.swift */,
 			);
@@ -135,6 +147,7 @@
 				4D016D791D98085F00BBCED8 /* Clients */,
 				4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */,
 				4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */,
+				4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -143,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				4DC711091D9910BC007C2648 /* NetworkImageView.swift */,
+				4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */,
+				4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -182,6 +197,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = V6JUB3D3PN;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -240,10 +260,15 @@
 			files = (
 				4D307B871D97AA900039C554 /* LoginViewController.swift in Sources */,
 				4DC7110A1D9910BC007C2648 /* NetworkImageView.swift in Sources */,
+				4D93C5F71D99701F00B43BC4 /* MyMusicViewController.swift in Sources */,
 				4D016D781D97CBE000BBCED8 /* CoreDataStackManager.swift in Sources */,
+				4D93C5FD1D997F7F00B43BC4 /* MiniPlayerView.swift in Sources */,
+				4D93C5FB1D99733300B43BC4 /* VKConvenience.swift in Sources */,
 				4D016D7B1D98086B00BBCED8 /* VKClient.swift in Sources */,
 				4D307B851D97AA900039C554 /* AppDelegate.swift in Sources */,
+				4D93C5FF1D99A39A00B43BC4 /* AudioManager.swift in Sources */,
 				4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */,
+				4D93C5F91D9971DB00B43BC4 /* AudioTableViewCell.swift in Sources */,
 				4D016D7E1D98117700BBCED8 /* VKConstants.swift in Sources */,
 				4DC711051D98370F007C2648 /* ProfileViewController.swift in Sources */,
 				4D307B8D1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld in Sources */,

@@ -27,31 +27,4 @@ class VKClient {
         }
         return Singleton.sharedInstance
     }
-    
-    func setUser(user: VKUser){
-        self.User = user
-    }
-    
-    func getUser() -> VKUser? {
-        return self.User
-    }
-
-    func sessionExistsWith(_ SCOPE: [Any], completion: @escaping (Bool) -> Void){
-        VKSdk.wakeUpSession(SCOPE, complete: {(state: VKAuthorizationState, error: Error?) -> Void in
-            if (state == VKAuthorizationState.authorized) {
-                self.User = VKSdk.accessToken().localUser
-                completion(true)
-            }
-            else if (error != nil) {
-                print("Error:",error)
-                completion(false)
-            }else{
-                completion(false)
-            }
-        })
-    }
-    func authorize(_ SCOPE: [Any]){
-        VKSdk.authorize(SCOPE)
-        VKSdk.authorize(SCOPE, with: VKAuthorizationOptions.unlimitedToken)
-    }
 }

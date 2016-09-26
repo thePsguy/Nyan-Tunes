@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import VKSdkFramework
+import MediaPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.pauseCommand.addTarget(handler: AudioManager.sharedInstance().togglePlay)
+        
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.playCommand.addTarget(handler: AudioManager.sharedInstance().togglePlay)
+        
         return true
     }
 

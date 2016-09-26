@@ -99,7 +99,7 @@ extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "login" {
-            print("did happen")
+            
         }
     }
 

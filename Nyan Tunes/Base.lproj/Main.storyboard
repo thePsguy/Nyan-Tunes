@@ -259,7 +259,7 @@
         <!--My Music-->
         <scene sceneID="fFg-Ju-53W">
             <objects>
-                <viewController id="zED-fU-Khl" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zED-fU-Khl" customClass="MyMusicViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qG3-0Y-bcf"/>
                         <viewControllerLayoutGuide type="bottom" id="YTH-mR-XuE"/>
@@ -267,13 +267,92 @@
                     <view key="view" contentMode="scaleToFill" id="cL9-Iu-4lL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gc3-Ye-YyS">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="60" id="GVg-ty-nKr" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GVg-ty-nKr" id="54m-7E-Ayd">
+                                            <frame key="frameInset" width="375" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WaT-Kf-APh" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="59" id="fmY-lU-ZAI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaW-L2-L6n">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="YEq-Ct-wTb"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcJ-gh-XaO">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xcJ-gh-XaO" firstAttribute="top" secondItem="TaW-L2-L6n" secondAttribute="bottom" constant="1" id="9EZ-ob-l5x"/>
+                                                <constraint firstItem="TaW-L2-L6n" firstAttribute="trailing" secondItem="xcJ-gh-XaO" secondAttribute="trailing" id="AAN-ue-4Fo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TaW-L2-L6n" secondAttribute="trailing" constant="92" id="Nbc-Bd-kfJ"/>
+                                                <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="leading" id="VTQ-Lm-fVu"/>
+                                                <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="WaT-Kf-APh" secondAttribute="trailing" constant="8" symbolic="YES" id="Xfu-bW-viU"/>
+                                                <constraint firstItem="xcJ-gh-XaO" firstAttribute="bottom" secondItem="54m-7E-Ayd" secondAttribute="bottomMargin" id="bkR-CN-Cy1"/>
+                                                <constraint firstItem="TaW-L2-L6n" firstAttribute="top" secondItem="54m-7E-Ayd" secondAttribute="topMargin" id="hpR-51-RlV"/>
+                                                <constraint firstAttribute="bottom" secondItem="WaT-Kf-APh" secondAttribute="bottom" id="kQJ-zw-D96"/>
+                                                <constraint firstItem="WaT-Kf-APh" firstAttribute="leading" secondItem="54m-7E-Ayd" secondAttribute="leading" constant="8" id="qKG-w6-Jfm"/>
+                                                <constraint firstItem="WaT-Kf-APh" firstAttribute="top" secondItem="54m-7E-Ayd" secondAttribute="top" id="zM6-vi-DnS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="albumArt" destination="WaT-Kf-APh" id="xDo-Cj-Fe9"/>
+                                            <outlet property="artist" destination="xcJ-gh-XaO" id="CUo-lR-W7k"/>
+                                            <outlet property="title" destination="TaW-L2-L6n" id="poc-aL-LlO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QO-8A-bwU" customClass="MiniPlayerView" customModule="Nyan_Tunes" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5vR-8R-1XC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YTH-mR-XuE" firstAttribute="top" secondItem="8QO-8A-bwU" secondAttribute="bottom" id="80G-Cx-E6T"/>
+                            <constraint firstItem="8QO-8A-bwU" firstAttribute="leading" secondItem="cL9-Iu-4lL" secondAttribute="leading" id="K55-KC-pfj"/>
+                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="leading" secondItem="cL9-Iu-4lL" secondAttribute="leading" id="LXQ-ug-hir"/>
+                            <constraint firstItem="YTH-mR-XuE" firstAttribute="top" secondItem="Gc3-Ye-YyS" secondAttribute="bottom" id="aGf-xc-lTX"/>
+                            <constraint firstAttribute="trailing" secondItem="Gc3-Ye-YyS" secondAttribute="trailing" id="ngu-rZ-6Gn"/>
+                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="top" secondItem="qG3-0Y-bcf" secondAttribute="bottom" id="ofg-sn-Kho"/>
+                            <constraint firstAttribute="trailing" secondItem="8QO-8A-bwU" secondAttribute="trailing" id="xQb-Lx-ToY"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Music" id="lrl-PU-hm7"/>
+                    <navigationItem key="navigationItem" title="My Music" id="lrl-PU-hm7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="SFY-x2-e5G">
+                            <connections>
+                                <action selector="refreshAudio" destination="zED-fU-Khl" id="3aj-P4-oZy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="audioTableView" destination="Gc3-Ye-YyS" id="LkU-rX-3OA"/>
+                        <outlet property="miniPlayer" destination="8QO-8A-bwU" id="sjp-6v-jdC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3z-LQ-bIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3038" y="-1611"/>
+            <point key="canvasLocation" x="3037.5999999999999" y="-1611.5442278860571"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="QkJ-MN-pgR">
@@ -307,6 +386,7 @@
         <image name="Music-Note" width="16" height="16"/>
         <image name="Placeholder" width="400" height="400"/>
         <image name="VKontakte" width="32" height="32"/>
+        <image name="album_placeholder" width="300" height="300"/>
         <image name="login-with-vk" width="500" height="100"/>
         <image name="logout" width="25" height="25"/>
     </resources>
