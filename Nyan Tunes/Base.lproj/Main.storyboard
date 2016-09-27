@@ -417,42 +417,6 @@
             </objects>
             <point key="canvasLocation" x="4205.6000000000004" y="-878.41079460269873"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fOL-iC-Zqk">
-            <objects>
-                <navigationController id="Zkz-ya-fgd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="FJf-qm-odN"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lbZ-gG-tgi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="LJz-X3-8rU" kind="relationship" relationship="rootViewController" id="6Jg-ky-D5V"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qlE-am-G5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3038" y="-167"/>
-        </scene>
-        <!--More-->
-        <scene sceneID="u1g-jJ-Tmc">
-            <objects>
-                <viewController id="LJz-X3-8rU" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oor-0v-EaZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="UrW-pQ-8Ha"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="von-Es-0Yv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="More" id="aNx-Vk-E8A"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5lA-j5-5aG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4206" y="-166"/>
-        </scene>
         <!--My Music-->
         <scene sceneID="ORh-sv-qIo">
             <objects>
