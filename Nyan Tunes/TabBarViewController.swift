@@ -16,11 +16,6 @@ class TabBarViewController: UITabBarController {
 
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func logoutTapped(_ sender: AnyObject) {
-        VKSdk.forceLogout()
-        self.dismiss(animated: true, completion: nil)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

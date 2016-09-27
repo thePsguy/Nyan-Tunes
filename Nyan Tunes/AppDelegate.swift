@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let commandCenter = MPRemoteCommandCenter.shared()
         
         commandCenter.pauseCommand.isEnabled = true
-        commandCenter.pauseCommand.addTarget(handler: AudioManager.sharedInstance().togglePlay)
+        commandCenter.pauseCommand.addTarget(handler: AudioManager.sharedInstance.togglePlay)
         
         commandCenter.playCommand.isEnabled = true
-        commandCenter.playCommand.addTarget(handler: AudioManager.sharedInstance().togglePlay)
+        commandCenter.playCommand.addTarget(handler: AudioManager.sharedInstance.togglePlay)
         
         return true
     }

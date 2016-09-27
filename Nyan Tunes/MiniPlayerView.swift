@@ -52,9 +52,17 @@ class MiniPlayerView: UIView {
         }
     }
     
+    func refreshStatus(){
+        let audioManager = AudioManager.sharedInstance
+        self.titleLabel.text = audioManager.playingObject?.title.text
+        self.artistLabel.text = audioManager.playingObject?.artist.text
+        self.setPlayButton(playing: audioManager.isPlaying)
+    }
+
+    
     // MARK: Button Action
     func togglePlay(button: UIButton) {
-        let playing = !AudioManager.sharedInstance().isPlaying
+        let playing = !AudioManager.sharedInstance.isPlaying
         if playing == true {
             button.setImage(UIImage.init(named: "pause"), for: .normal)
         } else {

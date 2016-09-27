@@ -34,7 +34,7 @@ extension VKClient {
         })
     }
     func authorize(_ SCOPE: [Any]){
-        VKSdk.authorize(SCOPE)
+//        VKSdk.authorize(SCOPE)
         VKSdk.authorize(SCOPE, with: VKAuthorizationOptions.unlimitedToken)
     }
 
@@ -54,6 +54,20 @@ extension VKClient {
         }
     }
     
+    func getSearchResults(withParams params: [String: String], completion: @escaping (String?, [VKAudio]?) -> Void){
+    
+        let audioReq: VKRequest = VKRequest.init(method: "audio.search", parameters: params, modelClass: VKAudios.self) //(method: "audio.search", andParameters: params, andHttpMethod: "GET", classOfModel: VKAudios.self)
+        audioReq.execute(resultBlock: { (audioRes) in
+    
+            let result: VKAudios?  = audioRes?.parsedModel as? VKAudios
+            // print("userAudios:", userAudios, audioRes.json)
+            let resultAudios = result?.items as! [VKAudio]
+            completion(nil, resultAudios)
+        }) { (error) in
+            completion(error?.localizedDescription, nil)
+        }
+    }
+    
     func deleteUserAudio(audioID: String, completion: @escaping (String?, Bool?) -> Void){
         let params = ["audio_id": audioID, "owner_id":  self.User!.id] as [String : Any]
         let audioReq: VKRequest = VKRequest.init(method: "audio.delete", parameters: params, modelClass: VKAudios.self) //VKRequest(method: "audio.get", andParameters: nil, andHttpMethod: "GET", classOfModel: VKAudios.self)
@@ -66,5 +80,16 @@ extension VKClient {
         }
     }
 
+    func addUserAudio(audioID: String, owner_id: String, completion: @escaping (String?, Bool?) -> Void){
+        let params = ["audio_id": audioID, "owner_id":  owner_id] as [String : Any]
+        let audioReq: VKRequest = VKRequest.init(method: "audio.add", parameters: params, modelClass: VKAudios.self) //VKRequest(method: "audio.get", andParameters: nil, andHttpMethod: "GET", classOfModel: VKAudios.self)
+        audioReq.execute(resultBlock: { (response) in
+            completion(nil, true)
+        }) { (error) in
+            if(error != nil){
+                completion(error?.localizedDescription, nil)
+            }
+        }
+    }
 
 }

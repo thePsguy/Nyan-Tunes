@@ -23,7 +23,9 @@ class AudioTableViewCell: UITableViewCell {
     @IBOutlet weak var downloadButton: UIButton!
     
     
-    var url: URL!
+    var url: URL?
+    var audioData: Data?
+    var duration: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()

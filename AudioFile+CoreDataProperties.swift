@@ -16,10 +16,11 @@ extension AudioFile {
         return NSFetchRequest<AudioFile>(entityName: "AudioFile");
     }
 
+    @NSManaged public var artist: String?
+    @NSManaged public var audioData: NSData?
     @NSManaged public var id: Int32
     @NSManaged public var title: String?
     @NSManaged public var url: String?
-    @NSManaged public var artist: String?
-    @NSManaged public var audioData: NSData?
+    @NSManaged public var duration: String?
 
 }

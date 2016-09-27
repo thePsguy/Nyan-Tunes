@@ -12,7 +12,7 @@ import CoreData
 
 public class AudioFile: NSManagedObject {
 
-    convenience init(id: Int, title: String, artist:String, url: String, audioData: Data, context: NSManagedObjectContext){
+    convenience init(id: Int, title: String, artist:String, url: String, audioData: Data, duration: String, context: NSManagedObjectContext){
         if let ent = NSEntityDescription.entity(forEntityName: "AudioFile", in: context){
             self.init(entity: ent, insertInto: context)
             self.id = Int32(id)
@@ -20,9 +20,9 @@ public class AudioFile: NSManagedObject {
             self.artist = artist
             self.url = url
             self.audioData = audioData as NSData
+            self.duration = duration
         }else{
             fatalError("ENTITY NOT FOUND")
         }
     }
-    
 }

@@ -10,13 +10,17 @@
 		4D016D781D97CBE000BBCED8 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */; };
 		4D016D7B1D98086B00BBCED8 /* VKClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D016D7A1D98086B00BBCED8 /* VKClient.swift */; };
 		4D016D7E1D98117700BBCED8 /* VKConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D016D7D1D98117700BBCED8 /* VKConstants.swift */; };
+		4D1A99701D9A2AA50028C357 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A996F1D9A2AA50028C357 /* DownloadManager.swift */; };
+		4D1A99761D9A2CB20028C357 /* DownloadManagerConvenivence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A99751D9A2CB20028C357 /* DownloadManagerConvenivence.swift */; };
+		4D1A99791D9A44410028C357 /* MyMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A99781D9A44410028C357 /* MyMusicViewController.swift */; };
+		4D1A997E1D9A62230028C357 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A997D1D9A62230028C357 /* SearchViewController.swift */; };
 		4D307B851D97AA900039C554 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B841D97AA900039C554 /* AppDelegate.swift */; };
 		4D307B871D97AA900039C554 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B861D97AA900039C554 /* LoginViewController.swift */; };
 		4D307B8A1D97AA900039C554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B881D97AA900039C554 /* Main.storyboard */; };
 		4D307B8D1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */; };
 		4D307B8F1D97AA900039C554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B8E1D97AA900039C554 /* Assets.xcassets */; };
 		4D307B921D97AA900039C554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B901D97AA900039C554 /* LaunchScreen.storyboard */; };
-		4D93C5F71D99701F00B43BC4 /* MyMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F61D99701F00B43BC4 /* MyMusicViewController.swift */; };
+		4D93C5F71D99701F00B43BC4 /* ProfileMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F61D99701F00B43BC4 /* ProfileMusicViewController.swift */; };
 		4D93C5F91D9971DB00B43BC4 /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */; };
 		4D93C5FB1D99733300B43BC4 /* VKConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */; };
 		4D93C5FD1D997F7F00B43BC4 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */; };
@@ -34,6 +38,10 @@
 		4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		4D016D7A1D98086B00BBCED8 /* VKClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKClient.swift; sourceTree = "<group>"; };
 		4D016D7D1D98117700BBCED8 /* VKConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKConstants.swift; sourceTree = "<group>"; };
+		4D1A996F1D9A2AA50028C357 /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		4D1A99751D9A2CB20028C357 /* DownloadManagerConvenivence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManagerConvenivence.swift; sourceTree = "<group>"; };
+		4D1A99781D9A44410028C357 /* MyMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMusicViewController.swift; sourceTree = "<group>"; };
+		4D1A997D1D9A62230028C357 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4D307B811D97AA900039C554 /* Nyan Tunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nyan Tunes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D307B841D97AA900039C554 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D307B861D97AA900039C554 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -43,7 +51,7 @@
 		4D307B911D97AA900039C554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D307B931D97AA900039C554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
-		4D93C5F61D99701F00B43BC4 /* MyMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMusicViewController.swift; sourceTree = "<group>"; };
+		4D93C5F61D99701F00B43BC4 /* ProfileMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMusicViewController.swift; sourceTree = "<group>"; };
 		4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewCell.swift; sourceTree = "<group>"; };
 		4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKConvenience.swift; sourceTree = "<group>"; };
 		4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
@@ -87,6 +95,49 @@
 			name = VK;
 			sourceTree = "<group>";
 		};
+		4D1A99711D9A2AAF0028C357 /* DownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				4DB5AB8F1D99C83D00106D96 /* Download.swift */,
+				4D1A996F1D9A2AA50028C357 /* DownloadManager.swift */,
+				4D1A99751D9A2CB20028C357 /* DownloadManagerConvenivence.swift */,
+			);
+			name = DownloadManager;
+			sourceTree = "<group>";
+		};
+		4D1A99721D9A2C290028C357 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4DC711041D98370F007C2648 /* ProfileViewController.swift */,
+				4D93C5F61D99701F00B43BC4 /* ProfileMusicViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		4D1A99731D9A2C300028C357 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4D307B861D97AA900039C554 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		4D1A99771D9A44280028C357 /* MyMusic */ = {
+			isa = PBXGroup;
+			children = (
+				4D1A99781D9A44410028C357 /* MyMusicViewController.swift */,
+			);
+			name = MyMusic;
+			sourceTree = "<group>";
+		};
+		4D1A997C1D9A62010028C357 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4D1A997D1D9A62230028C357 /* SearchViewController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		4D307B781D97AA900039C554 = {
 			isa = PBXGroup;
 			children = (
@@ -128,10 +179,11 @@
 		4D307B9E1D97C03D0039C554 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4D307B861D97AA900039C554 /* LoginViewController.swift */,
-				4D93C5F61D99701F00B43BC4 /* MyMusicViewController.swift */,
+				4D1A99731D9A2C300028C357 /* Login */,
 				4DC711021D98238E007C2648 /* TabBarViewController.swift */,
-				4DC711041D98370F007C2648 /* ProfileViewController.swift */,
+				4D1A99721D9A2C290028C357 /* Profile */,
+				4D1A997C1D9A62010028C357 /* Search */,
+				4D1A99771D9A44280028C357 /* MyMusic */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -151,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				4D016D791D98085F00BBCED8 /* Clients */,
-				4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */,
+				4D1A99711D9A2AAF0028C357 /* DownloadManager */,
 				4DB5AB8D1D99B92C00106D96 /* Data */,
 				4DB5AB8E1D99B93E00106D96 /* Convenience */,
 			);
@@ -170,9 +222,9 @@
 		4DB5AB8E1D99B93E00106D96 /* Convenience */ = {
 			isa = PBXGroup;
 			children = (
+				4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */,
 				4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */,
 				4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */,
-				4DB5AB8F1D99C83D00106D96 /* Download.swift */,
 			);
 			name = Convenience;
 			sourceTree = "<group>";
@@ -285,16 +337,20 @@
 			files = (
 				4D307B871D97AA900039C554 /* LoginViewController.swift in Sources */,
 				4DC7110A1D9910BC007C2648 /* NetworkImageView.swift in Sources */,
+				4D1A99761D9A2CB20028C357 /* DownloadManagerConvenivence.swift in Sources */,
 				4DB5AB901D99C83D00106D96 /* Download.swift in Sources */,
 				4DB5AB8C1D99B91800106D96 /* AudioFile+CoreDataProperties.swift in Sources */,
-				4D93C5F71D99701F00B43BC4 /* MyMusicViewController.swift in Sources */,
+				4D93C5F71D99701F00B43BC4 /* ProfileMusicViewController.swift in Sources */,
 				4D016D781D97CBE000BBCED8 /* CoreDataStackManager.swift in Sources */,
 				4D93C5FD1D997F7F00B43BC4 /* MiniPlayerView.swift in Sources */,
+				4D1A99701D9A2AA50028C357 /* DownloadManager.swift in Sources */,
 				4D93C5FB1D99733300B43BC4 /* VKConvenience.swift in Sources */,
 				4D016D7B1D98086B00BBCED8 /* VKClient.swift in Sources */,
 				4D307B851D97AA900039C554 /* AppDelegate.swift in Sources */,
+				4D1A99791D9A44410028C357 /* MyMusicViewController.swift in Sources */,
 				4D93C5FF1D99A39A00B43BC4 /* AudioManager.swift in Sources */,
 				4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */,
+				4D1A997E1D9A62230028C357 /* SearchViewController.swift in Sources */,
 				4DB5AB8B1D99B91800106D96 /* AudioFile+CoreDataClass.swift in Sources */,
 				4D93C5F91D9971DB00B43BC4 /* AudioTableViewCell.swift in Sources */,
 				4D016D7E1D98117700BBCED8 /* VKConstants.swift in Sources */,

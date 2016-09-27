@@ -12,21 +12,37 @@ import Foundation
 import AVFoundation
 import MediaPlayer
 import VKSdkFramework
+import CoreAudio
 
 class AudioManager {
     
-    private var player = AVPlayer()
-    private(set) public var isPlaying: Bool = false
+    static let sharedInstance = AudioManager()
+    private init() {}
     
-    func playNow(obj: VKAudio){
-        
-        
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: obj.artist, MPMediaItemPropertyTitle: obj.title, MPMediaItemPropertyPlaybackDuration: obj.duration]
+    private var player = AVPlayer()
+    private var audioPlayer: AVAudioPlayer?
+    private(set) public var isPlaying: Bool = false
+    var profileAudioItems = [VKAudio]()
+    var downloadedAudioItems = [AudioFile]()
+    var playingObject: AudioTableViewCell?
+    
+    func playNow(obj: AudioTableViewCell){
+        playingObject = obj
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: obj.artist.text, MPMediaItemPropertyTitle: obj.title.text, MPMediaItemPropertyPlaybackDuration: NSNumber.init(value: Int(obj.duration!)!)]
         
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-        let playerItem = AVPlayerItem(url: URL(string: obj.url)!)
-        player = AVPlayer(playerItem:playerItem)
-        player.play()
+        
+        if(obj.audioData != nil){
+            audioPlayer = try! AVAudioPlayer.init(data: obj.audioData!)
+            audioPlayer!.play()
+            player = AVPlayer()
+        }else{
+            audioPlayer = nil
+            var playerItem: AVPlayerItem?
+            playerItem = AVPlayerItem(url: obj.url!)
+            player = AVPlayer(playerItem:playerItem)
+            player.play()
+        }
         self.isPlaying = true
     }
     
@@ -42,18 +58,18 @@ class AudioManager {
     
     func pausePlay(){
         player.pause()
+        if audioPlayer != nil{
+            audioPlayer!.pause()
+        }
         self.isPlaying = false
     }
     
     func resumePlay(){
         player.play()
+        if audioPlayer != nil{
+            audioPlayer!.play()
+        }
         self.isPlaying = true
     }
     
-    class func sharedInstance() -> AudioManager {
-        struct Singleton {
-            static var sharedInstance = AudioManager()
-        }
-        return Singleton.sharedInstance
-    }
 }

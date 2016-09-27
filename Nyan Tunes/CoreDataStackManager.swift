@@ -34,7 +34,7 @@ class CoreDataStackManager {
         
         print("Instantiating the managedObjectModel property")
         
-        let modelURL = Bundle.main.url(forResource: "FlickrTourist", withExtension: "momd")!
+        let modelURL = Bundle.main.url(forResource: "Nyan_Tunes", withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
