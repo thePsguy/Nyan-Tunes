@@ -110,7 +110,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
         let download = UITableViewRowAction(style: .default, title: "Add to Profile") { (action, actionIndex) in
             self.rowActionHandler(action: action, indexPath: indexPath)
         }
-        download.backgroundColor = UIColor.green
+        download.backgroundColor = UIColor.orange
         actions.append(download)
         
         return actions
@@ -121,7 +121,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
             let audioItem = searchItems[indexPath.row]
             vkManager.addUserAudio(audioID: audioItem.id.stringValue, owner_id: audioItem.owner_id.stringValue, completion: { (error, res) in
                 if error != nil {
-                    print(error)
+                    DispatchQueue.main.async {
+                        self.showAlert(error: error!)
+                    }
                 }else{
                     print("RESPONSE:", res)
                 }
@@ -130,5 +132,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
         audioTableView.setEditing(false, animated: true)
     }
 
+    
+    func showAlert(error: String){
+        let alert = UIAlertController(title: "Error!", message: error, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
 }

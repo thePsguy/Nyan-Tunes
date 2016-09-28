@@ -13,6 +13,7 @@ class MiniPlayerView: UIView {
     let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 25))
     let artistLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 25))
     let button = UIButton(frame: CGRect(x: 10, y: 8, width: 25, height: 25))
+    let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 8, width: 25, height: 25))
     weak var delegate: MiniPlayerViewDelegate?
     
     // MARK: Initialization
@@ -22,26 +23,34 @@ class MiniPlayerView: UIView {
         let height = bounds.size.height
         
         button.setImage(UIImage(named: "play"), for: .normal)
-        
         button.addTarget(self, action: #selector(MiniPlayerView.togglePlay(button:)), for: .touchDown)
+        button.tintColor = UIColor.white
         
         titleLabel.center = CGPoint(x: width/2, y: height/2 - 10)
         titleLabel.font = UIFont(name: "Helvetica Neue", size: 16)
         titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.textColor = UIColor.white
         
         artistLabel.center = CGPoint(x: width/2, y:height/2 + 10)
         artistLabel.font = UIFont(name: "Helvetica Neue", size: 12)
         artistLabel.textAlignment = NSTextAlignment.center
+        artistLabel.textColor = UIColor.white
         
+        activityIndicator.center = CGPoint(x:width-30, y:height/2)
+
+        addSubview(activityIndicator)
         addSubview(artistLabel)
         addSubview(titleLabel)
         addSubview(button)
+        
+        self.backgroundColor = UIColor.init(red: 0.34, green: 0.34, blue: 0.34, alpha: 1.0)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         artistLabel.text = "-"
         titleLabel.text = "-"
+        activityIndicator.hidesWhenStopped = true
     }
     
     func setPlayButton(playing: Bool){

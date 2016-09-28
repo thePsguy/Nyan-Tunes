@@ -15,7 +15,7 @@ import MediaPlayer
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -29,6 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget(handler: AudioManager.sharedInstance.togglePlay)
         
+        let launchedBefore = UserDefaults.standard.bool(forKey:"launchedBefore")
+        if launchedBefore  {
+            UserDefaults.standard.set(false, forKey: "firstLaunch")
+            UserDefaults.standard.synchronize()
+        }
+        else {
+            print("First launch, setting NSUserDefault.")
+            UserDefaults.standard.set(true, forKey: "firstLaunch")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UserDefaults.standard.synchronize()
+        }
         return true
     }
 

@@ -39,6 +39,7 @@ class MyMusicViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        refreshAudio()
         miniPlayer.refreshStatus()
     }
     

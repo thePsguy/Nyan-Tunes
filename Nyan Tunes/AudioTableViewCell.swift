@@ -31,6 +31,17 @@ class AudioTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func layoutSubviews() {
+        let width = bounds.size.width
+//        let height = bounds.size.height
+        
+        let nick = UIImageView.init(frame: CGRect(x: width-15, y: 5, width: 12, height: 12))
+        nick.contentMode = UIViewContentMode.scaleAspectFit
+        nick.image = UIImage(named: "DragLeft")
+        
+        self.addSubview(nick)
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

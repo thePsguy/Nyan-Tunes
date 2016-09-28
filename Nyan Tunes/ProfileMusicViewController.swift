@@ -57,7 +57,10 @@ class ProfileMusicViewController: UIViewController {
         files = fetchAllAudio()
         vkManager.getUserAudio(completion: {error, audioItems in
             if error != nil {
-                print(error)
+                self.refreshControl.endRefreshing()
+                DispatchQueue.main.async {
+                    self.showAlert(error: error!)
+                }
             }else{
                 self.audioManager.profileAudioItems = audioItems!
                 self.audioTableView.reloadData()
@@ -66,6 +69,14 @@ class ProfileMusicViewController: UIViewController {
         })
     }
     
+    func showAlert(error: String){
+        let alert = UIAlertController(title: "Error!", message: error, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+        
     func fetchAllAudio() -> [AudioFile] {
         var result = [AudioFile]()
         sharedContext.performAndWait {
@@ -95,7 +106,6 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "audioCell") as! AudioTableViewCell
         let audioItem = audioManager.profileAudioItems[indexPath.row]
-        
         if(audioItem.url != nil){
             var showDownloadControls = false
             var downloadable = true
@@ -143,22 +153,24 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
         if action.title == "Delete" {
             vkManager.deleteUserAudio(audioID: audioManager.profileAudioItems[indexPath.row].id.stringValue, completion: { (error, res) in
                 if error != nil {
-                    print(error)
+                    DispatchQueue.main.async {
+                        self.showAlert(error: error!)
+                    }
                 }else{
                     print("RESPONSE:", res)
                     self.refreshAudio()
                 }
             })
         }
+        audioTableView.setEditing(false, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! AudioTableViewCell
+        print(cell.title.text)
         audioManager.playNow(obj: cell)
         miniPlayer.refreshStatus()
     }
-    
-    
 }
 
 extension ProfileMusicViewController: MiniPlayerViewDelegate{
@@ -173,6 +185,18 @@ extension ProfileMusicViewController: MiniPlayerViewDelegate{
 }
 
 extension ProfileMusicViewController: URLSessionDownloadDelegate{
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if error != nil{
+            let trackIndex = downloadManager.trackIndexForDownloadTask(downloadTask: task as! URLSessionDownloadTask)
+            if (trackIndex != nil){
+                let audioCell = audioTableView.cellForRow(at: IndexPath(row: trackIndex!, section: 0)) as? AudioTableViewCell
+                DispatchQueue.main.async {
+                    audioCell!.progressLabel.text =  "Network Error."
+                }
+            }
+        }
+    }
 
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         // 1
@@ -204,7 +228,9 @@ extension ProfileMusicViewController: URLSessionDownloadDelegate{
                 } catch { print("CoreData save error") }
             }
         DispatchQueue.main.async {
-            self.downloadManager.activeDownloads[self.audioManager.profileAudioItems[trackIndex!].url] = nil
+            let taskUrl = downloadTask.originalRequest?.url?.absoluteString
+            self.downloadManager.activeDownloads[taskUrl!] = nil
+            self.files = self.fetchAllAudio()
             self.audioTableView.reloadRows(at: [IndexPath(row: trackIndex!, section: 0)], with: .none)
         }
     }

@@ -22,6 +22,9 @@ class ProfileViewController: UIViewController {
     var user: VKUser?
     
     override func viewDidLoad() {
+        
+        print(UserDefaults.standard.bool(forKey:"firstLaunch"))
+        
         super.viewDidLoad()
         user = vkManager.getUser()
         imageView.layer.cornerRadius = 36

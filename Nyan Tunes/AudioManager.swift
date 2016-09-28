@@ -19,6 +19,8 @@ class AudioManager {
     static let sharedInstance = AudioManager()
     private init() {}
     
+    var delegate: AudioManagerDelegate?
+    
     private var player = AVPlayer()
     private var audioPlayer: AVAudioPlayer?
     private(set) public var isPlaying: Bool = false
@@ -28,7 +30,7 @@ class AudioManager {
     
     func playNow(obj: AudioTableViewCell){
         playingObject = obj
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: obj.artist.text, MPMediaItemPropertyTitle: obj.title.text, MPMediaItemPropertyPlaybackDuration: NSNumber.init(value: Int(obj.duration!)!)]
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: obj.artist.text!, MPMediaItemPropertyTitle: obj.title.text! , MPMediaItemPropertyPlaybackDuration: NSNumber.init(value: Int(obj.duration!)!)]
         
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         
@@ -48,6 +50,18 @@ class AudioManager {
     
     @objc func togglePlay(event: MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus{
         print("received")
+        
+        func availableDuration() -> CMTime
+        {
+            let range = self.player.currentItem?.loadedTimeRanges.first
+            if (range != nil){
+                return CMTimeRangeGetEnd(range!.timeRangeValue)
+            }
+            return kCMTimeZero
+        }
+
+       CMTimeShow(availableDuration())
+        
         if isPlaying == true {
             pausePlay()
         } else {
@@ -72,4 +86,8 @@ class AudioManager {
         self.isPlaying = true
     }
     
+}
+
+protocol AudioManagerDelegate: class {
+    func stateChanged(playing: Bool, buffering: Bool)
 }
