@@ -66,6 +66,11 @@ class MiniPlayerView: UIView {
         self.titleLabel.text = audioManager.playingObject?.title.text
         self.artistLabel.text = audioManager.playingObject?.artist.text
         self.setPlayButton(playing: audioManager.isPlaying)
+        if audioManager.networkStream {
+            self.activityIndicator.startAnimating()
+        }else{
+            self.activityIndicator.stopAnimating()
+        }
     }
 
     

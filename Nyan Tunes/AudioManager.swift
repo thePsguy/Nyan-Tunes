@@ -27,6 +27,7 @@ class AudioManager {
     var profileAudioItems = [VKAudio]()
     var downloadedAudioItems = [AudioFile]()
     var playingObject: AudioTableViewCell?
+    var networkStream: Bool = false
     
     func playNow(obj: AudioTableViewCell){
         playingObject = obj
@@ -38,10 +39,12 @@ class AudioManager {
             audioPlayer = try! AVAudioPlayer.init(data: obj.audioData!)
             audioPlayer!.play()
             player = AVPlayer()
+            networkStream = false
         }else{
             audioPlayer = nil
             var playerItem: AVPlayerItem?
             playerItem = AVPlayerItem(url: obj.url!)
+            networkStream = true
             player = AVPlayer(playerItem:playerItem)
             player.play()
         }

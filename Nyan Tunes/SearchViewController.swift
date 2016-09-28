@@ -122,10 +122,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
             vkManager.addUserAudio(audioID: audioItem.id.stringValue, owner_id: audioItem.owner_id.stringValue, completion: { (error, res) in
                 if error != nil {
                     DispatchQueue.main.async {
-                        self.showAlert(error: error!)
+                        self.showAlert(text: error!)
                     }
                 }else{
-                    print("RESPONSE:", res)
+                    DispatchQueue.main.async {
+                        self.showAlert(text: "Added track to VK Profile")
+                    }
                 }
             })
         }
@@ -133,8 +135,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     }
 
     
-    func showAlert(error: String){
-        let alert = UIAlertController(title: "Error!", message: error, preferredStyle: UIAlertControllerStyle.alert)
+    func showAlert(text: String){
+        let alert = UIAlertController(title: "Alert", message: text, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)

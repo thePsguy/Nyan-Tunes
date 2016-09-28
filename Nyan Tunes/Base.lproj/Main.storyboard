@@ -50,18 +50,44 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZrA-bH-o8w"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7N-dU-CNT">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="kh0-of-Vd6"/>
+                                    <constraint firstAttribute="height" constant="21" id="n8v-2Q-cwM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1P7-gv-8AL">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="112" id="r1M-D9-R5A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <color key="tintColor" red="0.29803921568627451" green="0.45882352941176469" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Continue Offline">
+                                    <color key="titleColor" red="0.29803921568627451" green="0.45882352941176469" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="895-7T-Dm1" kind="show" id="F3d-y0-jZx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="1P7-gv-8AL" secondAttribute="bottom" constant="20" symbolic="YES" id="2XN-f9-v9L"/>
                             <constraint firstItem="2l9-I7-NoF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7ZN-7v-iKs"/>
                             <constraint firstItem="uI0-5h-fcv" firstAttribute="top" secondItem="DnK-Yo-MgF" secondAttribute="bottom" constant="8" symbolic="YES" id="8aq-UM-4cd"/>
                             <constraint firstItem="2l9-I7-NoF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="75" id="DMR-GE-rUX"/>
                             <constraint firstItem="2l9-I7-NoF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="69" id="Kcr-l5-vQH"/>
+                            <constraint firstItem="s7N-dU-CNT" firstAttribute="top" secondItem="uI0-5h-fcv" secondAttribute="bottom" constant="8" symbolic="YES" id="XAr-a1-qeg"/>
                             <constraint firstItem="DnK-Yo-MgF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="90" id="c0z-Mw-Klw"/>
                             <constraint firstItem="DnK-Yo-MgF" firstAttribute="top" secondItem="ZrA-bH-o8w" secondAttribute="bottom" constant="8" symbolic="YES" id="e8t-gK-Lnp"/>
                             <constraint firstItem="DnK-Yo-MgF" firstAttribute="centerX" secondItem="uI0-5h-fcv" secondAttribute="centerX" id="jgk-qw-vo5"/>
+                            <constraint firstItem="1P7-gv-8AL" firstAttribute="centerX" secondItem="s7N-dU-CNT" secondAttribute="centerX" id="k9K-u4-6A0"/>
                             <constraint firstItem="uI0-5h-fcv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nSa-9Z-9y3"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uI0-5h-fcv" secondAttribute="bottom" constant="60" id="qg0-Mo-aCj"/>
+                            <constraint firstItem="1P7-gv-8AL" firstAttribute="centerX" secondItem="DnK-Yo-MgF" secondAttribute="centerX" id="qUT-RE-Ehq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uI0-5h-fcv" secondAttribute="bottom" constant="72" id="qg0-Mo-aCj"/>
                             <constraint firstItem="ZrA-bH-o8w" firstAttribute="centerX" secondItem="DnK-Yo-MgF" secondAttribute="centerX" id="vP3-79-rV7"/>
                         </constraints>
                     </view>
@@ -621,4 +647,7 @@
         <image name="login-with-vk" width="500" height="100"/>
         <image name="logout" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="F3d-y0-jZx"/>
+    </inferredMetricsTieBreakers>
 </document>

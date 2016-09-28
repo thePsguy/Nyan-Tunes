@@ -39,7 +39,6 @@ class ProfileMusicViewController: UIViewController {
         downloadManager.downloadDelegate = self
         
         miniPlayer.delegate = self
-        refreshAudio()
         audioTableView.delegate = self
         audioTableView.dataSource = self
         
@@ -51,6 +50,7 @@ class ProfileMusicViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         miniPlayer.refreshStatus()
+        refreshAudio()
     }
 
     @IBAction func refreshAudio(){
@@ -140,7 +140,7 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         var actions: [UITableViewRowAction] = []
         
-        let download = UITableViewRowAction(style: .default, title: "Delete") { (action, actionIndex) in
+        let download = UITableViewRowAction(style: .default, title: "Remove") { (action, actionIndex) in
             self.rowActionHandler(action: action, indexPath: indexPath)
         }
         

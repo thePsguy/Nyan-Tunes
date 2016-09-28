@@ -29,7 +29,7 @@ class MyMusicViewController: UIViewController {
         super.viewDidLoad()
         
         miniPlayer.delegate = self
-        refreshAudio()
+
         audioTableView.delegate = self
         audioTableView.dataSource = self
         
