@@ -7,8 +7,10 @@
 
 
 ##Using
-`The app needs a vk.com account to log in. You can get one for free at` http://vk.com/join
+`The app needs a vk.com account to log in. You can get one for free at` http://vk.com/join 
 
+
+The app also provides and option to continue offline, in which case only the downloaded tracks are accessible.
 
 ### The 'Profile' tab
 `Lists tracks saved to the user's vk.com profile.`
