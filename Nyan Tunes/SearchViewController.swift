@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var audioManager = AudioManager.sharedInstance
-    let vkManager = VKClient.sharedInstance()
+    let vkManager = VKClient.sharedInstance
     
     var searchItems = [VKAudio]()
     

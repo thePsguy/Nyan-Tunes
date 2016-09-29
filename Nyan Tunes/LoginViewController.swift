@@ -13,7 +13,7 @@ import VKSdkFramework
 class LoginViewController: UIViewController {
     
     let vkManager: VKClient = {
-        return VKClient.sharedInstance()
+        return VKClient.sharedInstance
     }()
     
     let SCOPE = VKClient.Constants.SCOPE

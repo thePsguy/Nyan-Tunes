@@ -17,7 +17,7 @@ class ProfileMusicViewController: UIViewController {
     @IBOutlet weak var miniPlayer: MiniPlayerView!
     
     let vkManager: VKClient = {
-        return VKClient.sharedInstance()
+        return VKClient.sharedInstance
     }()
     
     var files = [AudioFile]()
@@ -30,7 +30,7 @@ class ProfileMusicViewController: UIViewController {
     }
     
     var downloadManager:DownloadManager = {
-        return DownloadManager.sharedInstance()
+        return DownloadManager.sharedInstance
     }()
     
     override func viewDidLoad() {

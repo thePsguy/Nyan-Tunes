@@ -14,6 +14,8 @@ class DownloadManager:NSObject {
     var activeDownloads = [String: Download]()
     var audioManager = AudioManager.sharedInstance
     
+    static let sharedInstance = DownloadManager()
+    
     var downloadDelegate: URLSessionDownloadDelegate?
     
     lazy var downloadsSession: URLSession = {
@@ -21,13 +23,6 @@ class DownloadManager:NSObject {
         let session =  URLSession(configuration: configuration, delegate: {return self.downloadDelegate}(), delegateQueue: nil) // Must set delegate manually
         return session
     }()
-
-    class func sharedInstance() -> DownloadManager {
-        struct Singleton {
-            static var sharedInstance = DownloadManager()
-        }
-        return Singleton.sharedInstance
-    }
 }
 
 protocol DownloadManagerDelegate: class {

@@ -14,17 +14,7 @@ class VKClient {
     var User: VKUser?
     var SDKvk: VKSdk!
     
-//    init(VKDelegate: VKSdkDelegate, VkUiDelegate: VKSdkUIDelegate) {
-//        SDKvk = VKSdk.initialize(withAppId: VKClient.Constants.appID)
-//        SDKvk.register(VKDelegate)
-//        SDKvk.uiDelegate = VkUiDelegate
-//    }
-
+    static let sharedInstance = VKClient()
+    private init() {}
     
-    class func sharedInstance() -> VKClient {
-        struct Singleton {
-            static var sharedInstance = VKClient()
-        }
-        return Singleton.sharedInstance
-    }
 }

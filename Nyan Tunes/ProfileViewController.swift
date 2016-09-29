@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var countryLabel: UILabel!
     
     let vkManager: VKClient = {
-        return VKClient.sharedInstance()
+        return VKClient.sharedInstance
     }()
     var user: VKUser?
     
