@@ -20,6 +20,8 @@
 		4D307B8D1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */; };
 		4D307B8F1D97AA900039C554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B8E1D97AA900039C554 /* Assets.xcassets */; };
 		4D307B921D97AA900039C554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B901D97AA900039C554 /* LaunchScreen.storyboard */; };
+		4D35642B1D9CCF8100CCEE7D /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */; };
+		4D35642C1D9CCF8100CCEE7D /* VKSdkFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D93C5F71D99701F00B43BC4 /* ProfileMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F61D99701F00B43BC4 /* ProfileMusicViewController.swift */; };
 		4D93C5F91D9971DB00B43BC4 /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */; };
 		4D93C5FB1D99733300B43BC4 /* VKConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */; };
@@ -33,6 +35,20 @@
 		4DC711051D98370F007C2648 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711041D98370F007C2648 /* ProfileViewController.swift */; };
 		4DC7110A1D9910BC007C2648 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711091D9910BC007C2648 /* NetworkImageView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4D35642D1D9CCF8100CCEE7D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4D35642C1D9CCF8100CCEE7D /* VKSdkFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4D016D771D97CBE000BBCED8 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
@@ -71,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DB222B51D99665E006FC1B1 /* VKSdkFramework.framework in Frameworks */,
+				4D35642B1D9CCF8100CCEE7D /* VKSdkFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +266,7 @@
 				4D307B7D1D97AA900039C554 /* Sources */,
 				4D307B7E1D97AA900039C554 /* Frameworks */,
 				4D307B7F1D97AA900039C554 /* Resources */,
-				4D307B9D1D97BF130039C554 /* ShellScript */,
+				4D35642D1D9CCF8100CCEE7D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -312,23 +329,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4D307B9D1D97BF130039C554 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/VKSdkFramework.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D307B7D1D97AA900039C554 /* Sources */ = {
