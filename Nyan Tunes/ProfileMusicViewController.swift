@@ -159,7 +159,6 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! AudioTableViewCell
-        print(cell.title.text)
         audioManager.playNow(obj: cell)
         miniPlayer.refreshStatus()
     }
@@ -185,7 +184,9 @@ extension ProfileMusicViewController: URLSessionDownloadDelegate{
                 let audioCell = audioTableView.cellForRow(at: IndexPath(row: trackIndex!, section: 0)) as? AudioTableViewCell
                 DispatchQueue.main.async {
                     audioCell!.progressLabel.text =  "Network Error."
-                    self.showAlert(text: (error?.localizedDescription)!)
+                    if error?.localizedDescription != "cancelled"{
+                        self.showAlert(text: (error?.localizedDescription)!)
+                    }
                 }
             }
         }
@@ -204,12 +205,13 @@ extension ProfileMusicViewController: URLSessionDownloadDelegate{
             // 3
             let totalSize = ByteCountFormatter.string(fromByteCount: totalBytesExpectedToWrite, countStyle: ByteCountFormatter.CountStyle.binary)
             // 4
-            let trackIndex = downloadManager.trackIndexForDownloadTask(downloadTask: downloadTask)
-            if (trackIndex != nil){
-                let audioCell = audioTableView.cellForRow(at: IndexPath(row: trackIndex!, section: 0)) as? AudioTableViewCell
-                DispatchQueue.main.async {
-                    audioCell!.progressView.progress = download.progress
-                    audioCell!.progressLabel.text =  String(format: "%.1f%% of %@",  download.progress * 100, totalSize)
+            
+            if let trackIndex = downloadManager.trackIndexForDownloadTask(downloadTask: downloadTask){
+                if let audioCell = audioTableView.cellForRow(at: IndexPath(row: trackIndex, section: 0)) as? AudioTableViewCell {
+                    DispatchQueue.main.async {
+                        audioCell.progressView.progress = download.progress
+                        audioCell.progressLabel.text =  String(format: "%.1f%% of %@",  download.progress * 100, totalSize)
+                    }
                 }
             }
         }
@@ -223,13 +225,21 @@ extension ProfileMusicViewController: URLSessionDownloadDelegate{
                 do{
                     try sharedContext.save()
                 } catch { print("CoreData save error") }
+                
+                DispatchQueue.main.async {
+                    let taskUrl = downloadTask.originalRequest?.url?.absoluteString
+                    self.downloadManager.activeDownloads[taskUrl!] = nil
+                    self.files = self.fetchAllAudio()
+                    self.audioTableView.reloadRows(at: [IndexPath(row: trackIndex!, section: 0)], with: .none)
+                }
+            }else{
+                DispatchQueue.main.async {
+                    let taskUrl = downloadTask.originalRequest?.url?.absoluteString
+                    self.downloadManager.activeDownloads[taskUrl!] = nil
+                    self.files = self.fetchAllAudio()
+                    self.audioTableView.reloadData()
+                }
             }
-        DispatchQueue.main.async {
-            let taskUrl = downloadTask.originalRequest?.url?.absoluteString
-            self.downloadManager.activeDownloads[taskUrl!] = nil
-            self.files = self.fetchAllAudio()
-            self.audioTableView.reloadRows(at: [IndexPath(row: trackIndex!, section: 0)], with: .none)
-        }
     }
 }
 
@@ -237,7 +247,6 @@ extension ProfileMusicViewController: URLSessionDownloadDelegate{
 extension ProfileMusicViewController: AudioTableViewCellDelegate{
     
     func downloadTapped(onCell: AudioTableViewCell) {
-        print(self.audioManager.profileAudioItems.count)
         if let indexPath = audioTableView.indexPath(for: onCell) {
             let track = audioManager.profileAudioItems[indexPath.row]
             downloadManager.startDownload(track: track)

@@ -47,8 +47,7 @@ class AudioManager {
             networkStream = false
         }else{
             audioPlayer = nil
-            var playerItem: AVPlayerItem?
-            playerItem = AVPlayerItem(url: obj.url!)
+            let playerItem = AVPlayerItem(url: obj.url!)
             networkStream = true
             player = AVPlayer(playerItem:playerItem)
             player.play()
