@@ -27,11 +27,11 @@
 		4D93C5FB1D99733300B43BC4 /* VKConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */; };
 		4D93C5FD1D997F7F00B43BC4 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */; };
 		4D93C5FF1D99A39A00B43BC4 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */; };
+		4DA075681D9D5F49000BA365 /* UIViewController+showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA075671D9D5F49000BA365 /* UIViewController+showAlert.swift */; };
 		4DB222B51D99665E006FC1B1 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */; };
 		4DB5AB8B1D99B91800106D96 /* AudioFile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5AB891D99B91800106D96 /* AudioFile+CoreDataClass.swift */; };
 		4DB5AB8C1D99B91800106D96 /* AudioFile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5AB8A1D99B91800106D96 /* AudioFile+CoreDataProperties.swift */; };
 		4DB5AB901D99C83D00106D96 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5AB8F1D99C83D00106D96 /* Download.swift */; };
-		4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711021D98238E007C2648 /* TabBarViewController.swift */; };
 		4DC711051D98370F007C2648 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711041D98370F007C2648 /* ProfileViewController.swift */; };
 		4DC7110A1D9910BC007C2648 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711091D9910BC007C2648 /* NetworkImageView.swift */; };
 /* End PBXBuildFile section */
@@ -72,11 +72,11 @@
 		4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKConvenience.swift; sourceTree = "<group>"; };
 		4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
 		4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		4DA075671D9D5F49000BA365 /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
 		4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = "../../git/Nyan Tunes/Carthage/Build/iOS/VKSdkFramework.framework"; sourceTree = "<group>"; };
 		4DB5AB891D99B91800106D96 /* AudioFile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AudioFile+CoreDataClass.swift"; path = "../AudioFile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4DB5AB8A1D99B91800106D96 /* AudioFile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AudioFile+CoreDataProperties.swift"; path = "../AudioFile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4DB5AB8F1D99C83D00106D96 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
-		4DC711021D98238E007C2648 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		4DC711041D98370F007C2648 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4DC711091D9910BC007C2648 /* NetworkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,10 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				4D1A99731D9A2C300028C357 /* Login */,
-				4DC711021D98238E007C2648 /* TabBarViewController.swift */,
 				4D1A99721D9A2C290028C357 /* Profile */,
 				4D1A997C1D9A62010028C357 /* Search */,
 				4D1A99771D9A44280028C357 /* MyMusic */,
+				4DA075671D9D5F49000BA365 /* UIViewController+showAlert.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -345,11 +345,11 @@
 				4D93C5FD1D997F7F00B43BC4 /* MiniPlayerView.swift in Sources */,
 				4D1A99701D9A2AA50028C357 /* DownloadManager.swift in Sources */,
 				4D93C5FB1D99733300B43BC4 /* VKConvenience.swift in Sources */,
+				4DA075681D9D5F49000BA365 /* UIViewController+showAlert.swift in Sources */,
 				4D016D7B1D98086B00BBCED8 /* VKClient.swift in Sources */,
 				4D307B851D97AA900039C554 /* AppDelegate.swift in Sources */,
 				4D1A99791D9A44410028C357 /* MyMusicViewController.swift in Sources */,
 				4D93C5FF1D99A39A00B43BC4 /* AudioManager.swift in Sources */,
-				4DC711031D98238E007C2648 /* TabBarViewController.swift in Sources */,
 				4D1A997E1D9A62230028C357 /* SearchViewController.swift in Sources */,
 				4DB5AB8B1D99B91800106D96 /* AudioFile+CoreDataClass.swift in Sources */,
 				4D93C5F91D9971DB00B43BC4 /* AudioTableViewCell.swift in Sources */,

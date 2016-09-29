@@ -69,7 +69,7 @@
                                     <color key="titleColor" red="0.29803921568627451" green="0.45882352941176469" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="895-7T-Dm1" kind="show" id="F3d-y0-jZx"/>
+                                    <segue destination="Oyr-mq-0a1" kind="show" identifier="continueOffline" id="gGU-9a-S7n"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -364,7 +364,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="r47-FJ-ako">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="r47-FJ-ako">
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="PjT-Ic-Txq" id="MBj-Gf-VUa"/>
@@ -424,6 +424,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3Im-f1-LBx">
+                                <frame key="frameInset" minY="324" width="375" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNX-2D-MIp" customClass="MiniPlayerView" customModule="Nyan_Tunes" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -447,6 +451,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="pmA-QS-Stn"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="3Im-f1-LBx" id="dRL-GZ-Vex"/>
                         <outlet property="audioTableView" destination="1x1-fd-2cm" id="HGV-tI-ocx"/>
                         <outlet property="miniPlayer" destination="bNX-2D-MIp" id="IoH-vq-oqm"/>
                         <outlet property="searchBar" destination="r47-FJ-ako" id="9FO-9X-zW6"/>
@@ -497,7 +502,7 @@
                                         <rect key="frame" x="0.0" y="28" width="1000" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GVg-ty-nKr" id="54m-7E-Ayd">
-                                            <frame key="frameInset" width="1000" height="59"/>
+                                            <frame key="frameInset" width="1000" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WaT-Kf-APh" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
@@ -611,10 +616,10 @@
             </objects>
             <point key="canvasLocation" x="4092" y="554.1229385307347"/>
         </scene>
-        <!--Tab Bar View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="QkJ-MN-pgR">
             <objects>
-                <tabBarController id="3tf-6o-HPc" customClass="TabBarViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="3tf-6o-HPc" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="6wu-sX-uWw">
                         <barButtonItem key="leftBarButtonItem" image="logout" id="tiG-fk-95V">
                             <connections>
@@ -648,6 +653,6 @@
         <image name="logout" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F3d-y0-jZx"/>
+        <segue reference="9ak-7n-V4j"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var audioTableView: UITableView!
     @IBOutlet weak var miniPlayer: MiniPlayerView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var audioManager = AudioManager.sharedInstance
     let vkManager = VKClient.sharedInstance()
@@ -28,11 +29,6 @@ class SearchViewController: UIViewController {
         audioTableView.delegate = self
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     override func viewDidAppear(_ animated: Bool) {
@@ -43,12 +39,21 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
-    }
-    
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        
+        activityIndicator.startAnimating()
+        let searchText = searchBar.text!
+        let params = ["q": searchText, "auto_complete": "1", "sort": "2", "search_own": "1"]
+        vkManager.getSearchResults(withParams: params) { (error, resultItems) in
+            if error != nil {
+                self.activityIndicator.stopAnimating()
+                self.showAlert(text: error!)
+            }else{
+                self.activityIndicator.stopAnimating()
+                self.searchItems = resultItems!
+                self.audioTableView.reloadData()
+            }
+        }
+        self.audioTableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -58,21 +63,6 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
     }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        let params = ["q": searchText, "auto_complete": "1", "sort": "2", "search_own": "1"]
-        vkManager.getSearchResults(withParams: params) { (error, resultItems) in
-            if error != nil {
-                print(error)
-            }else{
-                self.searchItems = resultItems!
-                self.audioTableView.reloadData()
-            }
-        }
-        self.audioTableView.reloadData()
-    }
-
 }
 
 extension SearchViewController: MiniPlayerViewDelegate{
@@ -132,15 +122,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
             })
         }
         audioTableView.setEditing(false, animated: true)
-    }
-
-    
-    func showAlert(text: String){
-        let alert = UIAlertController(title: "Alert", message: text, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
-        
     }
     
 }

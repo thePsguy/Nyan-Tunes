@@ -36,8 +36,13 @@ class AudioManager {
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         
         if(obj.audioData != nil){
-            audioPlayer = try! AVAudioPlayer.init(data: obj.audioData!)
-            audioPlayer!.play()
+            do {
+                try audioPlayer = AVAudioPlayer.init(data: obj.audioData!)
+                audioPlayer!.play()
+            } catch {
+                obj.title.text = "Invalid Download"
+                obj.artist.text = "Delete and download again."
+            }
             player = AVPlayer()
             networkStream = false
         }else{

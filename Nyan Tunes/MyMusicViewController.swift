@@ -17,6 +17,7 @@ class MyMusicViewController: UIViewController {
     
     var audioManager = AudioManager.sharedInstance
     let refreshControl = UIRefreshControl()
+    var offlineMode = false
     
     // Core Data
     var sharedContext: NSManagedObjectContext {
@@ -27,6 +28,13 @@ class MyMusicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if offlineMode {
+            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 25))
+            button.setTitle("Done", for: .normal)
+            button.addTarget(self, action: #selector(dismissSelf), for: .touchUpInside)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: button)
+        }
         
         miniPlayer.delegate = self
 
@@ -50,6 +58,10 @@ class MyMusicViewController: UIViewController {
                 self.refreshControl.endRefreshing()
             }
     
+    func dismissSelf() {
+        print("Called")
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func fetchAllAudio() -> [AudioFile] {
         var result = [AudioFile]()

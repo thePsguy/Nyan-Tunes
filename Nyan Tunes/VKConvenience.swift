@@ -35,8 +35,7 @@ extension VKClient {
     }
     func authorize(_ SCOPE: [Any]){
 //        VKSdk.authorize(SCOPE)
-        VKSdk.authorize(SCOPE, with: VKAuthorizationOptions.unlimitedToken)
-        
+        VKSdk.authorize(SCOPE, with: .unlimitedToken)
     }
 
     func getUserAudio(completion: @escaping (String?, [VKAudio]?) -> Void){

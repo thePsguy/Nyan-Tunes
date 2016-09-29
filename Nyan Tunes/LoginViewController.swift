@@ -63,7 +63,7 @@ class LoginViewController: UIViewController {
     }
     
     func didLogin(){
-        self.performSegue(withIdentifier: "login", sender: nil)
+        performSegue(withIdentifier: "login", sender: nil)
     }
 }
 
@@ -77,16 +77,8 @@ extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
         }
     }
     
-//    func vkSdkDidDismiss(_ controller: UIViewController!) {
-//        if VKSdk.isLoggedIn() {
-//            didLogin()
-//        }else{
-//            self.activityLabel.text = "Login Falied."
-//        }
-//    }
-    
-    func vkSdkUserAuthorizationFailed() {
-        print("Failed")
+    func vkSdkUserAuthorizationFailed() {   //Required Delegate Method
+        showAlert(text: "Authorization Falied")
     }
     
     func vkSdkShouldPresent(_ controller: UIViewController!) {
@@ -98,8 +90,10 @@ extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "login" {
-            
+        if segue.identifier == "continueOffline" {
+            let dest = segue.destination as! UINavigationController
+            let target = dest.topViewController as! MyMusicViewController
+            target.offlineMode = true
         }
     }
 

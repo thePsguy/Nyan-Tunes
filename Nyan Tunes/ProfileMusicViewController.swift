@@ -59,7 +59,7 @@ class ProfileMusicViewController: UIViewController {
             if error != nil {
                 self.refreshControl.endRefreshing()
                 DispatchQueue.main.async {
-                    self.showAlert(error: error!)
+                    self.showAlert(text: error!)
                 }
             }else{
                 self.audioManager.profileAudioItems = audioItems!
@@ -67,14 +67,6 @@ class ProfileMusicViewController: UIViewController {
                 self.refreshControl.endRefreshing()
             }
         })
-    }
-    
-    func showAlert(error: String){
-        let alert = UIAlertController(title: "Error!", message: error, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction.init(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
-        
     }
         
     func fetchAllAudio() -> [AudioFile] {
@@ -150,11 +142,11 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func rowActionHandler(action: UITableViewRowAction, indexPath: IndexPath) {
-        if action.title == "Delete" {
+        if action.title == "Remove" {
             vkManager.deleteUserAudio(audioID: audioManager.profileAudioItems[indexPath.row].id.stringValue, completion: { (error, res) in
                 if error != nil {
                     DispatchQueue.main.async {
-                        self.showAlert(error: error!)
+                        self.showAlert(text: error!)
                     }
                 }else{
                     print("RESPONSE:", res)
@@ -193,9 +185,14 @@ extension ProfileMusicViewController: URLSessionDownloadDelegate{
                 let audioCell = audioTableView.cellForRow(at: IndexPath(row: trackIndex!, section: 0)) as? AudioTableViewCell
                 DispatchQueue.main.async {
                     audioCell!.progressLabel.text =  "Network Error."
+                    self.showAlert(text: (error?.localizedDescription)!)
                 }
             }
         }
+    }
+    
+    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+        showAlert(text: (error?.localizedDescription)!)
     }
 
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
@@ -246,7 +243,6 @@ extension ProfileMusicViewController: AudioTableViewCellDelegate{
             downloadManager.startDownload(track: track)
             audioTableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .none)
         }
-        
     }
     
     func cancelTapped(onCell: AudioTableViewCell) {
