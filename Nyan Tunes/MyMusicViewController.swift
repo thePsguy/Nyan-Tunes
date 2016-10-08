@@ -44,11 +44,16 @@ class MyMusicViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refreshAudio), for: UIControlEvents.valueChanged)
         audioTableView.addSubview(refreshControl)
+        
+        miniPlayer.makeTranslucent()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         refreshAudio()
         miniPlayer.refreshStatus()
+        let topInset = (self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height
+        let bottomInset = self.miniPlayer.frame.height + (self.tabBarController?.tabBar.frame.height)!
+        self.audioTableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
     }
     
     @IBAction func refreshAudio(){

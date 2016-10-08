@@ -27,12 +27,16 @@ class SearchViewController: UIViewController {
         miniPlayer.delegate = self
         audioTableView.dataSource = self
         audioTableView.delegate = self
+        miniPlayer.makeTranslucent()
         // Do any additional setup after loading the view.
     }
     
 
     override func viewDidAppear(_ animated: Bool) {
         miniPlayer.refreshStatus()
+        let topInset = (self.navigationController?.navigationBar.frame.height)! + self.searchBar.frame.height + UIApplication.shared.statusBarFrame.height
+        let bottomInset = self.miniPlayer.frame.height + (self.tabBarController?.tabBar.frame.height)!
+        self.audioTableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
     }
 
 }

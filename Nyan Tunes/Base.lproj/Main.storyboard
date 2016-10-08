@@ -107,10 +107,9 @@
             <objects>
                 <navigationController id="LcX-5z-lKA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="VKontakte" id="XWh-bv-UJM"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lh2-0i-J64">
+                    <navigationBar key="navigationBar" alpha="0.90000000000000002" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="lh2-0i-J64">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -126,7 +125,7 @@
         <!--Profile-->
         <scene sceneID="P20-m3-BnM">
             <objects>
-                <viewController id="w8V-Dm-Pfz" customClass="ProfileViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="w8V-Dm-Pfz" customClass="ProfileViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lzr-33-4hm"/>
                         <viewControllerLayoutGuide type="bottom" id="xte-WH-CRb"/>
@@ -135,7 +134,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xY-Aj-bFZ">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpn-jw-t1F">
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="zED-fU-Khl" kind="embed" id="1UU-bw-C6D"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xY-Aj-bFZ" userLabel="profileView">
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="HJT-EM-Nzw" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
                                         <constraints>
@@ -212,21 +217,16 @@
                                     <constraint firstAttribute="bottom" secondItem="5VP-5G-dS8" secondAttribute="bottom" constant="36" id="wr6-g2-B0M"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpn-jw-t1F">
-                                <connections>
-                                    <segue destination="zED-fU-Khl" kind="embed" id="1UU-bw-C6D"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Qpn-jw-t1F" firstAttribute="top" secondItem="9xY-Aj-bFZ" secondAttribute="bottom" constant="8" id="2vh-NO-7Qo"/>
-                            <constraint firstAttribute="trailing" secondItem="Qpn-jw-t1F" secondAttribute="trailing" id="9d4-l0-osJ"/>
-                            <constraint firstItem="Qpn-jw-t1F" firstAttribute="leading" secondItem="1m2-VZ-XkB" secondAttribute="leading" id="OFz-d4-B9K"/>
-                            <constraint firstItem="9xY-Aj-bFZ" firstAttribute="top" secondItem="Lzr-33-4hm" secondAttribute="bottom" constant="8" id="P4Q-fg-X0k"/>
+                            <constraint firstItem="Qpn-jw-t1F" firstAttribute="leading" secondItem="9xY-Aj-bFZ" secondAttribute="leading" id="Bu0-nq-zRZ"/>
+                            <constraint firstItem="9xY-Aj-bFZ" firstAttribute="top" secondItem="Lzr-33-4hm" secondAttribute="bottom" id="P4Q-fg-X0k"/>
+                            <constraint firstItem="Qpn-jw-t1F" firstAttribute="top" secondItem="1m2-VZ-XkB" secondAttribute="top" constant="-1" id="Rt1-Ik-vjy" userLabel="Container View.top = top - 1"/>
                             <constraint firstItem="9xY-Aj-bFZ" firstAttribute="leading" secondItem="1m2-VZ-XkB" secondAttribute="leading" id="Vcs-ch-eQ9"/>
+                            <constraint firstItem="Qpn-jw-t1F" firstAttribute="bottom" secondItem="xte-WH-CRb" secondAttribute="top" constant="49" id="XLf-0z-PLQ"/>
+                            <constraint firstItem="Qpn-jw-t1F" firstAttribute="trailing" secondItem="9xY-Aj-bFZ" secondAttribute="trailing" id="e36-az-PHk"/>
                             <constraint firstAttribute="trailing" secondItem="9xY-Aj-bFZ" secondAttribute="trailing" id="seE-Hm-gQf"/>
-                            <constraint firstItem="xte-WH-CRb" firstAttribute="top" secondItem="Qpn-jw-t1F" secondAttribute="bottom" id="yRg-5s-5oH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="tob-ga-yBm"/>
@@ -235,6 +235,7 @@
                         <outlet property="countryLabel" destination="5VP-5G-dS8" id="8eu-6H-vbE"/>
                         <outlet property="imageView" destination="HJT-EM-Nzw" id="xfS-VY-h7T"/>
                         <outlet property="nameLabel" destination="w1J-kB-9FW" id="NyC-VR-zYj"/>
+                        <outlet property="profileView" destination="9xY-Aj-bFZ" id="Yek-wr-LvS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPl-WW-9Rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,7 +245,7 @@
         <!--My Music-->
         <scene sceneID="Z1Q-A8-pIt">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="895-7T-Dm1" customClass="MyMusicViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="895-7T-Dm1" customClass="MyMusicViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K6l-qU-qwf"/>
                         <viewControllerLayoutGuide type="bottom" id="mEc-gt-yg4"/>
@@ -257,10 +258,10 @@
                                 <color key="backgroundColor" red="0.792156862745098" green="0.792156862745098" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="60" id="sbN-KW-lll" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sbN-KW-lll" id="87j-yf-2LF">
-                                            <frame key="frameInset" width="375" height="59"/>
+                                            <frame key="frameInset" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Pgc-Gn-R3d" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
@@ -312,13 +313,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ph0-et-PWh" secondAttribute="trailing" id="86R-Vy-dgk"/>
-                            <constraint firstItem="Ph0-et-PWh" firstAttribute="bottom" secondItem="mEc-gt-yg4" secondAttribute="top" constant="-40" id="CwD-HO-HUA"/>
+                            <constraint firstItem="Ph0-et-PWh" firstAttribute="bottom" secondItem="mEc-gt-yg4" secondAttribute="top" constant="49" id="CwD-HO-HUA"/>
                             <constraint firstItem="3jj-E3-z5v" firstAttribute="leading" secondItem="Ph0-et-PWh" secondAttribute="leading" id="DJZ-31-RS7"/>
                             <constraint firstItem="3jj-E3-z5v" firstAttribute="bottom" secondItem="mEc-gt-yg4" secondAttribute="top" id="W6i-8G-IIQ"/>
                             <constraint firstItem="3jj-E3-z5v" firstAttribute="trailing" secondItem="Ph0-et-PWh" secondAttribute="trailing" id="g3e-hI-UMH"/>
                             <constraint firstItem="Ph0-et-PWh" firstAttribute="leading" secondItem="kFz-E5-hi2" secondAttribute="leading" id="jMB-f6-svc"/>
-                            <constraint firstItem="3jj-E3-z5v" firstAttribute="top" secondItem="Ph0-et-PWh" secondAttribute="bottom" id="lLn-nA-Efa"/>
-                            <constraint firstItem="Ph0-et-PWh" firstAttribute="top" secondItem="K6l-qU-qwf" secondAttribute="bottom" id="tfK-p3-ZqZ"/>
+                            <constraint firstItem="3jj-E3-z5v" firstAttribute="top" secondItem="Ph0-et-PWh" secondAttribute="bottom" constant="-89" id="lLn-nA-Efa"/>
+                            <constraint firstItem="Ph0-et-PWh" firstAttribute="top" secondItem="K6l-qU-qwf" secondAttribute="bottom" constant="-64" id="tfK-p3-ZqZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Music" id="5wE-6c-5Og"/>
@@ -336,10 +337,9 @@
             <objects>
                 <navigationController id="GIK-3x-Xoc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="zPn-Jw-7Pu"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1WS-TF-m1w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="1WS-TF-m1w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -364,20 +364,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="r47-FJ-ako">
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="PjT-Ic-Txq" id="MBj-Gf-VUa"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1x1-fd-2cm">
                                 <color key="backgroundColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="472" id="E8g-wM-UOb"/>
+                                    <constraint firstAttribute="height" constant="667" id="E8g-wM-UOb"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="60" id="T9H-vt-xn8" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T9H-vt-xn8" id="kjw-Kc-RdR">
                                             <frame key="frameInset" width="375" height="59"/>
@@ -428,6 +422,13 @@
                                 <frame key="frameInset" minY="324" width="375" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="r47-FJ-ako">
+                                <color key="barTintColor" red="0.30584529042243958" green="0.30590370297431946" blue="0.30584162473678589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PjT-Ic-Txq" id="MBj-Gf-VUa"/>
+                                </connections>
+                            </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNX-2D-MIp" customClass="MiniPlayerView" customModule="Nyan_Tunes" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -439,13 +440,13 @@
                         <constraints>
                             <constraint firstItem="1x1-fd-2cm" firstAttribute="trailing" secondItem="r47-FJ-ako" secondAttribute="trailing" id="87Q-Hl-sJ8"/>
                             <constraint firstItem="bNX-2D-MIp" firstAttribute="bottom" secondItem="6ij-b4-qrY" secondAttribute="top" id="CEl-KE-WME"/>
-                            <constraint firstItem="bNX-2D-MIp" firstAttribute="top" secondItem="1x1-fd-2cm" secondAttribute="bottom" constant="-2" id="D4R-nm-zDc"/>
-                            <constraint firstItem="1x1-fd-2cm" firstAttribute="top" secondItem="Dc5-Pf-aH2" secondAttribute="top" constant="108" id="EnX-eB-SG6"/>
+                            <constraint firstItem="bNX-2D-MIp" firstAttribute="top" secondItem="1x1-fd-2cm" secondAttribute="bottom" constant="-89" id="D4R-nm-zDc"/>
+                            <constraint firstItem="1x1-fd-2cm" firstAttribute="top" secondItem="Dc5-Pf-aH2" secondAttribute="top" id="EnX-eB-SG6"/>
                             <constraint firstItem="1x1-fd-2cm" firstAttribute="leading" secondItem="bNX-2D-MIp" secondAttribute="leading" id="IVU-10-4Z4"/>
                             <constraint firstItem="1x1-fd-2cm" firstAttribute="leading" secondItem="r47-FJ-ako" secondAttribute="leading" id="S8a-mE-HfX"/>
                             <constraint firstAttribute="trailing" secondItem="1x1-fd-2cm" secondAttribute="trailing" id="T4B-W9-W1x"/>
                             <constraint firstItem="1x1-fd-2cm" firstAttribute="leading" secondItem="Dc5-Pf-aH2" secondAttribute="leading" id="YGg-MF-PW9"/>
-                            <constraint firstItem="1x1-fd-2cm" firstAttribute="top" secondItem="r47-FJ-ako" secondAttribute="bottom" id="ddA-iR-ctp"/>
+                            <constraint firstItem="1x1-fd-2cm" firstAttribute="top" secondItem="r47-FJ-ako" secondAttribute="bottom" constant="-108" id="ddA-iR-ctp"/>
                             <constraint firstItem="1x1-fd-2cm" firstAttribute="trailing" secondItem="bNX-2D-MIp" secondAttribute="trailing" id="h7f-2o-eRU"/>
                         </constraints>
                     </view>
@@ -466,10 +467,9 @@
             <objects>
                 <navigationController id="Oyr-mq-0a1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Music" image="Music-Note" id="4Tq-fs-T6l"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ew3-Nt-Wd6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Ew3-Nt-Wd6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -485,24 +485,23 @@
         <!--My Music-->
         <scene sceneID="fFg-Ju-53W">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zED-fU-Khl" customClass="ProfileMusicViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zED-fU-Khl" customClass="ProfileMusicViewController" customModule="Nyan_Tunes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qG3-0Y-bcf"/>
                         <viewControllerLayoutGuide type="bottom" id="YTH-mR-XuE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cL9-Iu-4lL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="444"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gc3-Ye-YyS">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="60" id="GVg-ty-nKr" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GVg-ty-nKr" id="54m-7E-Ayd">
-                                            <frame key="frameInset" width="1000" height="60"/>
+                                            <frame key="frameInset" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WaT-Kf-APh" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
@@ -551,11 +550,13 @@
                                                 <constraint firstItem="hSb-8V-aog" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="53" id="8Xq-IL-NGS"/>
                                                 <constraint firstItem="xcJ-gh-XaO" firstAttribute="top" secondItem="TaW-L2-L6n" secondAttribute="bottom" constant="1" id="9EZ-ob-l5x"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="trailing" secondItem="xcJ-gh-XaO" secondAttribute="trailing" id="AAN-ue-4Fo"/>
+                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="xcJ-gh-XaO" secondAttribute="bottom" constant="6" id="KpI-D7-grg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TaW-L2-L6n" secondAttribute="trailing" constant="92" id="Nbc-Bd-kfJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="rGM-uQ-z4y" secondAttribute="trailing" id="TdY-pY-pen"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="leading" id="VTQ-Lm-fVu"/>
                                                 <constraint firstItem="hSb-8V-aog" firstAttribute="centerY" secondItem="WaT-Kf-APh" secondAttribute="centerY" id="XCf-HK-E78"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="WaT-Kf-APh" secondAttribute="trailing" constant="8" symbolic="YES" id="Xfu-bW-viU"/>
+                                                <constraint firstItem="WaT-Kf-APh" firstAttribute="centerY" secondItem="54m-7E-Ayd" secondAttribute="centerY" id="Ycn-3G-ce3"/>
                                                 <constraint firstItem="pQt-cZ-cTf" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="44" id="ZAd-Ka-8Js"/>
                                                 <constraint firstItem="xcJ-gh-XaO" firstAttribute="bottom" secondItem="54m-7E-Ayd" secondAttribute="bottomMargin" id="bkR-CN-Cy1"/>
                                                 <constraint firstItem="UMk-at-Cyb" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="4" id="dqN-UA-awL"/>
@@ -582,22 +583,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QO-8A-bwU" customClass="MiniPlayerView" customModule="Nyan_Tunes" customModuleProvider="target">
-                                <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="5vR-8R-1XC"/>
-                                </constraints>
-                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QO-8A-bwU" customClass="MiniPlayerView" customModule="Nyan_Tunes" customModuleProvider="target"/>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="YTH-mR-XuE" firstAttribute="top" secondItem="8QO-8A-bwU" secondAttribute="bottom" id="80G-Cx-E6T"/>
-                            <constraint firstItem="8QO-8A-bwU" firstAttribute="leading" secondItem="cL9-Iu-4lL" secondAttribute="leading" id="K55-KC-pfj"/>
-                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="leading" secondItem="cL9-Iu-4lL" secondAttribute="leading" id="LXQ-ug-hir"/>
-                            <constraint firstItem="YTH-mR-XuE" firstAttribute="top" secondItem="Gc3-Ye-YyS" secondAttribute="bottom" id="aGf-xc-lTX"/>
-                            <constraint firstAttribute="trailing" secondItem="Gc3-Ye-YyS" secondAttribute="trailing" id="ngu-rZ-6Gn"/>
-                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="top" secondItem="qG3-0Y-bcf" secondAttribute="bottom" id="ofg-sn-Kho"/>
-                            <constraint firstAttribute="trailing" secondItem="8QO-8A-bwU" secondAttribute="trailing" id="xQb-Lx-ToY"/>
+                            <constraint firstItem="8QO-8A-bwU" firstAttribute="trailing" secondItem="Gc3-Ye-YyS" secondAttribute="trailing" id="3er-M0-Zv0"/>
+                            <constraint firstAttribute="bottom" secondItem="Gc3-Ye-YyS" secondAttribute="bottom" id="4ta-FW-i6n"/>
+                            <constraint firstItem="8QO-8A-bwU" firstAttribute="top" secondItem="qG3-0Y-bcf" secondAttribute="bottom" constant="579" id="GX7-On-5JN"/>
+                            <constraint firstItem="8QO-8A-bwU" firstAttribute="leading" secondItem="Gc3-Ye-YyS" secondAttribute="leading" id="QmK-kH-Fag"/>
+                            <constraint firstAttribute="trailing" secondItem="Gc3-Ye-YyS" secondAttribute="trailing" id="UVn-KS-O3g"/>
+                            <constraint firstItem="8QO-8A-bwU" firstAttribute="bottom" secondItem="YTH-mR-XuE" secondAttribute="top" id="Wyn-yF-fBQ"/>
+                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="leading" secondItem="cL9-Iu-4lL" secondAttribute="leading" id="dUQ-Sa-Qwn"/>
+                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="top" secondItem="qG3-0Y-bcf" secondAttribute="bottom" id="iHr-Hh-yRz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Music" id="lrl-PU-hm7">
@@ -607,6 +604,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
                     <connections>
                         <outlet property="audioTableView" destination="Gc3-Ye-YyS" id="LkU-rX-3OA"/>
                         <outlet property="miniPlayer" destination="8QO-8A-bwU" id="sjp-6v-jdC"/>
@@ -614,7 +612,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3z-LQ-bIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4092" y="554.1229385307347"/>
+            <point key="canvasLocation" x="4092" y="553.22338830584715"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QkJ-MN-pgR">
@@ -627,7 +625,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="WK8-48-hA2">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="WK8-48-hA2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

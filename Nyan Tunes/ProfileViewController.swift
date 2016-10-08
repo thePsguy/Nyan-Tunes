@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var profileView: UIView!
     
     let vkManager: VKClient = {
         return VKClient.sharedInstance
@@ -22,9 +23,6 @@ class ProfileViewController: UIViewController {
     var user: VKUser?
     
     override func viewDidLoad() {
-        
-        print(UserDefaults.standard.bool(forKey:"firstLaunch"))
-        
         super.viewDidLoad()
         user = vkManager.getUser()
         imageView.layer.cornerRadius = 36
@@ -33,9 +31,22 @@ class ProfileViewController: UIViewController {
         cityLabel.text = user?.bdate
         countryLabel.text = user?.country?.title
         
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            self.profileView.backgroundColor = UIColor.clear
+            
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            //always fill the view
+            blurEffectView.frame = self.profileView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.profileView.insertSubview(blurEffectView, at: 0)
+        } else {
+            self.view.backgroundColor = UIColor.black
+        }
+        
         imageView.imageFromServerURL(urlString: (user?.photo_200)!)
     }
-
+    
     @IBAction func logoutNow(_ sender: AnyObject) {
         VKSdk.forceLogout()
         super.dismiss(animated: true, completion: nil)

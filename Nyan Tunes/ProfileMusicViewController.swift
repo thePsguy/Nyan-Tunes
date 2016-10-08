@@ -35,7 +35,7 @@ class ProfileMusicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         downloadManager.downloadDelegate = self
         
         miniPlayer.delegate = self
@@ -46,9 +46,19 @@ class ProfileMusicViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(self.refreshAudio), for: UIControlEvents.valueChanged)
         audioTableView.addSubview(refreshControl)
         
+        miniPlayer.makeTranslucent()
+    }
+    
+        
+    override func viewWillAppear(_ animated: Bool) {
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let parent = self.parent as! ProfileViewController
+        let navHeight = (parent.navigationController?.navigationBar.frame.height)! + parent.profileView.frame.height + UIApplication.shared.statusBarFrame.height
+        let playerHeight = self.miniPlayer.frame.height
+        self.audioTableView.contentInset = UIEdgeInsets(top: navHeight, left: 0, bottom: playerHeight, right: 0)
         miniPlayer.refreshStatus()
         refreshAudio()
     }

@@ -22,9 +22,10 @@ class MiniPlayerView: UIView {
         let width = bounds.size.width
         let height = bounds.size.height
         
-        button.setImage(UIImage(named: "play"), for: .normal)
+        let playImage = UIImage(named: "play")
+        
+        button.setImage(playImage, for: .normal)
         button.addTarget(self, action: #selector(MiniPlayerView.togglePlay(button:)), for: .touchDown)
-        button.tintColor = UIColor.white
         
         titleLabel.center = CGPoint(x: width/2, y: height/2 - 10)
         titleLabel.font = UIFont(name: "Helvetica Neue", size: 16)
@@ -43,11 +44,27 @@ class MiniPlayerView: UIView {
         addSubview(titleLabel)
         addSubview(button)
         
-        self.backgroundColor = UIColor.init(red: 0.34, green: 0.34, blue: 0.34, alpha: 1.0)
     }
+    
+    func makeTranslucent() {
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            self.backgroundColor = UIColor.clear
+            
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            //always fill the view
+            blurEffectView.frame = self.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.insertSubview(blurEffectView, at: 0)
+        } else {
+            self.backgroundColor = UIColor.black
+        }
+    }
+
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         artistLabel.text = "-"
         titleLabel.text = "-"
         activityIndicator.hidesWhenStopped = true
