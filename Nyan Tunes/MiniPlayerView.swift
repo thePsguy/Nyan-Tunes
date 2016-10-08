@@ -64,9 +64,6 @@ class MiniPlayerView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        artistLabel.text = "-"
-        titleLabel.text = "-"
         activityIndicator.hidesWhenStopped = true
     }
     
