@@ -52,7 +52,8 @@ class MyMusicViewController: UIViewController {
         refreshAudio()
         miniPlayer.refreshStatus()
         let topInset = (self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height
-        let bottomInset = self.miniPlayer.frame.height + (self.tabBarController?.tabBar.frame.height)!
+        let tabBarHeight = self.tabBarController?.tabBar.frame.height == nil ? 0 : (self.tabBarController?.tabBar.frame.height)!
+        let bottomInset = self.miniPlayer.frame.height + tabBarHeight
         self.audioTableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
     }
     

@@ -44,7 +44,6 @@ class MiniPlayerView: UIView {
         addSubview(artistLabel)
         addSubview(titleLabel)
         addSubview(button)
-        
     }
     
     func makeTranslucent() {
