@@ -19,6 +19,7 @@ class MiniPlayerView: UIView {
     // MARK: Initialization
     
     override func layoutSubviews() {
+        self.frame.size.height = 40
         let width = bounds.size.width
         let height = bounds.size.height
         
