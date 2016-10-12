@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import VKSdkFramework
+import VK_ios_sdk
 import AVFoundation
 import CoreData
 
@@ -112,17 +112,22 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
         if(audioItem.url != nil){
             var showDownloadControls = false
             var downloadable = true
+            
             for file in files{
                 if Int(audioItem.id) == Int(file.id){
+                    print(audioItem.title, file.title!)
                     downloadable = false
                     cell.audioData = file.audioData! as Data
                 }
+            }
+            if downloadable == true{
+                cell.audioData = nil
             }
             
             if let download = downloadManager.activeDownloads[audioItem.url!] {
                 showDownloadControls = true
                 cell.progressView.progress = download.progress
-                cell.progressLabel.text = "Downloading..."
+                cell.progressLabel.text = "Waiting..."
             }
             
             cell.cancelButton.isHidden = !showDownloadControls
@@ -170,6 +175,7 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! AudioTableViewCell
+        print(cell.title.text, cell.audioData)
         audioManager.playNow(obj: cell)
         miniPlayer.refreshStatus()
     }

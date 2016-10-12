@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import VKSdkFramework
+import VK_ios_sdk
 
 class SearchViewController: UIViewController {
 

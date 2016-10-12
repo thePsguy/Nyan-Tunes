@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import VKSdkFramework
+import VK_ios_sdk
 
 class LoginViewController: UIViewController {
     
@@ -71,10 +71,26 @@ extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         if ((result.token) != nil) {
-            print("Authed")
+//            UserDefaults.standard.set(result.token, forKey: VKClient.Constants.VK_ACCESS_TOKEN_DEFAULTS_KEY)
+            print("authed")
+//            UserDefaults.setValue(result.token.accessToken, forKey: "vkToken")
         } else if ((result.error) != nil) {
             print(result.error)
         }
+    }
+    
+    func vkSdkAuthorizationStateUpdated(with result: VKAuthorizationResult!) {
+        print("AUTH STATE UPDATED TO ", result.state.rawValue)
+    }
+    
+    func vkSdkTokenHasExpired(_ expiredToken: VKAccessToken!) {
+        print("TOKEN EXPIRED")
+    }
+    
+    func vkSdkAccessTokenUpdated(_ newToken: VKAccessToken!, oldToken: VKAccessToken!) {
+        let token: String? = newToken?.accessToken
+        let old: String? = oldToken?.accessToken
+        print("TOKEN UPDATED TO", token, "FROM", old)
     }
     
     func vkSdkUserAuthorizationFailed() {   //Required Delegate Method

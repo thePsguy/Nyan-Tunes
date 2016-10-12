@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import VKSdkFramework
+import VK_ios_sdk
 
 class ProfileViewController: UIViewController {
 
@@ -48,6 +48,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logoutNow(_ sender: AnyObject) {
+//        UserDefaults.setValue(nil, forKey: "vkToken")
         VKSdk.forceLogout()
         super.dismiss(animated: true, completion: nil)
     }

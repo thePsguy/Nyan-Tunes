@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import VKSdkFramework
+import VK_ios_sdk
 
 class DownloadManager:NSObject {
 

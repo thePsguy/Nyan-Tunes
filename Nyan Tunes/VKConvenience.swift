@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import VKSdkFramework
+import VK_ios_sdk
 
 extension VKClient {
 
@@ -21,6 +21,7 @@ extension VKClient {
     
     func sessionExistsWith(_ SCOPE: [Any], completion: @escaping (Bool) -> Void){
         VKSdk.wakeUpSession(SCOPE, complete: {(state: VKAuthorizationState, error: Error?) -> Void in
+            print(state.rawValue)
             if (state == VKAuthorizationState.authorized) {
                 self.User = VKSdk.accessToken().localUser
                 completion(true)

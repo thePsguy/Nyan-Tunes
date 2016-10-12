@@ -11,7 +11,7 @@ import Foundation
 import Foundation
 import AVFoundation
 import MediaPlayer
-import VKSdkFramework
+import VK_ios_sdk
 import CoreAudio
 
 class AudioManager {
