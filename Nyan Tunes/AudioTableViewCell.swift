@@ -34,7 +34,12 @@ class AudioTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         let width = bounds.size.width
-//        let height = bounds.size.height
+        self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
+        title.textColor = UIColor.white
+        artist.textColor = UIColor.white
+        progressLabel?.textColor = UIColor.white
+        cancelButton?.tintColor = UIColor.white
+        downloadButton?.tintColor = UIColor.white
         
         let nick = UIImageView.init(frame: CGRect(x: width-15, y: 5, width: 12, height: 12))
         nick.contentMode = UIViewContentMode.scaleAspectFit

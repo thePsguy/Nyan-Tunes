@@ -56,9 +56,10 @@ class ProfileMusicViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let parent = self.parent as! ProfileViewController
-        let navHeight = (parent.navigationController?.navigationBar.frame.height)! + parent.profileView.frame.height + UIApplication.shared.statusBarFrame.height
-        let playerHeight = self.miniPlayer.frame.height
-        self.audioTableView.contentInset = UIEdgeInsets(top: navHeight, left: 0, bottom: playerHeight, right: 0)
+        let tabBarHeight = self.tabBarController?.tabBar.frame.height == nil ? 0 : (self.tabBarController?.tabBar.frame.height)!
+        let topInset = (parent.navigationController?.navigationBar.frame.height)! + parent.profileView.frame.height + UIApplication.shared.statusBarFrame.height
+        let bottomInset = self.miniPlayer.frame.height + tabBarHeight
+        self.audioTableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
         miniPlayer.refreshStatus()
         refreshAudio()
     }

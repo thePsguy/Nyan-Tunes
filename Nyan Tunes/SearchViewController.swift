@@ -46,7 +46,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         activityIndicator.startAnimating()
         let searchText = searchBar.text!
-        let params = ["q": searchText, "auto_complete": "1", "sort": "2", "search_own": "1"]
+        let params = ["q": searchText, "auto_complete": "0", "sort": "2", "search_own": "1"]
         vkManager.getSearchResults(withParams: params) { (error, resultItems) in
             if error != nil {
                 self.activityIndicator.stopAnimating()
