@@ -2,7 +2,9 @@
 
 ##Building
 > Swift 3, XCode 8.0+
+
 > Clone, `cd Nyan-Tunes` , `pod install`
+
 > Build & Run.
 
 
