@@ -69,6 +69,7 @@
 		4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKConvenience.swift; sourceTree = "<group>"; };
 		4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
 		4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		4D98CE181DB202BA0041201C /* Nyan Tunes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nyan Tunes.entitlements"; sourceTree = "<group>"; };
 		4DA075671D9D5F49000BA365 /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
 		4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = "../../git/Nyan Tunes/Carthage/Build/iOS/VKSdkFramework.framework"; sourceTree = "<group>"; };
 		4DB5AB891D99B91800106D96 /* AudioFile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AudioFile+CoreDataClass.swift"; path = "../AudioFile+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -175,6 +176,7 @@
 		4D307B831D97AA900039C554 /* Nyan Tunes */ = {
 			isa = PBXGroup;
 			children = (
+				4D98CE181DB202BA0041201C /* Nyan Tunes.entitlements */,
 				4D307B841D97AA900039C554 /* AppDelegate.swift */,
 				4D307BA01D97C06D0039C554 /* Models */,
 				4DC711081D99109C007C2648 /* Views */,
@@ -306,6 +308,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
 								enabled = 1;
 							};
 						};
@@ -538,9 +543,11 @@
 			baseConfigurationReference = EC19ECC762809A0565EA542A /* Pods-Nyan Tunes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Nyan Tunes/Nyan Tunes.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = V6JUB3D3PN;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -559,9 +566,11 @@
 			baseConfigurationReference = 806FBCD617C52387F8D0F610 /* Pods-Nyan Tunes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Nyan Tunes/Nyan Tunes.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = V6JUB3D3PN;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
