@@ -2,6 +2,7 @@
 
 ![Demo GIF](http://i.giphy.com/26hirYP5Nhsf09da8.gif)
 
+Jailbroken? Get it on [Cydia](http://cydia.saurik.com/package/net.thepsguy.nyantunes/)
 ##Building
 > Swift 3, XCode 8.0+
 
