@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        initRemoteEvents()
+        
+        return true
+    }
+    
+    func initRemoteEvents(){
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
         let commandCenter = MPRemoteCommandCenter.shared()
@@ -26,8 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget(handler: AudioManager.sharedInstance.togglePlay)
-        
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -141,7 +141,7 @@
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xY-Aj-bFZ" userLabel="profileView">
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D8C6BF6F-48A1-4899-924A-7A4B86CACFB0" translatesAutoresizingMaskIntoConstraints="NO" id="HJT-EM-Nzw" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="61031451-52D5-4B71-A6C7-31923E079C75" translatesAutoresizingMaskIntoConstraints="NO" id="HJT-EM-Nzw" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="57" id="JdS-SI-dcC"/>
                                         </constraints>
@@ -251,21 +251,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ph0-et-PWh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ph0-et-PWh">
                                 <color key="backgroundColor" red="0.792156862745098" green="0.792156862745098" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="60" id="sbN-KW-lll" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="50" id="sbN-KW-lll" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sbN-KW-lll" id="87j-yf-2LF">
-                                            <frame key="frameInset" width="375" height="59.5"/>
+                                            <frame key="frameInset" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Pgc-Gn-R3d" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="59" id="0sZ-5q-gVV"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdU-pm-KNc">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ZB8-F6-xod"/>
@@ -279,19 +274,24 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Pgc-Gn-R3d" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="33" id="0sZ-5q-gVV"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Pgc-Gn-R3d" firstAttribute="top" secondItem="87j-yf-2LF" secondAttribute="top" id="5rB-q5-4Ak"/>
+                                                <constraint firstItem="Pgc-Gn-R3d" firstAttribute="top" secondItem="87j-yf-2LF" secondAttribute="top" constant="8" id="5rB-q5-4Ak"/>
                                                 <constraint firstItem="BdU-pm-KNc" firstAttribute="top" secondItem="87j-yf-2LF" secondAttribute="topMargin" id="9wO-w8-cxV"/>
                                                 <constraint firstItem="LyR-rn-nHc" firstAttribute="top" secondItem="BdU-pm-KNc" secondAttribute="bottom" constant="1" id="DKG-cF-nl2"/>
-                                                <constraint firstAttribute="bottom" secondItem="Pgc-Gn-R3d" secondAttribute="bottom" id="HcL-zO-FXb"/>
-                                                <constraint firstItem="Pgc-Gn-R3d" firstAttribute="leading" secondItem="87j-yf-2LF" secondAttribute="leading" constant="8" id="JAX-zT-AI8"/>
+                                                <constraint firstAttribute="bottom" secondItem="Pgc-Gn-R3d" secondAttribute="bottom" constant="8" id="HcL-zO-FXb"/>
+                                                <constraint firstItem="Pgc-Gn-R3d" firstAttribute="leading" secondItem="87j-yf-2LF" secondAttribute="leading" constant="13" id="JAX-zT-AI8"/>
                                                 <constraint firstItem="BdU-pm-KNc" firstAttribute="trailing" secondItem="LyR-rn-nHc" secondAttribute="trailing" id="Vab-Fh-gh2"/>
                                                 <constraint firstItem="LyR-rn-nHc" firstAttribute="bottom" secondItem="87j-yf-2LF" secondAttribute="bottomMargin" id="gw7-Xq-aHU"/>
                                                 <constraint firstItem="BdU-pm-KNc" firstAttribute="leading" secondItem="LyR-rn-nHc" secondAttribute="leading" id="hec-IS-wGb"/>
                                                 <constraint firstItem="Pgc-Gn-R3d" firstAttribute="centerY" secondItem="87j-yf-2LF" secondAttribute="centerY" id="ipb-ej-aAT"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BdU-pm-KNc" secondAttribute="trailing" constant="92" id="lD7-Ab-9wT"/>
-                                                <constraint firstItem="BdU-pm-KNc" firstAttribute="leading" secondItem="Pgc-Gn-R3d" secondAttribute="trailing" constant="8" symbolic="YES" id="tk6-O9-eQa"/>
+                                                <constraint firstItem="BdU-pm-KNc" firstAttribute="leading" secondItem="Pgc-Gn-R3d" secondAttribute="trailing" constant="29" id="tk6-O9-eQa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -360,24 +360,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1x1-fd-2cm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1x1-fd-2cm">
                                 <color key="backgroundColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="667" id="E8g-wM-UOb"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="60" id="T9H-vt-xn8" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="50" id="T9H-vt-xn8" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T9H-vt-xn8" id="kjw-Kc-RdR">
-                                            <frame key="frameInset" width="375" height="59.5"/>
+                                            <frame key="frameInset" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="TZc-c1-BeW" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="59" id="8oX-ag-Ci3"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RA-xv-zee">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Rgd-pn-BJ1"/>
@@ -391,6 +386,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="TZc-c1-BeW" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="33" id="8oX-ag-Ci3"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4RA-xv-zee" firstAttribute="leading" secondItem="61P-1d-Iu2" secondAttribute="leading" constant="1" id="0wr-zz-Wtw"/>
@@ -398,11 +398,11 @@
                                                 <constraint firstItem="61P-1d-Iu2" firstAttribute="top" secondItem="4RA-xv-zee" secondAttribute="bottom" constant="-2" id="Nx0-Jz-xD0"/>
                                                 <constraint firstItem="4RA-xv-zee" firstAttribute="top" secondItem="kjw-Kc-RdR" secondAttribute="topMargin" id="T3o-qx-Dcg"/>
                                                 <constraint firstItem="TZc-c1-BeW" firstAttribute="leading" secondItem="kjw-Kc-RdR" secondAttribute="leadingMargin" id="bNK-Sh-OYL"/>
-                                                <constraint firstItem="TZc-c1-BeW" firstAttribute="top" secondItem="kjw-Kc-RdR" secondAttribute="top" id="hni-mf-IbJ"/>
+                                                <constraint firstItem="TZc-c1-BeW" firstAttribute="top" secondItem="kjw-Kc-RdR" secondAttribute="top" constant="9" id="hni-mf-IbJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="4RA-xv-zee" secondAttribute="trailing" constant="92" id="uiY-b2-KTu"/>
                                                 <constraint firstItem="4RA-xv-zee" firstAttribute="trailing" secondItem="61P-1d-Iu2" secondAttribute="trailing" constant="1" id="xTM-4K-ase"/>
                                                 <constraint firstItem="TZc-c1-BeW" firstAttribute="centerY" secondItem="kjw-Kc-RdR" secondAttribute="centerY" id="yZX-ki-hoI"/>
-                                                <constraint firstItem="4RA-xv-zee" firstAttribute="leading" secondItem="TZc-c1-BeW" secondAttribute="trailing" constant="8" symbolic="YES" id="yeJ-lA-pfI"/>
+                                                <constraint firstItem="4RA-xv-zee" firstAttribute="leading" secondItem="TZc-c1-BeW" secondAttribute="trailing" constant="34" id="yeJ-lA-pfI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -489,21 +489,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gc3-Ye-YyS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gc3-Ye-YyS">
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="60" id="GVg-ty-nKr" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="50" id="GVg-ty-nKr" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GVg-ty-nKr" id="54m-7E-Ayd">
-                                            <frame key="frameInset" width="1000" height="60"/>
+                                            <frame key="frameInset" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WaT-Kf-APh" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="59" id="fmY-lU-ZAI"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rGM-uQ-z4y"/>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaW-L2-L6n">
                                                     <constraints>
@@ -538,32 +533,37 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WaT-Kf-APh" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="33" id="fmY-lU-ZAI"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hSb-8V-aog" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="59" id="6kC-rX-W5Y"/>
-                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="36" id="7RY-h9-Btq"/>
+                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="29" id="7RY-h9-Btq"/>
                                                 <constraint firstItem="xcJ-gh-XaO" firstAttribute="top" secondItem="TaW-L2-L6n" secondAttribute="bottom" constant="1" id="9EZ-ob-l5x"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="trailing" secondItem="xcJ-gh-XaO" secondAttribute="trailing" id="AAN-ue-4Fo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="pQt-cZ-cTf" secondAttribute="trailing" constant="-7" id="DZO-2p-qb6"/>
-                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="UMk-at-Cyb" secondAttribute="bottom" constant="5" id="Esh-t6-XUd"/>
-                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="xcJ-gh-XaO" secondAttribute="bottom" constant="6" id="KpI-D7-grg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pQt-cZ-cTf" secondAttribute="trailing" id="DZO-2p-qb6"/>
+                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="UMk-at-Cyb" secondAttribute="bottom" constant="-1" id="Esh-t6-XUd"/>
+                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="xcJ-gh-XaO" secondAttribute="bottom" id="KpI-D7-grg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TaW-L2-L6n" secondAttribute="trailing" constant="92" id="Nbc-Bd-kfJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="rGM-uQ-z4y" secondAttribute="trailing" id="TdY-pY-pen"/>
+                                                <constraint firstAttribute="trailing" secondItem="rGM-uQ-z4y" secondAttribute="trailing" constant="8" id="TdY-pY-pen"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="leading" id="VTQ-Lm-fVu"/>
-                                                <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="WaT-Kf-APh" secondAttribute="trailing" constant="8" symbolic="YES" id="Xfu-bW-viU"/>
+                                                <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="WaT-Kf-APh" secondAttribute="trailing" constant="26" id="Xfu-bW-viU"/>
                                                 <constraint firstItem="WaT-Kf-APh" firstAttribute="centerY" secondItem="54m-7E-Ayd" secondAttribute="centerY" id="Ycn-3G-ce3"/>
                                                 <constraint firstItem="xcJ-gh-XaO" firstAttribute="bottom" secondItem="54m-7E-Ayd" secondAttribute="bottomMargin" id="bkR-CN-Cy1"/>
-                                                <constraint firstItem="UMk-at-Cyb" firstAttribute="trailing" secondItem="rGM-uQ-z4y" secondAttribute="trailing" id="ftW-ZR-J67"/>
-                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="hSb-8V-aog" secondAttribute="bottom" constant="14" id="hnd-jV-AAj"/>
+                                                <constraint firstItem="UMk-at-Cyb" firstAttribute="trailing" secondItem="rGM-uQ-z4y" secondAttribute="trailing" constant="8" id="ftW-ZR-J67"/>
+                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="hSb-8V-aog" secondAttribute="bottom" constant="2" id="hnd-jV-AAj"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="top" secondItem="54m-7E-Ayd" secondAttribute="topMargin" id="hpR-51-RlV"/>
-                                                <constraint firstAttribute="bottom" secondItem="WaT-Kf-APh" secondAttribute="bottom" id="kQJ-zw-D96"/>
-                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="bottom" secondItem="WaT-Kf-APh" secondAttribute="bottom" id="kse-8B-KVd"/>
-                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="centerY" secondItem="WaT-Kf-APh" secondAttribute="centerY" id="pWp-18-pfb"/>
-                                                <constraint firstItem="WaT-Kf-APh" firstAttribute="leading" secondItem="54m-7E-Ayd" secondAttribute="leading" constant="8" id="qKG-w6-Jfm"/>
+                                                <constraint firstAttribute="bottom" secondItem="WaT-Kf-APh" secondAttribute="bottom" constant="8" id="kQJ-zw-D96"/>
+                                                <constraint firstItem="rGM-uQ-z4y" firstAttribute="bottom" secondItem="WaT-Kf-APh" secondAttribute="bottom" constant="2" id="kse-8B-KVd"/>
+                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="centerY" secondItem="WaT-Kf-APh" secondAttribute="centerY" constant="-6" id="pWp-18-pfb"/>
+                                                <constraint firstItem="WaT-Kf-APh" firstAttribute="leading" secondItem="54m-7E-Ayd" secondAttribute="leading" constant="16" id="qKG-w6-Jfm"/>
                                                 <constraint firstItem="rGM-uQ-z4y" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="leading" constant="-59" id="rjx-5w-ZAz"/>
-                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="centerY" secondItem="hSb-8V-aog" secondAttribute="centerY" id="sAz-2K-lxn"/>
+                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="centerY" secondItem="hSb-8V-aog" secondAttribute="centerY" constant="0.25" id="sAz-2K-lxn"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hSb-8V-aog" secondAttribute="trailing" constant="8" id="vuW-b3-oHh"/>
-                                                <constraint firstItem="WaT-Kf-APh" firstAttribute="top" secondItem="54m-7E-Ayd" secondAttribute="top" id="zM6-vi-DnS"/>
+                                                <constraint firstItem="WaT-Kf-APh" firstAttribute="top" secondItem="54m-7E-Ayd" secondAttribute="top" constant="8" id="zM6-vi-DnS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
@@ -638,7 +638,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D8C6BF6F-48A1-4899-924A-7A4B86CACFB0" width="400" height="400">
+        <image name="61031451-52D5-4B71-A6C7-31923E079C75" width="400" height="400">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

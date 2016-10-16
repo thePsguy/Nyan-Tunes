@@ -19,6 +19,8 @@ class MyMusicViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     var offlineMode = false
     
+    var docVC: UIDocumentInteractionController?
+    
     // Core Data
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance().managedObjectContext
@@ -115,12 +117,18 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         var actions: [UITableViewRowAction] = []
         
-        let download = UITableViewRowAction(style: .default, title: "Delete") { (action, actionIndex) in
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, actionIndex) in
             self.rowActionHandler(action: action, indexPath: indexPath)
         }
         
-        actions.append(download)
+        let exportAction = UITableViewRowAction(style: .default , title: "Export") { (action, actionIndex) in
+            self.rowActionHandler(action: action, indexPath: indexPath)
+        }
         
+        exportAction.backgroundColor = UIColor(red: 0.66, green: 0.72, blue: 0.33, alpha: 1.0)
+        
+        actions.append(deleteAction)
+        actions.append(exportAction)
         return actions
     }
     
@@ -130,9 +138,23 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource{
             sharedContext.delete(file)
             try! sharedContext.save()
             refreshAudio()
+        } else if action.title == "Export"{
+            let file = files[indexPath.row]
+            let fileName = file.title!  + " " + String(file.id) + ".mp3"
+            let url = URL(fileURLWithPath: NSTemporaryDirectory().appending(fileName))
+            let data = file.audioData as! Data
+            
+            // write data
+            do { try data.write(to: url)} catch{
+                print(error)
+            }
+            
+            self.docVC = UIDocumentInteractionController(url: url)
+            self.docVC?.delegate = self
+            self.docVC!.presentOpenInMenu(from: (self.tabBarController?.tabBar.frame)!, in: self.view, animated: true)
+//            self.present(activityVC, animated: true, completion: nil)
+            }
         }
-    }
-    
 }
 
 extension MyMusicViewController: MiniPlayerViewDelegate{
@@ -144,4 +166,20 @@ extension MyMusicViewController: MiniPlayerViewDelegate{
             }
             miniPlayer.refreshStatus()
         }
+}
+
+extension MyMusicViewController: UIDocumentInteractionControllerDelegate {
+
+    func documentInteractionControllerDidDismissOpenInMenu(_ controller: UIDocumentInteractionController) {
+        if let url = controller.url {
+            let fileManager = FileManager.default
+            do {
+                try fileManager.removeItem(at: url)
+            }
+            catch let error {
+                print("Ooops! Something went wrong: \(error)")
+            }
+        }
+    }
+    
 }
