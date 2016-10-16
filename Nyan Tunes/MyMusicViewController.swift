@@ -151,7 +151,7 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource{
             
             self.docVC = UIDocumentInteractionController(url: url)
             self.docVC?.delegate = self
-            self.docVC!.presentOpenInMenu(from: (self.tabBarController?.tabBar.frame)!, in: self.view, animated: true)
+            self.docVC!.presentOpenInMenu(from: (self.miniPlayer.frame), in: self.view, animated: true)
 //            self.present(activityVC, animated: true, completion: nil)
             }
         }
