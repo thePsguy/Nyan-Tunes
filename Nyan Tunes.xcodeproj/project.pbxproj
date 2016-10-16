@@ -290,6 +290,7 @@
 				4D35642D1D9CCF8100CCEE7D /* Embed Frameworks */,
 				F5EF7DF38F90D18AC21F1319 /* [CP] Embed Pods Frameworks */,
 				29B5DC018FE6E20439ADA0A8 /* [CP] Copy Pods Resources */,
+				4D8987C01DB36CBB004BC206 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -371,6 +372,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nyan Tunes/Pods-Nyan Tunes-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		4D8987C01DB36CBB004BC206 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" a8311122b11de529a8a05a622eea3af6d21a174c 4dcd2cc69015de3c209c3f000ba8f6de0a72b7bbb0ca532efca499a5f20379ee";
 		};
 		B19D66562BC7A0A14808DA2B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

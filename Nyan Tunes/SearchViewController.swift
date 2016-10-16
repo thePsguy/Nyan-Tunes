@@ -38,7 +38,6 @@ class SearchViewController: UIViewController {
         let bottomInset = self.miniPlayer.frame.height + (self.tabBarController?.tabBar.frame.height)!
         self.audioTableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
     }
-
 }
 
 extension SearchViewController: UISearchBarDelegate {
