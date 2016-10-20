@@ -38,6 +38,8 @@ class ProfileMusicViewController: UIViewController {
         
         downloadManager.downloadDelegate = self
         
+        audioManager.delegate = self
+        
         miniPlayer.delegate = self
         audioTableView.delegate = self
         audioTableView.dataSource = self
@@ -55,6 +57,10 @@ class ProfileMusicViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if let nowPlaying = audioManager.playingObject {
+            self.miniPlayer.slider.maximumValue = Float(nowPlaying.duration!)
+        }
+        audioManager.delegate = self
         let parent = self.parent as! ProfileViewController
         let tabBarHeight = self.tabBarController?.tabBar.frame.height == nil ? 0 : (self.tabBarController?.tabBar.frame.height)!
         let topInset = (parent.navigationController?.navigationBar.frame.height)! + parent.profileView.frame.height + UIApplication.shared.statusBarFrame.height
@@ -115,9 +121,9 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
             
             for file in files{
                 if Int(audioItem.id) == Int(file.id){
-                    print(audioItem.title, file.title!)
                     downloadable = false
                     cell.audioData = file.audioData! as Data
+                    cell.trackBytes = ((file.audioData?.length)! * 8)   //Bits to Bytes
                 }
             }
             if downloadable == true{
@@ -175,7 +181,7 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! AudioTableViewCell
-        print(cell.title.text, cell.audioData)
+        self.miniPlayer.slider.maximumValue = Float(cell.duration!)
         audioManager.playNow(obj: cell)
         miniPlayer.refreshStatus()
     }
@@ -276,6 +282,19 @@ extension ProfileMusicViewController: AudioTableViewCellDelegate{
             let track = audioManager.profileAudioItems[indexPath.row]
             downloadManager.cancelDownload(track: track)
             audioTableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .none)
+        }
+    }
+}
+
+extension ProfileMusicViewController: AudioManagerDelegate {
+    func playDidProgress(toSeconds: Float?) {
+        if toSeconds != nil{
+            self.miniPlayer.slider.setValue(toSeconds!, animated: false)
+            if audioManager.networkStream {
+                self.miniPlayer.bufferProgress.progress = audioManager.availableDuration()
+            } else {
+                self.miniPlayer.bufferProgress.progress = 0
+            }
         }
     }
 }

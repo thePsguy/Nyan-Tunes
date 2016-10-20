@@ -23,6 +23,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        audioManager.delegate = self
         searchBar.delegate = self
         miniPlayer.delegate = self
         audioTableView.dataSource = self
@@ -34,6 +35,10 @@ class SearchViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         miniPlayer.refreshStatus()
+        audioManager.delegate = self
+        if let nowPlaying = audioManager.playingObject {
+            self.miniPlayer.slider.maximumValue = Float(nowPlaying.duration!)
+        }
         let topInset = (self.navigationController?.navigationBar.frame.height)! + self.searchBar.frame.height + UIApplication.shared.statusBarFrame.height
         let bottomInset = self.miniPlayer.frame.height + (self.tabBarController?.tabBar.frame.height)!
         self.audioTableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
@@ -92,6 +97,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
         cell.artist.text = audioItem.artist
         cell.duration = Int(audioItem.duration)
         cell.url = URL(string: audioItem.url)
+        cell.trackDelegate = self
         return cell
     }
 
@@ -119,14 +125,28 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
                     DispatchQueue.main.async {
                         self.showAlert(text: error!)
                     }
-                }else{
-                    DispatchQueue.main.async {
-                        self.showAlert(text: "Added track to VK Profile")
-                    }
                 }
             })
         }
         audioTableView.setEditing(false, animated: true)
     }
+}
+
+extension SearchViewController: AudioTableViewCellDelegate, AudioManagerDelegate {
+    func playPreviewTapped(onCell: AudioTableViewCell) {
+        audioManager.playNow(obj: onCell)
+        self.miniPlayer.slider.maximumValue = Float(onCell.duration!)
+        miniPlayer.refreshStatus()
+    }
     
+    func playDidProgress(toSeconds: Float?) {
+        if toSeconds != nil{
+            self.miniPlayer.slider.setValue(toSeconds!, animated: false)
+            if audioManager.networkStream {
+                self.miniPlayer.bufferProgress.progress = audioManager.availableDuration()
+            } else {
+                self.miniPlayer.bufferProgress.progress = 0
+            }
+        }
+    }
 }

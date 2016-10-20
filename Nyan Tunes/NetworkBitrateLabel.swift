@@ -12,7 +12,7 @@ class NetworkBitrateLabel: UILabel {
 
     var bitRateSet = false
     
-    func setBitrateFromUrl(url: URL, withTrackLength length: Int, forceLoad: Bool? = false){
+    func setBitrateFrom(url: URL, withTrackLength length: Int, forceLoad: Bool? = false){
         if bitRateSet == false || forceLoad == true{
             var headerRequest = URLRequest(url: url)
             headerRequest.httpMethod = "HEAD"
@@ -20,11 +20,15 @@ class NetworkBitrateLabel: UILabel {
             NSURLConnection.sendAsynchronousRequest(headerRequest, queue: .main) { (response, data, error) in
                 if let httpResponse = response as? HTTPURLResponse {
                     let size = httpResponse.expectedContentLength
-                    print("Size, Length: ",size, length)
                     self.text = "\((size*8/1024)/Int64(length)) kbps"
                     self.bitRateSet = true
                 }
             }
         }
+    }
+    
+    func setBitrateFrom(value: Int){
+        self.text = "\(value) kbps"
+        self.bitRateSet = true
     }
 }

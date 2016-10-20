@@ -8,11 +8,13 @@
 
 import UIKit
 import CoreData
+import VK_ios_sdk
 
 class MyMusicViewController: UIViewController {
 
     
     @IBOutlet weak var audioTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var miniPlayer: MiniPlayerView!
     
     var audioManager = AudioManager.sharedInstance
@@ -27,10 +29,11 @@ class MyMusicViewController: UIViewController {
     }
     
     var files = [AudioFile]()
+    var allFiles = [AudioFile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if offlineMode {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 25))
             button.setTitle("Done", for: .normal)
@@ -38,6 +41,7 @@ class MyMusicViewController: UIViewController {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: button)
         }
         
+        searchBar.delegate = self
         miniPlayer.delegate = self
 
         audioTableView.delegate = self
@@ -50,21 +54,37 @@ class MyMusicViewController: UIViewController {
         miniPlayer.makeTranslucent()
     }
     
+    func filterTracks(forSearchText searchText: String) {
+        let results = allFiles.filter({ (file) -> Bool in
+            return (file.title?.contains(searchText))! || (file.artist?.contains(searchText))!
+        })
+        files = results
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         refreshAudio()
         miniPlayer.refreshStatus()
-        let topInset = (self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height
+        audioManager.delegate = self
+        if let nowPlaying = audioManager.playingObject {
+            self.miniPlayer.slider.maximumValue = Float(nowPlaying.duration!)
+        }
+        let topInset = (self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height + searchBar.bounds.height
         let tabBarHeight = self.tabBarController?.tabBar.frame.height == nil ? 0 : (self.tabBarController?.tabBar.frame.height)!
         let bottomInset = self.miniPlayer.frame.height + tabBarHeight
         self.audioTableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: bottomInset, right: 0)
     }
     
     @IBAction func refreshAudio(){
-                files = fetchAllAudio()
-                self.audioManager.downloadedAudioItems = files
+                allFiles = fetchAllAudio()
+        
+                if searchBar.text == "" {
+                    files = allFiles
+                }
+        
+                self.audioManager.downloadedAudioItems = allFiles
                 self.audioTableView.reloadData()
                 self.refreshControl.endRefreshing()
-            }
+    }
     
     func dismissSelf() {
         print("Called")
@@ -99,6 +119,7 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! AudioTableViewCell
+        self.miniPlayer.slider.maximumValue = Float(cell.duration!)
         audioManager.playNow(obj: cell)
         miniPlayer.refreshStatus()
     }
@@ -111,6 +132,7 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource{
         cell.audioData = file.audioData! as Data
         cell.url = URL(string: file.url!)
         cell.duration = Int(file.duration!)
+        cell.trackBytes = ((file.audioData?.length)! * 8)   //Bits to Bytes
         return cell
     }
     
@@ -157,7 +179,7 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource{
         }
 }
 
-extension MyMusicViewController: MiniPlayerViewDelegate{
+extension MyMusicViewController: MiniPlayerViewDelegate, UISearchBarDelegate{
         func togglePlay() {
             if audioManager.isPlaying {
                 audioManager.pausePlay()
@@ -166,6 +188,12 @@ extension MyMusicViewController: MiniPlayerViewDelegate{
             }
             miniPlayer.refreshStatus()
         }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterTracks(forSearchText: searchText)
+        audioTableView.reloadData()
+    }
+    
 }
 
 extension MyMusicViewController: UIDocumentInteractionControllerDelegate {
@@ -181,5 +209,17 @@ extension MyMusicViewController: UIDocumentInteractionControllerDelegate {
             }
         }
     }
-    
+}
+
+extension MyMusicViewController: AudioManagerDelegate{
+    func playDidProgress(toSeconds: Float?) {
+        if toSeconds != nil{
+            self.miniPlayer.slider.setValue(toSeconds!, animated: false)
+            if audioManager.networkStream {
+                self.miniPlayer.bufferProgress.progress = audioManager.availableDuration()
+            } else {
+                self.miniPlayer.bufferProgress.progress = 0
+            }
+        }
+    }
 }

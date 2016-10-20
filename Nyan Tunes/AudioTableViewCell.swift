@@ -21,6 +21,7 @@ class AudioTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var downloadButton: UIButton!
+
     
     var bitrateLabel: NetworkBitrateLabel!
     var durationLabel: UILabel!
@@ -28,6 +29,7 @@ class AudioTableViewCell: UITableViewCell {
     var url: URL?
     var audioData: Data?
     var duration: Int?
+    var trackBytes: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,8 +37,10 @@ class AudioTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        self.separatorInset = .zero
         let width = bounds.size.width
+        
+        self.title.adjustsFontSizeToFitWidth = true
+        
         self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
         title.textColor = UIColor.white
         artist.textColor = UIColor.white
@@ -48,11 +52,11 @@ class AudioTableViewCell: UITableViewCell {
         nick.contentMode = UIViewContentMode.scaleAspectFit
         nick.image = UIImage(named: "DragLeft")
         
-        bitrateLabel.frame = CGRect(x: width-45, y: 25, width: 45, height: 18)
+        bitrateLabel.frame = CGRect(x: width-45, y: 15, width: 45, height: 18)
         bitrateLabel.textColor = .white
         bitrateLabel.adjustsFontSizeToFitWidth = true
         
-        durationLabel.frame = CGRect(x: width-45, y: 15, width: 45, height: 18)
+        durationLabel.frame = CGRect(x: width-45, y: 5, width: 45, height: 18)
         durationLabel.textColor = .white
         durationLabel.font = durationLabel.font.withSize(12)
         
@@ -61,8 +65,11 @@ class AudioTableViewCell: UITableViewCell {
             let minutes = Int(seconds/60)
             durationLabel.text = "\(minutes):" + String(format: "%02d",seconds-minutes*60)
             
-            if url != nil {
-                bitrateLabel.setBitrateFromUrl(url: url!, withTrackLength: duration!)
+            if trackBytes != nil{
+                let bitrate = Int((trackBytes!/1024)/seconds)   //Bytes to Kbs
+                bitrateLabel.setBitrateFrom(value: bitrate)
+            } else if url != nil {
+                bitrateLabel.setBitrateFrom(url: url!, withTrackLength: duration!)
             }
         }
         
@@ -90,10 +97,21 @@ class AudioTableViewCell: UITableViewCell {
     @IBAction func downloadTapped(_ sender: AnyObject) {
         trackDelegate?.downloadTapped(onCell: self)
     }
+    
+    @IBAction func playPreview(_ sender: AnyObject) {
+        trackDelegate?.playPreviewTapped(onCell: self)
+    }
 
 }
 
 protocol AudioTableViewCellDelegate {
     func cancelTapped(onCell: AudioTableViewCell)
     func downloadTapped(onCell: AudioTableViewCell)
+    func playPreviewTapped(onCell: AudioTableViewCell)
+}
+
+extension AudioTableViewCellDelegate{                       
+    func cancelTapped(onCell: AudioTableViewCell){}
+    func downloadTapped(onCell: AudioTableViewCell){}
+    func playPreviewTapped(onCell: AudioTableViewCell){}
 }

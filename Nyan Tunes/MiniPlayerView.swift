@@ -14,6 +14,8 @@ class MiniPlayerView: UIView {
     let artistLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 25))
     let button = UIButton(frame: CGRect(x: 10, y: 8, width: 25, height: 25))
     let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 8, width: 25, height: 25))
+    let slider = UISlider()
+    let bufferProgress = UIProgressView()
     weak var delegate: MiniPlayerViewDelegate?
     
     // MARK: Initialization
@@ -22,6 +24,16 @@ class MiniPlayerView: UIView {
         self.frame.size.height = 40
         let width = bounds.size.width
         let height = bounds.size.height
+        
+        slider.frame = CGRect(x: 0, y: -12, width: width, height: 25)
+        slider.setThumbImage(UIImage(named: "slider-thumb"), for: .normal)
+        
+        bufferProgress.frame = CGRect(x: 0, y: 0, width: width, height: 25)
+        bufferProgress.trackTintColor = UIColor(red:0.63, green:0.63, blue:0.63, alpha:1.0)
+        bufferProgress.progressTintColor = UIColor(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+        
+        slider.minimumTrackTintColor = UIColor(red:0.33, green:0.33, blue:0.33, alpha:1.0)
+        slider.maximumTrackTintColor = .clear
         
         let playImage = UIImage(named: "play")
         
@@ -40,6 +52,8 @@ class MiniPlayerView: UIView {
         
         activityIndicator.center = CGPoint(x:width-30, y:height/2)
 
+        addSubview(bufferProgress)
+        addSubview(slider)
         addSubview(activityIndicator)
         addSubview(artistLabel)
         addSubview(titleLabel)
@@ -65,6 +79,8 @@ class MiniPlayerView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         activityIndicator.hidesWhenStopped = true
+        slider.isContinuous = true
+        slider.addTarget(AudioManager.sharedInstance, action: #selector(AudioManager.sharedInstance.seekTo), for: .valueChanged)
     }
     
     func setPlayButton(playing: Bool){
@@ -76,6 +92,7 @@ class MiniPlayerView: UIView {
     }
     
     func refreshStatus(){
+        bufferProgress.progress = 0
         let audioManager = AudioManager.sharedInstance
         self.titleLabel.text = audioManager.playingObject?.title.text
         self.artistLabel.text = audioManager.playingObject?.artist.text
