@@ -90,6 +90,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
         let audioItem = self.searchItems[indexPath.row]
         cell.title.text = audioItem.title
         cell.artist.text = audioItem.artist
+        cell.duration = Int(audioItem.duration)
+        cell.url = URL(string: audioItem.url)
         return cell
     }
 

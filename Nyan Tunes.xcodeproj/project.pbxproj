@@ -21,6 +21,7 @@
 		4D307B8F1D97AA900039C554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B8E1D97AA900039C554 /* Assets.xcassets */; };
 		4D307B921D97AA900039C554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B901D97AA900039C554 /* LaunchScreen.storyboard */; };
 		4D3C67FE1DB3A08300DD5006 /* Pods_Nyan_Tunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C67FD1DB3A08300DD5006 /* Pods_Nyan_Tunes.framework */; };
+		4D82FD4A1DB8DAF000775E1A /* NetworkBitrateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D82FD491DB8DAF000775E1A /* NetworkBitrateLabel.swift */; };
 		4D93C5F71D99701F00B43BC4 /* ProfileMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F61D99701F00B43BC4 /* ProfileMusicViewController.swift */; };
 		4D93C5F91D9971DB00B43BC4 /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */; };
 		4D93C5FB1D99733300B43BC4 /* VKConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */; };
@@ -66,6 +67,7 @@
 		4D307B931D97AA900039C554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D307B9B1D97BA840039C554 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
 		4D3C67FD1DB3A08300DD5006 /* Pods_Nyan_Tunes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Nyan_Tunes.framework; path = "../../Library/Developer/Xcode/DerivedData/Nyan_Tunes-dogwouenqeidyqdfywfzexgdcpzv/Build/Products/Debug-iphonesimulator/Pods_Nyan_Tunes.framework"; sourceTree = "<group>"; };
+		4D82FD491DB8DAF000775E1A /* NetworkBitrateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkBitrateLabel.swift; sourceTree = "<group>"; };
 		4D93C5F61D99701F00B43BC4 /* ProfileMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMusicViewController.swift; sourceTree = "<group>"; };
 		4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewCell.swift; sourceTree = "<group>"; };
 		4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKConvenience.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				4DC711091D9910BC007C2648 /* NetworkImageView.swift */,
 				4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */,
 				4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */,
+				4D82FD491DB8DAF000775E1A /* NetworkBitrateLabel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				4D1A99761D9A2CB20028C357 /* DownloadManagerConvenivence.swift in Sources */,
 				4DB5AB901D99C83D00106D96 /* Download.swift in Sources */,
 				4DB5AB8C1D99B91800106D96 /* AudioFile+CoreDataProperties.swift in Sources */,
+				4D82FD4A1DB8DAF000775E1A /* NetworkBitrateLabel.swift in Sources */,
 				4D93C5F71D99701F00B43BC4 /* ProfileMusicViewController.swift in Sources */,
 				4D016D781D97CBE000BBCED8 /* CoreDataStackManager.swift in Sources */,
 				4D93C5FD1D997F7F00B43BC4 /* MiniPlayerView.swift in Sources */,
@@ -563,7 +567,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Nyan Tunes/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.thePsguy.NyanTunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -583,7 +587,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Nyan Tunes/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.thePsguy.NyanTunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";

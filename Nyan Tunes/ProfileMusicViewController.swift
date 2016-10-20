@@ -140,7 +140,7 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
         cell.trackDelegate = self
         cell.title.text = audioItem.title!
         cell.artist.text = audioItem.artist!
-        cell.duration = audioItem.duration.stringValue
+        cell.duration = Int(audioItem.duration)
         cell.url = URL(string: audioItem.url)
         return cell
     }

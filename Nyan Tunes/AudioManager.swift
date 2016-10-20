@@ -31,7 +31,7 @@ class AudioManager {
     
     func playNow(obj: AudioTableViewCell){
         playingObject = obj
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: obj.artist.text!, MPMediaItemPropertyTitle: obj.title.text! , MPMediaItemPropertyPlaybackDuration: NSNumber.init(value: Int(obj.duration!)!)]
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: obj.artist.text!, MPMediaItemPropertyTitle: obj.title.text! , MPMediaItemPropertyPlaybackDuration: NSNumber.init(value: obj.duration!)]
         
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         

@@ -110,7 +110,7 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource{
         cell.artist.text = file.artist!
         cell.audioData = file.audioData! as Data
         cell.url = URL(string: file.url!)
-        cell.duration = file.duration
+        cell.duration = Int(file.duration!)
         return cell
     }
     
@@ -170,7 +170,7 @@ extension MyMusicViewController: MiniPlayerViewDelegate{
 
 extension MyMusicViewController: UIDocumentInteractionControllerDelegate {
 
-    func documentInteractionControllerDidDismissOpenInMenu(_ controller: UIDocumentInteractionController) {
+    func documentInteractionController(_ controller: UIDocumentInteractionController, didEndSendingToApplication application: String?) {
         if let url = controller.url {
             let fileManager = FileManager.default
             do {

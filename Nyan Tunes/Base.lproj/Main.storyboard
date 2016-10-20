@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -141,7 +142,7 @@
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xY-Aj-bFZ" userLabel="profileView">
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="61031451-52D5-4B71-A6C7-31923E079C75" translatesAutoresizingMaskIntoConstraints="NO" id="HJT-EM-Nzw" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="628E50E0-8EE7-4B25-AED5-D3E371F283BF" translatesAutoresizingMaskIntoConstraints="NO" id="HJT-EM-Nzw" customClass="NetworkImageView" customModule="Nyan_Tunes" customModuleProvider="target">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="57" id="JdS-SI-dcC"/>
                                         </constraints>
@@ -255,10 +256,10 @@
                                 <color key="backgroundColor" red="0.792156862745098" green="0.792156862745098" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="50" id="sbN-KW-lll" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="92" width="1000" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sbN-KW-lll" id="87j-yf-2LF">
-                                            <frame key="frameInset" width="375" height="49"/>
+                                            <frame key="frameInset" width="1000" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdU-pm-KNc">
@@ -367,10 +368,10 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioCell" rowHeight="50" id="T9H-vt-xn8" customClass="AudioTableViewCell" customModule="Nyan_Tunes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="92" width="1000" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T9H-vt-xn8" id="kjw-Kc-RdR">
-                                            <frame key="frameInset" width="375" height="49"/>
+                                            <frame key="frameInset" width="1000" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RA-xv-zee">
@@ -496,7 +497,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GVg-ty-nKr" id="54m-7E-Ayd">
-                                            <frame key="frameInset" width="375" height="49"/>
+                                            <frame key="frameInset" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rGM-uQ-z4y"/>
@@ -540,11 +541,11 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hSb-8V-aog" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="59" id="6kC-rX-W5Y"/>
-                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="29" id="7RY-h9-Btq"/>
+                                                <constraint firstItem="hSb-8V-aog" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="20" id="6kC-rX-W5Y"/>
+                                                <constraint firstItem="pQt-cZ-cTf" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="trailing" constant="1" id="7RY-h9-Btq"/>
                                                 <constraint firstItem="xcJ-gh-XaO" firstAttribute="top" secondItem="TaW-L2-L6n" secondAttribute="bottom" constant="1" id="9EZ-ob-l5x"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="trailing" secondItem="xcJ-gh-XaO" secondAttribute="trailing" id="AAN-ue-4Fo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="pQt-cZ-cTf" secondAttribute="trailing" id="DZO-2p-qb6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pQt-cZ-cTf" secondAttribute="trailing" constant="28" id="DZO-2p-qb6"/>
                                                 <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="UMk-at-Cyb" secondAttribute="bottom" constant="-1" id="Esh-t6-XUd"/>
                                                 <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="xcJ-gh-XaO" secondAttribute="bottom" id="KpI-D7-grg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TaW-L2-L6n" secondAttribute="trailing" constant="92" id="Nbc-Bd-kfJ"/>
@@ -553,7 +554,7 @@
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="leading" secondItem="WaT-Kf-APh" secondAttribute="trailing" constant="26" id="Xfu-bW-viU"/>
                                                 <constraint firstItem="WaT-Kf-APh" firstAttribute="centerY" secondItem="54m-7E-Ayd" secondAttribute="centerY" id="Ycn-3G-ce3"/>
                                                 <constraint firstItem="xcJ-gh-XaO" firstAttribute="bottom" secondItem="54m-7E-Ayd" secondAttribute="bottomMargin" id="bkR-CN-Cy1"/>
-                                                <constraint firstItem="UMk-at-Cyb" firstAttribute="trailing" secondItem="rGM-uQ-z4y" secondAttribute="trailing" constant="8" id="ftW-ZR-J67"/>
+                                                <constraint firstItem="UMk-at-Cyb" firstAttribute="trailing" secondItem="rGM-uQ-z4y" secondAttribute="trailing" constant="-15" id="ftW-ZR-J67"/>
                                                 <constraint firstItem="rGM-uQ-z4y" firstAttribute="top" secondItem="hSb-8V-aog" secondAttribute="bottom" constant="2" id="hnd-jV-AAj"/>
                                                 <constraint firstItem="TaW-L2-L6n" firstAttribute="top" secondItem="54m-7E-Ayd" secondAttribute="topMargin" id="hpR-51-RlV"/>
                                                 <constraint firstAttribute="bottom" secondItem="WaT-Kf-APh" secondAttribute="bottom" constant="8" id="kQJ-zw-D96"/>
@@ -562,7 +563,7 @@
                                                 <constraint firstItem="WaT-Kf-APh" firstAttribute="leading" secondItem="54m-7E-Ayd" secondAttribute="leading" constant="16" id="qKG-w6-Jfm"/>
                                                 <constraint firstItem="rGM-uQ-z4y" firstAttribute="leading" secondItem="xcJ-gh-XaO" secondAttribute="leading" constant="-59" id="rjx-5w-ZAz"/>
                                                 <constraint firstItem="pQt-cZ-cTf" firstAttribute="centerY" secondItem="hSb-8V-aog" secondAttribute="centerY" constant="0.25" id="sAz-2K-lxn"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hSb-8V-aog" secondAttribute="trailing" constant="8" id="vuW-b3-oHh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hSb-8V-aog" secondAttribute="trailing" constant="47" id="vuW-b3-oHh"/>
                                                 <constraint firstItem="WaT-Kf-APh" firstAttribute="top" secondItem="54m-7E-Ayd" secondAttribute="top" constant="8" id="zM6-vi-DnS"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -583,14 +584,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8QO-8A-bwU" firstAttribute="trailing" secondItem="Gc3-Ye-YyS" secondAttribute="trailing" id="3er-M0-Zv0"/>
-                            <constraint firstAttribute="bottom" secondItem="Gc3-Ye-YyS" secondAttribute="bottom" id="4ta-FW-i6n"/>
-                            <constraint firstItem="8QO-8A-bwU" firstAttribute="top" secondItem="qG3-0Y-bcf" secondAttribute="bottom" constant="579" id="GX7-On-5JN"/>
-                            <constraint firstItem="8QO-8A-bwU" firstAttribute="leading" secondItem="Gc3-Ye-YyS" secondAttribute="leading" id="QmK-kH-Fag"/>
-                            <constraint firstAttribute="trailing" secondItem="Gc3-Ye-YyS" secondAttribute="trailing" id="UVn-KS-O3g"/>
-                            <constraint firstItem="8QO-8A-bwU" firstAttribute="bottom" secondItem="YTH-mR-XuE" secondAttribute="top" id="Wyn-yF-fBQ"/>
-                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="leading" secondItem="cL9-Iu-4lL" secondAttribute="leading" id="dUQ-Sa-Qwn"/>
-                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="top" secondItem="qG3-0Y-bcf" secondAttribute="bottom" id="iHr-Hh-yRz"/>
+                            <constraint firstItem="8QO-8A-bwU" firstAttribute="bottom" secondItem="YTH-mR-XuE" secondAttribute="top" id="6Do-mK-c7X"/>
+                            <constraint firstItem="8QO-8A-bwU" firstAttribute="trailing" secondItem="Gc3-Ye-YyS" secondAttribute="trailing" id="GJz-Ne-dIw"/>
+                            <constraint firstItem="8QO-8A-bwU" firstAttribute="top" secondItem="qG3-0Y-bcf" secondAttribute="bottom" constant="579" id="bXk-1c-OnJ"/>
+                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="leading" secondItem="cL9-Iu-4lL" secondAttribute="leading" id="fsy-jW-wK1"/>
+                            <constraint firstAttribute="bottom" secondItem="Gc3-Ye-YyS" secondAttribute="bottom" id="mSK-wk-7cA"/>
+                            <constraint firstItem="Gc3-Ye-YyS" firstAttribute="top" secondItem="qG3-0Y-bcf" secondAttribute="bottom" id="tJg-xW-Nfq"/>
+                            <constraint firstAttribute="trailing" secondItem="Gc3-Ye-YyS" secondAttribute="trailing" id="wBK-NU-AcX"/>
+                            <constraint firstItem="8QO-8A-bwU" firstAttribute="leading" secondItem="Gc3-Ye-YyS" secondAttribute="leading" id="xj1-oU-lUX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Music" id="lrl-PU-hm7">
@@ -638,7 +639,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="61031451-52D5-4B71-A6C7-31923E079C75" width="400" height="400">
+        <image name="628E50E0-8EE7-4B25-AED5-D3E371F283BF" width="400" height="400">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
