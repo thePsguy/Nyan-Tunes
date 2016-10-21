@@ -139,6 +139,10 @@ extension SearchViewController: AudioTableViewCellDelegate, AudioManagerDelegate
         searchBar.resignFirstResponder()
     }
     
+    func trackChanged() {
+        self.miniPlayer.refreshStatus()
+    }
+    
     func playPreviewTapped(onCell: AudioTableViewCell) {
         audioManager.playNow(obj: onCell)
         self.miniPlayer.slider.maximumValue = Float(onCell.duration!)

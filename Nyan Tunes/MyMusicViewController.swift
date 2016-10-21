@@ -230,6 +230,11 @@ extension MyMusicViewController: UIDocumentInteractionControllerDelegate {
 }
 
 extension MyMusicViewController: AudioManagerDelegate{
+    
+    func trackChanged() {
+        self.miniPlayer.refreshStatus()
+    }
+    
     func playDidProgress(toSeconds: Float?) {
         if toSeconds != nil{
             self.miniPlayer.slider.setValue(toSeconds!, animated: false)

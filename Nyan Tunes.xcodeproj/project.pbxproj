@@ -35,6 +35,7 @@
 		4DC7110A1D9910BC007C2648 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC711091D9910BC007C2648 /* NetworkImageView.swift */; };
 		4DF442711DBA1C8500FF87EF /* ProfileMusicViewController+SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF442701DBA1C8500FF87EF /* ProfileMusicViewController+SearchBarDelegate.swift */; };
 		4DF442731DBA40D300FF87EF /* NowPlayingAudioItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF442721DBA40D300FF87EF /* NowPlayingAudioItem.swift */; };
+		4DF442751DBA4DA000FF87EF /* AudioManager+AVAudioPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF442741DBA4DA000FF87EF /* AudioManager+AVAudioPlayerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +86,7 @@
 		4DC711091D9910BC007C2648 /* NetworkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 		4DF442701DBA1C8500FF87EF /* ProfileMusicViewController+SearchBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileMusicViewController+SearchBarDelegate.swift"; sourceTree = "<group>"; };
 		4DF442721DBA40D300FF87EF /* NowPlayingAudioItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingAudioItem.swift; sourceTree = "<group>"; };
+		4DF442741DBA4DA000FF87EF /* AudioManager+AVAudioPlayerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioManager+AVAudioPlayerDelegate.swift"; sourceTree = "<group>"; };
 		54EA997A41CDDCD871FEDB54 /* Pods-Nyan Tunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nyan Tunes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nyan Tunes/Pods-Nyan Tunes.release.xcconfig"; sourceTree = "<group>"; };
 		641F883E9FC574FAC203322F /* Pods-Nyan Tunes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nyan Tunes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nyan Tunes/Pods-Nyan Tunes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */,
+				4DF442741DBA4DA000FF87EF /* AudioManager+AVAudioPlayerDelegate.swift */,
 				4DF442721DBA40D300FF87EF /* NowPlayingAudioItem.swift */,
 			);
 			name = "Audio Manager";
@@ -439,6 +442,7 @@
 				4D93C5FF1D99A39A00B43BC4 /* AudioManager.swift in Sources */,
 				4D1A997E1D9A62230028C357 /* SearchViewController.swift in Sources */,
 				4DB5AB8B1D99B91800106D96 /* AudioFile+CoreDataClass.swift in Sources */,
+				4DF442751DBA4DA000FF87EF /* AudioManager+AVAudioPlayerDelegate.swift in Sources */,
 				4D93C5F91D9971DB00B43BC4 /* AudioTableViewCell.swift in Sources */,
 				4D016D7E1D98117700BBCED8 /* VKConstants.swift in Sources */,
 				4DF442731DBA40D300FF87EF /* NowPlayingAudioItem.swift in Sources */,

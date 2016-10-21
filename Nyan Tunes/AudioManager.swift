@@ -14,7 +14,7 @@ import MediaPlayer
 import VK_ios_sdk
 import CoreAudio
 
-class AudioManager {
+class AudioManager: NSObject {
     
     static let sharedInstance = AudioManager()
     var delegate: AudioManagerDelegate?
@@ -29,7 +29,7 @@ class AudioManager {
     var updateTimer = Timer()
     
     
-    private init() {}
+    override private init() {}
     
     func fireTimer(){
         DispatchQueue.main.async {
@@ -77,12 +77,13 @@ class AudioManager {
         if(playingObject?.audioData != nil){
             do {
                 try audioPlayer = AVAudioPlayer.init(data: (playingObject?.audioData!)!)
-                NotificationCenter.default.addObserver(self, selector: #selector(self.nextTrack), name: .AVPlayerItemDidPlayToEndTime, object: audioPlayer)
+                audioPlayer?.delegate = self
                 audioPlayer!.play()
+                delegate?.trackChanged()
             } catch {
                 obj?.title.text = "Invalid Download"
                 obj?.artist.text = "Delete and download again."
-                nextTrack(event: nil)
+                playNext()
             }
             player.pause()
             networkStream = false
@@ -92,6 +93,7 @@ class AudioManager {
             networkStream = true
             player = AVPlayer(playerItem:playerItem)
             player.play()
+            delegate?.trackChanged()
         }
         self.isPlaying = true
         fireTimer()
@@ -101,7 +103,12 @@ class AudioManager {
         playingObject = NowPlayingAudioItem(title: title, artist: artist, url: url, audioData: audioData, duration: duration, trackBytes: trackBytes)
     }
     
-    @objc func nextTrack(event: MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus{
+    @objc func playNext(){
+        print("Called Next Track")
+        let _ = nextTrack(event: nil)
+    }
+    
+    func nextTrack(event: MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus{
             if networkStream{
                 return .noSuchContent
             } else {
@@ -184,10 +191,12 @@ class AudioManager {
 
 protocol AudioManagerDelegate: class {
     func playDidProgress(toSeconds: Float?)
+    func trackChanged()
     func stateChanged(playing: Bool, buffering: Bool)
 }
 
 extension AudioManagerDelegate {
     func playDidProgress(toSeconds: Float?){}
+    func trackChanged(){}
     func stateChanged(playing: Bool, buffering: Bool){}
 }
