@@ -31,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget(handler: AudioManager.sharedInstance.togglePlay)
+        
+        commandCenter.nextTrackCommand.isEnabled = true
+        commandCenter.nextTrackCommand.addTarget(handler: AudioManager.sharedInstance.nextTrack)
+        
+        commandCenter.previousTrackCommand.isEnabled = true
+        commandCenter.previousTrackCommand.addTarget(handler: AudioManager.sharedInstance.previousTrack)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

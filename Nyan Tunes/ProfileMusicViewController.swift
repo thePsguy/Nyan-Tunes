@@ -23,6 +23,8 @@ class ProfileMusicViewController: UIViewController {
     var files = [AudioFile]()
     var audioManager = AudioManager.sharedInstance
     let refreshControl = UIRefreshControl()
+    var allAudioItems = [VKAudio]()
+    var searchBar = UISearchBar()
     
     // Core Data
     var sharedContext: NSManagedObjectContext {
@@ -51,11 +53,6 @@ class ProfileMusicViewController: UIViewController {
         miniPlayer.makeTranslucent()
     }
     
-        
-    override func viewWillAppear(_ animated: Bool) {
-    
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         if let nowPlaying = audioManager.playingObject {
             self.miniPlayer.slider.maximumValue = Float(nowPlaying.duration!)
@@ -72,6 +69,8 @@ class ProfileMusicViewController: UIViewController {
 
     @IBAction func refreshAudio(){
         files = fetchAllAudio()
+        self.audioManager.downloadedAudioItems = files
+        filterTracks(forSearchText: searchBar.text!)
         vkManager.getUserAudio(completion: {error, audioItems in
             if error != nil {
                 self.refreshControl.endRefreshing()
@@ -80,6 +79,7 @@ class ProfileMusicViewController: UIViewController {
                 }
             }else{
                 self.audioManager.profileAudioItems = audioItems!
+                self.allAudioItems = audioItems!
                 self.audioTableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
@@ -108,6 +108,10 @@ class ProfileMusicViewController: UIViewController {
 
 extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource {
 
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return audioManager.profileAudioItems.count
     }
@@ -180,6 +184,7 @@ extension ProfileMusicViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.resignFirstResponder()
         let cell = tableView.cellForRow(at: indexPath) as! AudioTableViewCell
         self.miniPlayer.slider.maximumValue = Float(cell.duration!)
         audioManager.playNow(obj: cell)

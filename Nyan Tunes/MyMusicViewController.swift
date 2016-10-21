@@ -55,6 +55,10 @@ class MyMusicViewController: UIViewController {
     }
     
     func filterTracks(forSearchText searchText: String) {
+        guard searchText != "" else{
+            files = allFiles
+            return
+        }
         let results = allFiles.filter({ (file) -> Bool in
             return (file.title?.contains(searchText))! || (file.artist?.contains(searchText))!
         })
@@ -76,11 +80,7 @@ class MyMusicViewController: UIViewController {
     
     @IBAction func refreshAudio(){
                 allFiles = fetchAllAudio()
-        
-                if searchBar.text == "" {
-                    files = allFiles
-                }
-        
+                filterTracks(forSearchText: searchBar.text!)
                 self.audioManager.downloadedAudioItems = allFiles
                 self.audioTableView.reloadData()
                 self.refreshControl.endRefreshing()
@@ -113,11 +113,16 @@ class MyMusicViewController: UIViewController {
 
 extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource{
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return files.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.resignFirstResponder()
         let cell = tableView.cellForRow(at: indexPath) as! AudioTableViewCell
         self.miniPlayer.slider.maximumValue = Float(cell.duration!)
         audioManager.playNow(obj: cell)
@@ -147,7 +152,7 @@ extension MyMusicViewController: UITableViewDelegate, UITableViewDataSource{
             self.rowActionHandler(action: action, indexPath: indexPath)
         }
         
-        exportAction.backgroundColor = UIColor(red: 0.66, green: 0.72, blue: 0.33, alpha: 1.0)
+        exportAction.backgroundColor = UIColor(red: 0.63, green: 0.81, blue: 0.33, alpha: 1.0)
         
         actions.append(deleteAction)
         actions.append(exportAction)
@@ -191,6 +196,19 @@ extension MyMusicViewController: MiniPlayerViewDelegate, UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterTracks(forSearchText: searchText)
+        audioTableView.reloadData()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        filterTracks(forSearchText: "")
         audioTableView.reloadData()
     }
     

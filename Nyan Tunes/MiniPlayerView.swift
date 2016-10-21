@@ -94,8 +94,8 @@ class MiniPlayerView: UIView {
     func refreshStatus(){
         bufferProgress.progress = 0
         let audioManager = AudioManager.sharedInstance
-        self.titleLabel.text = audioManager.playingObject?.title.text
-        self.artistLabel.text = audioManager.playingObject?.artist.text
+        self.titleLabel.text = audioManager.playingObject?.title
+        self.artistLabel.text = audioManager.playingObject?.artist
         self.setPlayButton(playing: audioManager.isPlaying)
         if audioManager.networkStream {
             self.activityIndicator.startAnimating()

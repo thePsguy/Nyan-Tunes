@@ -102,6 +102,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.resignFirstResponder()
         self.searchBar.endEditing(true)
     }
     
@@ -133,6 +134,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 extension SearchViewController: AudioTableViewCellDelegate, AudioManagerDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
+    
     func playPreviewTapped(onCell: AudioTableViewCell) {
         audioManager.playNow(obj: onCell)
         self.miniPlayer.slider.maximumValue = Float(onCell.duration!)

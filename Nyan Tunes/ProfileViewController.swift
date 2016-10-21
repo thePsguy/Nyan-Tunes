@@ -16,6 +16,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var musicView: UIView!
     
     let vkManager: VKClient = {
         return VKClient.sharedInstance
@@ -58,15 +60,13 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//     MARK: - Navigation
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "musicEmbedSegue"{
+            let dest = segue.destination as! ProfileMusicViewController
+            self.searchBar.delegate = dest
+            dest.searchBar = self.searchBar
+        }
     }
-    */
-
 }
