@@ -23,7 +23,7 @@ class AudioManager: NSObject {
     private(set) public var isPlaying: Bool = false
     var profileAudioItems = [VKAudio]()
     var downloadedAudioItems = [AudioFile]()
-    var currentIndex = 0
+    var currentIndex: Int?
     var playingObject : NowPlayingAudioItem?
     var networkStream: Bool = false
     var updateTimer = Timer()
@@ -61,11 +61,11 @@ class AudioManager: NSObject {
     func playNow(obj: AudioTableViewCell?){
         pausePlay()
         if obj != nil{
-            setNowPlaying(title: (obj?.title.text!)!, artist: (obj?.artist.text!)!, url: (obj?.url!)!, audioData: obj?.audioData, duration: (obj?.duration!)!, trackBytes: obj?.trackBytes)
+            setNowPlaying(title: (obj?.title.text), artist: (obj?.artist.text), url: (obj?.url), audioData: obj?.audioData, duration: (obj?.duration!)!, trackBytes: obj?.trackBytes)
             if obj?.audioData != nil {
                 currentIndex = downloadedAudioItems.index(where: { (file: AudioFile) -> Bool in
                     return file.title == playingObject?.title && file.artist == playingObject?.artist
-                })!
+                })
             }
         }
         
@@ -99,7 +99,7 @@ class AudioManager: NSObject {
         fireTimer()
     }
     
-    func setNowPlaying(title: String, artist: String, url: URL, audioData:Data?, duration: Int, trackBytes: Int?){
+    func setNowPlaying(title: String?, artist: String?, url: URL?, audioData:Data?, duration: Int, trackBytes: Int?){
         playingObject = NowPlayingAudioItem(title: title, artist: artist, url: url, audioData: audioData, duration: duration, trackBytes: trackBytes)
     }
     
@@ -109,23 +109,24 @@ class AudioManager: NSObject {
     }
     
     func nextTrack(event: MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus{
-            if networkStream{
+            if networkStream || playingObject == nil {
                 return .noSuchContent
-            } else {
-                    currentIndex = currentIndex < downloadedAudioItems.count - 1 ? currentIndex + 1 : 0
-                    let currentItem = downloadedAudioItems[currentIndex]
-                setNowPlaying(title: currentItem.title!, artist: currentItem.artist!, url: URL(string: currentItem.url!)!, audioData: currentItem.audioData as? Data, duration: Int(currentItem.duration!)!, trackBytes: nil)
+            } else if currentIndex != nil{
+                    currentIndex = currentIndex! < downloadedAudioItems.count - 1 ? currentIndex! + 1 : 0
+                    let currentItem = downloadedAudioItems[currentIndex!]
+                    setNowPlaying(title: currentItem.title, artist: currentItem.artist, url: URL(string: currentItem.url!), audioData: currentItem.audioData as? Data, duration: Int(currentItem.duration!)!, trackBytes: nil)
                     playNow(obj: nil)
                     return .success
             }
+        return .noSuchContent
     }
     
     @objc func previousTrack(event: MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus{
-        if networkStream {
-            
-        } else {
-                currentIndex = currentIndex > 0  ? currentIndex - 1 : downloadedAudioItems.count - 1
-                let currentItem = downloadedAudioItems[currentIndex]
+        if networkStream || playingObject == nil {
+            return .noSuchContent
+        } else if currentIndex != nil{
+                currentIndex = currentIndex! > 0  ? currentIndex! - 1 : downloadedAudioItems.count - 1
+                let currentItem = downloadedAudioItems[currentIndex!]
                 setNowPlaying(title: currentItem.title!, artist: currentItem.artist!, url: URL(string: currentItem.url!)!, audioData: currentItem.audioData as? Data, duration: Int(currentItem.duration!)!, trackBytes: nil)
                 playNow(obj: nil)
                 return .success
@@ -164,7 +165,7 @@ class AudioManager: NSObject {
     }
     
     func resumePlay(){
-        if !networkStream{
+        if !networkStream && audioPlayer != nil{
             audioPlayer!.play()
         } else {
             player.play()

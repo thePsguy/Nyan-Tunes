@@ -10,14 +10,14 @@ import Foundation
 
 class NowPlayingAudioItem:NSObject {
 
-    var title: String!
-    var artist: String!
-    var url: URL!
+    var title: String?
+    var artist: String?
+    var url: URL?
     var audioData: Data?
     var duration: Int!
     var trackBytes: Int?
     
-    init(title: String, artist: String, url: URL, audioData: Data?, duration: Int, trackBytes: Int?) {
+    init(title: String?, artist: String?, url: URL?, audioData: Data?, duration: Int, trackBytes: Int?) {
         self.title = title
         self.artist = artist
         self.url = url

@@ -8,6 +8,7 @@
 
 import UIKit
 import VK_ios_sdk
+import Toast
 
 class SearchViewController: UIViewController {
 
@@ -121,13 +122,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     func rowActionHandler(action: UITableViewRowAction, indexPath: IndexPath) {
         if action.title == "Add to Profile" {
             let audioItem = searchItems[indexPath.row]
-            vkManager.addUserAudio(audioID: audioItem.id.stringValue, owner_id: audioItem.owner_id.stringValue, completion: { (error, res) in
-                if error != nil {
-                    DispatchQueue.main.async {
-                        self.showAlert(text: error!)
+            if audioItem.url != nil{
+                vkManager.addUserAudio(audioID: audioItem.id.stringValue, owner_id: audioItem.owner_id.stringValue, completion: { (error, res) in
+                    if error != nil {
+                        DispatchQueue.main.async {
+                            self.showAlert(text: error!)
+                        }
                     }
-                }
-            })
+                })
+            } else {
+                self.tabBarController?.view.makeToast("Track not available in your region.", duration: 2.0, position: CSToastPositionBottom)
+            }
         }
         audioTableView.setEditing(false, animated: true)
     }
@@ -144,9 +149,13 @@ extension SearchViewController: AudioTableViewCellDelegate, AudioManagerDelegate
     }
     
     func playPreviewTapped(onCell: AudioTableViewCell) {
-        audioManager.playNow(obj: onCell)
-        self.miniPlayer.slider.maximumValue = Float(onCell.duration!)
-        miniPlayer.refreshStatus()
+        if onCell.url != nil {
+            audioManager.playNow(obj: onCell)
+            self.miniPlayer.slider.maximumValue = Float(onCell.duration!)
+            miniPlayer.refreshStatus()
+        } else {
+                self.tabBarController?.view.makeToast("Track not available in your region.", duration: 2.0, position: CSToastPositionBottom)
+        }
     }
     
     func playDidProgress(toSeconds: Float?) {

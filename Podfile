@@ -6,5 +6,6 @@
 target 'Nyan Tunes' do
 pod 'VK-ios-sdk'
 pod 'Crashlytics'
+pod 'Toast', '~> 3.0'
 end
 

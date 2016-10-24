@@ -28,7 +28,10 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         user = vkManager.getUser()
         imageView.layer.cornerRadius = 36
-        nameLabel.text = (user?.first_name)! + " " + (user?.last_name)!
+        let fn = user?.first_name; let ln = user?.last_name;
+        nameLabel.text = [fn,ln]
+                        .flatMap{$0}
+                        .joined(separator: " ")
         print(user?.screen_name)
         cityLabel.text = user?.bdate
         countryLabel.text = user?.country?.title
@@ -45,8 +48,9 @@ class ProfileViewController: UIViewController {
         } else {
             self.view.backgroundColor = UIColor.black
         }
-        
-        imageView.imageFromServerURL(urlString: (user?.photo_200)!)
+        if user?.photo_200 != nil {
+            imageView.imageFromServerURL(urlString: (user?.photo_200)!)
+        }
     }
     
     @IBAction func logoutNow(_ sender: AnyObject) {

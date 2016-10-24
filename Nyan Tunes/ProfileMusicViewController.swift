@@ -208,10 +208,11 @@ extension ProfileMusicViewController: URLSessionDownloadDelegate{
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if error != nil{
             let trackIndex = downloadManager.trackIndexForDownloadTask(downloadTask: task as! URLSessionDownloadTask)
-            if (trackIndex != nil){
-                let audioCell = audioTableView.cellForRow(at: IndexPath(row: trackIndex!, section: 0)) as? AudioTableViewCell
+            if trackIndex != nil,
+            let audioCell = audioTableView.cellForRow(at: IndexPath(row: trackIndex!, section: 0)) as? AudioTableViewCell
+            {
                 DispatchQueue.main.async {
-                    audioCell!.progressLabel.text =  "Network Error."
+                    audioCell.progressLabel.text =  "Network Error."
                     if error?.localizedDescription != "cancelled"{
                         self.showAlert(text: (error?.localizedDescription)!)
                     }

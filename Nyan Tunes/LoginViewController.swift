@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         checkSession()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -81,16 +81,19 @@ extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAuthorizationStateUpdated(with result: VKAuthorizationResult!) {
         print("AUTH STATE UPDATED TO ", result.state.rawValue)
+        if result.state == .authorized {
+            didLogin()
+        }
     }
-    
+
     func vkSdkTokenHasExpired(_ expiredToken: VKAccessToken!) {
         print("TOKEN EXPIRED")
     }
     
     func vkSdkAccessTokenUpdated(_ newToken: VKAccessToken!, oldToken: VKAccessToken!) {
-        let token: String? = newToken?.accessToken
-        let old: String? = oldToken?.accessToken
-        print("TOKEN UPDATED TO", token, "FROM", old)
+//        let token: String? = newToken?.accessToken
+//        let old: String? = oldToken?.accessToken
+//        print("TOKEN UPDATED TO", token, "FROM", old)
     }
     
     func vkSdkUserAuthorizationFailed() {   //Required Delegate Method
@@ -102,6 +105,8 @@ extension LoginViewController: VKSdkDelegate, VKSdkUIDelegate {
     }
     
     func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
+        let vc = VKCaptchaViewController.captchaControllerWithError(captchaError)
+        vc?.present(in: self)
         print(captchaError.description)
     }
     

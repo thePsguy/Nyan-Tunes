@@ -20,7 +20,6 @@
 		4D307B8D1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D307B8B1D97AA900039C554 /* Nyan_Tunes.xcdatamodeld */; };
 		4D307B8F1D97AA900039C554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B8E1D97AA900039C554 /* Assets.xcassets */; };
 		4D307B921D97AA900039C554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D307B901D97AA900039C554 /* LaunchScreen.storyboard */; };
-		4D3C67FE1DB3A08300DD5006 /* Pods_Nyan_Tunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C67FD1DB3A08300DD5006 /* Pods_Nyan_Tunes.framework */; };
 		4D82FD4A1DB8DAF000775E1A /* NetworkBitrateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D82FD491DB8DAF000775E1A /* NetworkBitrateLabel.swift */; };
 		4D93C5F71D99701F00B43BC4 /* ProfileMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F61D99701F00B43BC4 /* ProfileMusicViewController.swift */; };
 		4D93C5F91D9971DB00B43BC4 /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5F81D9971DB00B43BC4 /* AudioTableViewCell.swift */; };
@@ -28,6 +27,7 @@
 		4D93C5FD1D997F7F00B43BC4 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */; };
 		4D93C5FF1D99A39A00B43BC4 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */; };
 		4DA075681D9D5F49000BA365 /* UIViewController+showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA075671D9D5F49000BA365 /* UIViewController+showAlert.swift */; };
+		4DA770451DBB2972008F6277 /* Pods_Nyan_Tunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8D4B9016CBE74C543DE01B /* Pods_Nyan_Tunes.framework */; };
 		4DB5AB8B1D99B91800106D96 /* AudioFile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5AB891D99B91800106D96 /* AudioFile+CoreDataClass.swift */; };
 		4DB5AB8C1D99B91800106D96 /* AudioFile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5AB8A1D99B91800106D96 /* AudioFile+CoreDataProperties.swift */; };
 		4DB5AB901D99C83D00106D96 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5AB8F1D99C83D00106D96 /* Download.swift */; };
@@ -76,8 +76,8 @@
 		4D93C5FA1D99733300B43BC4 /* VKConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKConvenience.swift; sourceTree = "<group>"; };
 		4D93C5FC1D997F7F00B43BC4 /* MiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
 		4D93C5FE1D99A39A00B43BC4 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		4D98CE181DB202BA0041201C /* Nyan Tunes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nyan Tunes.entitlements"; sourceTree = "<group>"; };
 		4DA075671D9D5F49000BA365 /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
+		4DA770441DBB18A1008F6277 /* Nyan Tunes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nyan Tunes.entitlements"; sourceTree = "<group>"; };
 		4DB222B41D99665E006FC1B1 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = "../../git/Nyan Tunes/Carthage/Build/iOS/VKSdkFramework.framework"; sourceTree = "<group>"; };
 		4DB5AB891D99B91800106D96 /* AudioFile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AudioFile+CoreDataClass.swift"; path = "../AudioFile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4DB5AB8A1D99B91800106D96 /* AudioFile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AudioFile+CoreDataProperties.swift"; path = "../AudioFile+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D3C67FE1DB3A08300DD5006 /* Pods_Nyan_Tunes.framework in Frameworks */,
+				4DA770451DBB2972008F6277 /* Pods_Nyan_Tunes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +195,7 @@
 		4D307B831D97AA900039C554 /* Nyan Tunes */ = {
 			isa = PBXGroup;
 			children = (
-				4D98CE181DB202BA0041201C /* Nyan Tunes.entitlements */,
+				4DA770441DBB18A1008F6277 /* Nyan Tunes.entitlements */,
 				4D307B841D97AA900039C554 /* AppDelegate.swift */,
 				4D307BA01D97C06D0039C554 /* Models */,
 				4DC711081D99109C007C2648 /* Views */,
@@ -304,6 +304,7 @@
 				4D35642D1D9CCF8100CCEE7D /* Embed Frameworks */,
 				F5EF7DF38F90D18AC21F1319 /* [CP] Embed Pods Frameworks */,
 				29B5DC018FE6E20439ADA0A8 /* [CP] Copy Pods Resources */,
+				4DA770431DBA90D7008F6277 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -327,13 +328,14 @@
 					4D307B801D97AA900039C554 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = V6JUB3D3PN;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Keychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -385,6 +387,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nyan Tunes/Pods-Nyan Tunes-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		4DA770431DBA90D7008F6277 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run a8311122b11de529a8a05a622eea3af6d21a174c 4dcd2cc69015de3c209c3f000ba8f6de0a72b7bbb0ca532efca499a5f20379ee";
 		};
 		B19D66562BC7A0A14808DA2B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -514,7 +529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -558,7 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -571,18 +586,23 @@
 			baseConfigurationReference = 641F883E9FC574FAC203322F /* Pods-Nyan Tunes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Nyan Tunes/Nyan Tunes.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = V6JUB3D3PN;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Nyan\\ Tunes",
+				);
 				INFOPLIST_FILE = "Nyan Tunes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.thePsguy.NyanTunesDev;
+				PRODUCT_BUNDLE_IDENTIFIER = net.thePsguy.NyanTunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -592,17 +612,21 @@
 			baseConfigurationReference = 54EA997A41CDDCD871FEDB54 /* Pods-Nyan Tunes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Nyan Tunes/Nyan Tunes.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = V6JUB3D3PN;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Nyan\\ Tunes",
+				);
 				INFOPLIST_FILE = "Nyan Tunes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.thePsguy.NyanTunesDev;
+				PRODUCT_BUNDLE_IDENTIFIER = net.thePsguy.NyanTunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
