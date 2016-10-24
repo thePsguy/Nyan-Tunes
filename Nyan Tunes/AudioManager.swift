@@ -54,9 +54,9 @@ class AudioManager: NSObject {
         delegate?.playDidProgress(toSeconds: time)
     }
     
-    func updateControlCenter(){
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: playingObject!.artist, MPMediaItemPropertyTitle: playingObject!.title, MPMediaItemPropertyPlaybackDuration: NSNumber.init(value: playingObject!.duration)]
-    }
+//    func updateControlCenter(){
+//        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: playingObject!.artist, MPMediaItemPropertyTitle: playingObject!.title, MPMediaItemPropertyPlaybackDuration: NSNumber.init(value: playingObject!.duration)]
+//    }
     
     func playNow(obj: AudioTableViewCell?){
         pausePlay()
