@@ -1,6 +1,6 @@
 # Nyan-Tunes
 
-![Demo GIF](http://i.giphy.com/26hirYP5Nhsf09da8.gif)
+<img src="http://thepsguy.net/images/NyanTunes1.0.3.gif" alt="Demo GIF" width="288px"/>
 
 Jailbroken? Get it on [Cydia](http://cydia.saurik.com/package/net.thepsguy.nyantunes/)
 ##Building
