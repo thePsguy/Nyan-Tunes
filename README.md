@@ -3,7 +3,8 @@
 <img src="http://thepsguy.github.io/images/NyanTunes1.0.3.gif" alt="Demo GIF" width="288px"/>
 
 Jailbroken? Get it on [Cydia](http://cydia.saurik.com/package/net.thepsguy.nyantunes/)
-##Building
+
+## Building
 > Swift 3, XCode 8.0+
 
 > Clone, `cd Nyan-Tunes` , `pod install`
@@ -11,7 +12,7 @@ Jailbroken? Get it on [Cydia](http://cydia.saurik.com/package/net.thepsguy.nyant
 > Build & Run.
 
 
-##Using
+## Using
 `The app needs a vk.com account to log in. You can get one for free at` http://vk.com/join 
 
 
